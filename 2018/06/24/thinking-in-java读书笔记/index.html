@@ -1,0 +1,1065 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="基础语法大多数语法与c++相似，只记录部分不熟悉的或者是不一样的语法 static关键字">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="thinking in java读书笔记">
+<meta property="og:url" content="http://drawwon.github.io/2018/06/24/thinking-in-java读书笔记/index.html">
+<meta property="og:site_name" content="WangZhao&#39;s Blog">
+<meta property="og:description" content="基础语法大多数语法与c++相似，只记录部分不熟悉的或者是不一样的语法 static关键字">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-14T01:16:13.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="thinking in java读书笔记">
+<meta name="twitter:description" content="基础语法大多数语法与c++相似，只记录部分不熟悉的或者是不一样的语法 static关键字">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://drawwon.github.io/2018/06/24/thinking-in-java读书笔记/"/>
+
+
+
+
+
+  <title> thinking in java读书笔记 | WangZhao's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WangZhao's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">It's not who you are underneath,it's what you do that defines you</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/06/24/thinking-in-java读书笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeffrey Pacino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangZhao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                thinking in java读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-24T16:38:23+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/编程学习/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><p>大多数语法与c++相似，只记录部分不熟悉的或者是不一样的语法</p>
+<h3 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h3><a id="more"></a>
+<p>static的作用是，用static修饰的部分，不需要实例化类，可以直接通过类名+”.”来使用</p>
+<p>static还可以用来修饰变量，如果被static修饰之后，在内存中只有一个拷贝，只分配一次内存，没有用static修饰的在内存中有多个拷贝，每次new都会分配一个新地址</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
+<li><code>^</code>：异或操作符</li>
+<li><code>&amp;</code>和<code>&amp;&amp;</code>符号的区别：<code>&amp;</code>符号两边的运算都要执行，<code>&amp;&amp;</code>只有在左边条件为真的时候才执行，例如<code>if(str!=null &amp;&amp; !&quot;&quot;.equals(str))</code>：<ul>
+<li>用<code>&amp;&amp;</code>的时候，此时如果<code>str!=null</code>，右边的<code>!&quot;&quot;.equals(str)</code>会被执行，如果此时<code>str=null</code>，那么右边的<code>!&quot;&quot;.equals(str)</code>不会被执行；</li>
+<li>如果用<code>&amp;</code>：不管<code>str!=null</code>的结果如何，后面的<code>!&quot;&quot;.equals(str)</code>都会被执行</li>
+</ul>
+</li>
+<li><code>&gt;&gt;&gt;</code>：无符号右移操作</li>
+</ul>
+<h3 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h3><p>如果要遍历一个数组，可以使用在java SE5中引入的foreach方法：<code>for(int i : range(10))</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Random rand = <span class="keyword">new</span> Random();</span><br><span class="line"><span class="keyword">float</span> f[] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">    f[i] = rand.nextFloat();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">float</span> x: f)&#123;</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="构造器和垃圾回收器"><a href="#构造器和垃圾回收器" class="headerlink" title="构造器和垃圾回收器"></a>构造器和垃圾回收器</h2><h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><p>构造器就相当于js当中的构造函数，python中的<code>__init__</code>函数，在java当中构造器的名称就是和类名相同的一个函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rock2</span></span>&#123;</span><br><span class="line">    Rock2(<span class="keyword">int</span> i)&#123;</span><br><span class="line">        System.out.println(<span class="string">'Rock'</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h3><p>方法重载就是同一个函数，在其参数不同的时候执行不同的函数的过程，比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> height;</span><br><span class="line">    Tree()&#123;</span><br><span class="line">        System.out.println(<span class="string">"a seed"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    Tree(<span class="keyword">int</span> initialHeight)&#123;</span><br><span class="line">        height = initialHeight;</span><br><span class="line">        System.out.println(<span class="string">"a tree high is"</span> + height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在构造函数中调用构造函数"><a href="#在构造函数中调用构造函数" class="headerlink" title="在构造函数中调用构造函数"></a>在构造函数中调用构造函数</h3><p>一个class可以有多个构造函数，还可以在某个构造函数中调用另一个构造函数，调用的方法是用<code>this(构造参数)</code>来实现的，<strong>注意</strong>：在一个构造其中最多只能调用一次别的构造函数，因为某个class只能被构造一次。且只能在构造函数中调用构造函数，还要在构造函数的最前面调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flower</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> petalCount = <span class="number">0</span>;</span><br><span class="line">    String s = <span class="string">"initial string"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Flower</span><span class="params">(<span class="keyword">int</span> petal)</span> </span>&#123;</span><br><span class="line">        petalCount = petal;</span><br><span class="line">        println(<span class="string">"petal only constructor,petalCount="</span> + petalCount);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Flower(String ss) &#123;</span><br><span class="line">        println(<span class="string">"constructor with string only"</span> + ss);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Flower</span><span class="params">(String s, <span class="keyword">int</span> petal)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(petal);</span><br><span class="line">        <span class="comment">//this(s) ，只能调用一次，如果调用第二次会报错</span></span><br><span class="line">        <span class="keyword">this</span>.s = s;</span><br><span class="line">        petalCount = petal;</span><br><span class="line">        println(<span class="string">"string and int constructor"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Flower() &#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="string">"hi"</span>, <span class="number">47</span>);</span><br><span class="line">        println(<span class="string">"petalCount="</span> + petalCount + <span class="string">",s="</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Flower flower = <span class="keyword">new</span> Flower();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><p>所有用new构建的对象，java都会自动回收，只有那些不是用new得到的对象所占用的内存，java无法处理，需要你编写<code>finalize()</code>函数来进行垃圾回收</p>
+<ol>
+<li>对象可能不被垃圾回收</li>
+<li>垃圾回收不等于“析构”</li>
+<li>垃圾回收只与内存有关</li>
+</ol>
+<p>因为垃圾回收本身也要消耗一定资源，所以在jvm内存耗尽之前，它是不会浪费时间去执行垃圾回收的。</p>
+<p>在垃圾回收的时候，会自动调用<code>finalize()</code>函数，通常是一些销毁时对对象的验证</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Book novel = <span class="keyword">new</span> Book(<span class="keyword">true</span>);</span><br><span class="line">        novel.checkIn();</span><br><span class="line">        <span class="keyword">new</span> Book(<span class="keyword">true</span>);</span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> checkedOut = <span class="keyword">false</span>;</span><br><span class="line">    Book(<span class="keyword">boolean</span> checkOut)&#123;</span><br><span class="line">        checkedOut = checkOut;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">checkIn</span><span class="params">()</span></span>&#123;</span><br><span class="line">        checkedOut = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (checkedOut)&#123;</span><br><span class="line">            println(<span class="string">"error:checked out"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="垃圾回收的自适应技术"><a href="#垃圾回收的自适应技术" class="headerlink" title="垃圾回收的自适应技术"></a>垃圾回收的自适应技术</h3><p>所谓的自适应，就是在两种垃圾回收方式中切换：<strong>标记-清扫</strong>模式和<strong>停止-复制</strong>模式</p>
+<p>先来介绍一下这两种模式的工作机理：</p>
+<ol>
+<li>标记-清扫模式：遍历所有的引用，找出存活的对象。每找到一个存活对象，就会给对象一个标记，这个过程不会回收任何对象。只有标记完所有对象的时候，才开始清理，没有标记的对象将被释放。剩下的空间是不连续的，如果希望得到连续空间，就需要重新整理剩下的对象。</li>
+<li>停止-复制模式：暂停程序运行，将所有存活的对象从当前堆复制到另一个堆，没有被复制到都是垃圾。得到的新堆是连续的。这种方法需要两倍的程序运行内存（一个本身，一个复制堆），在程序稳定时只有少量垃圾，大量复制会产生内存浪费。</li>
+</ol>
+<p>自适应模式：如果对象很稳定，就切换到“标记-清扫”模式；要是标记清扫模式的堆空间中出现很多碎片，就会切换回“停止-复制”模式</p>
+<h3 id="类成员初始化顺序"><a href="#类成员初始化顺序" class="headerlink" title="类成员初始化顺序"></a>类成员初始化顺序</h3><p>首先被初始化的是静态变量，然后是普通变量，比如定义的int，或者是定义的new 类元素，然后是构造器，最后是函数对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> javastatic;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Window</span></span>&#123;</span><br><span class="line">	Window(<span class="keyword">int</span> marker)&#123;</span><br><span class="line">		System.out.println(<span class="string">"Windows("</span>+marker+<span class="string">")"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">House</span></span>&#123;</span><br><span class="line">	Window w1=<span class="keyword">new</span> Window(<span class="number">1</span>);</span><br><span class="line">	House()&#123;</span><br><span class="line">		System.out.println(<span class="string">"House()"</span>);</span><br><span class="line">		w3=<span class="keyword">new</span> Window(<span class="number">33</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	Window w2=<span class="keyword">new</span> Window(<span class="number">2</span>);</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"f()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	Window w3=<span class="keyword">new</span> Window(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderOfInitialization</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		House house=<span class="keyword">new</span> House();</span><br><span class="line">		house.f();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* output:</span></span><br><span class="line"><span class="comment">Window(1)</span></span><br><span class="line"><span class="comment">Window(2)</span></span><br><span class="line"><span class="comment">Window(3)</span></span><br><span class="line"><span class="comment">House()</span></span><br><span class="line"><span class="comment">Window(33)</span></span><br><span class="line"><span class="comment">f()</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
+<h3 id="静态数据"><a href="#静态数据" class="headerlink" title="静态数据"></a>静态数据</h3><p>无论创建多少个对象，静态数据都只占用一份存储区域，static不能用于局部变量，且静态变量的初始化优先级最高，在最前面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bowl</span></span>&#123;</span><br><span class="line">	Bowl(<span class="keyword">int</span> marker)&#123;</span><br><span class="line">		System.out.println(<span class="string">"Bowl("</span>+marker+<span class="string">")"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> marker)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"f1("</span>+marker+<span class="string">")"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Table</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> Bowl bowl1=<span class="keyword">new</span> Bowl(<span class="number">1</span>);</span><br><span class="line">	Table()&#123;</span><br><span class="line">		System.out.println(<span class="string">"Table()"</span>);</span><br><span class="line">		bowl2.f1(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> marker)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"f2("</span>+marker+<span class="string">")"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span> Bowl bowl2=<span class="keyword">new</span> Bowl(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cupboard</span></span>&#123;</span><br><span class="line">	Bowl bowl3=<span class="keyword">new</span> Bowl(<span class="number">3</span>);</span><br><span class="line">	<span class="keyword">static</span> Bowl bowl4=<span class="keyword">new</span> Bowl(<span class="number">4</span>);</span><br><span class="line">	Cupboard()&#123;</span><br><span class="line">		System.out.println(<span class="string">"Cupboard()"</span>);</span><br><span class="line">		bowl4.f1(<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(<span class="keyword">int</span> marker)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"f3("</span>+marker+<span class="string">")"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span> Bowl bowl5=<span class="keyword">new</span> Bowl(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Static</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Creating new Cupboard() in main"</span>);</span><br><span class="line">		<span class="keyword">new</span> Cupboard();</span><br><span class="line">		System.out.println(<span class="string">"Creating new Cupboard() in main"</span>);</span><br><span class="line">		<span class="keyword">new</span> Cupboard();</span><br><span class="line">		table.f2(<span class="number">1</span>);</span><br><span class="line">		cupboard.f3(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span> Table table=<span class="keyword">new</span> Table();</span><br><span class="line">	<span class="keyword">static</span> Cupboard cupboard=<span class="keyword">new</span> Cupboard();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* output：</span></span><br><span class="line"><span class="comment">Bowl(1)</span></span><br><span class="line"><span class="comment">Bowl(2)</span></span><br><span class="line"><span class="comment">Table()</span></span><br><span class="line"><span class="comment">f1(1)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Bowl(4)</span></span><br><span class="line"><span class="comment">Bowl(5)</span></span><br><span class="line"><span class="comment">Cupboard()</span></span><br><span class="line"><span class="comment">f1(2)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Creating new Cupboard() in main</span></span><br><span class="line"><span class="comment">Bowl(3)</span></span><br><span class="line"><span class="comment">Cupboard()</span></span><br><span class="line"><span class="comment">f1(2)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Creating new Cupboard() in main</span></span><br><span class="line"><span class="comment">Bowl(3)</span></span><br><span class="line"><span class="comment">Cupboard()</span></span><br><span class="line"><span class="comment">f1(2)</span></span><br><span class="line"><span class="comment">f2(1)</span></span><br><span class="line"><span class="comment">f3(1)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="数组初始化"><a href="#数组初始化" class="headerlink" title="数组初始化"></a>数组初始化</h3><p>数组在java中的定义形式推荐的是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array;</span><br></pre></td></tr></table></figure>
+<p>方括号在前，定义的是一个int类型的数组，比在后面更容易理解</p>
+<p>数组的初始化有三种方法，</p>
+<ul>
+<li>第一种是先定义长度，然后遍历数组，一个个赋值</li>
+<li>第二种是用大括号直接赋值</li>
+<li>第三种是用new+类型名[]+{值}</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">    <span class="comment">//第一种</span></span><br><span class="line">    <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[rand.nextInt(<span class="number">20</span>) + <span class="number">1</span>];</span><br><span class="line">    System.out.println(<span class="string">"array a length:"</span> + a.length);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">        a[i] = rand.nextInt(<span class="number">500</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(Arrays.toString(a));</span><br><span class="line">    <span class="comment">//第二种</span></span><br><span class="line">    Integer[] b = &#123;</span><br><span class="line">        <span class="keyword">new</span> Integer(<span class="number">1</span>),</span><br><span class="line">        <span class="keyword">new</span> Integer(<span class="number">2</span>),</span><br><span class="line">        <span class="number">3</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">	<span class="comment">//第三种</span></span><br><span class="line">    Integer[] c = <span class="keyword">new</span> Integer[]&#123;</span><br><span class="line">        <span class="keyword">new</span> Integer(<span class="number">1</span>),</span><br><span class="line">        <span class="keyword">new</span> Integer(<span class="number">2</span>),</span><br><span class="line">        <span class="number">3</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>tips:</strong></p>
+<p>idea快捷键：</p>
+<ul>
+<li><code>psvm</code>：快速创建main函数</li>
+<li><code>sout</code>：快速输入<code>System.out.println()</code></li>
+<li><code>fori</code>：快速创建for模板</li>
+</ul>
+<h3 id="可变参数列表"><a href="#可变参数列表" class="headerlink" title="可变参数列表"></a>可变参数列表</h3><p>在java se5之前用的方法是输入内容放在args里面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VarArgs</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(Object[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Object obj : args)</span><br><span class="line">            System.out.print(obj + <span class="string">"   "</span>);</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        printArray(<span class="keyword">new</span> Object[] &#123; <span class="keyword">new</span> Integer(<span class="number">55</span>), <span class="keyword">new</span> Float(<span class="number">5.34</span>),</span><br><span class="line">                <span class="keyword">new</span> Double(<span class="number">3.56</span>) &#125;);</span><br><span class="line">        printArray(<span class="keyword">new</span> Object[] &#123; <span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span> &#125;);</span><br><span class="line">        printArray(<span class="keyword">new</span> Object[] &#123; <span class="keyword">new</span> A(), <span class="keyword">new</span> A(), <span class="keyword">new</span> A() &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在se5之后，就可以直接使用可变参数了，这与之前看的javascript的多参数用法一样，用法是<code>... args</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewVarArgs</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(Object... args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Object obj : args)</span><br><span class="line">            System.out.print(obj + <span class="string">"  "</span>);</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        printArray(<span class="keyword">new</span> Integer(<span class="number">33</span>), <span class="keyword">new</span> Float(<span class="number">5.23</span>), <span class="keyword">new</span> Double(<span class="number">3.55</span>));</span><br><span class="line">        printArray(<span class="number">33</span>,<span class="number">5.23f</span>,<span class="number">3.55</span>d);</span><br><span class="line">        printArray(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line">        printArray(<span class="keyword">new</span> A(),<span class="keyword">new</span> A(),<span class="keyword">new</span> A());</span><br><span class="line">        printArray((Object[])<span class="keyword">new</span> Integer[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;);</span><br><span class="line">        printArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="枚举enum"><a href="#枚举enum" class="headerlink" title="枚举enum"></a>枚举enum</h3><p>枚举可以用于switch语句，自带ordinal()方法用于得到index，和values方法用于创建数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Money m : Money.values())&#123;</span><br><span class="line">        System.out.println(<span class="string">"money "</span> + m);</span><br><span class="line">    &#125;</span><br><span class="line">    Money money;</span><br><span class="line">    <span class="keyword">switch</span>(money)&#123;</span><br><span class="line">        <span class="keyword">case</span> one: System.out.println(<span class="string">"case one"</span>);<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> two:<span class="comment">//剩余逻辑</span></span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">default</span>: <span class="comment">//xxxx</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">enum</span> Money&#123;</span><br><span class="line">    one,five,ten,twenty,fifty,hundred</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="访问权限控制"><a href="#访问权限控制" class="headerlink" title="访问权限控制"></a>访问权限控制</h2><h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>一个包里面有多各类，然而有且仅有一个public类与包的名字相同，其他类主要为public类提供支持</p>
+<h3 id="包定义与引用"><a href="#包定义与引用" class="headerlink" title="包定义与引用"></a>包定义与引用</h3><p>声明包的方法是用<code>package</code>关键字</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> my.mypackage</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Myclass</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>引用的方法可以写全<code>包名+类名</code>，或者是使用<code>import 包名</code></p>
+<h3 id="访问权限控制-1"><a href="#访问权限控制-1" class="headerlink" title="访问权限控制"></a>访问权限控制</h3><p>public：都可以访问</p>
+<p>private：只有拥有成员的当前类可以访问</p>
+<p>protected：当前和继承的对象可以访问</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/17/react-react-router搭建管理系统/" rel="next" title="react+react-router搭建管理系统">
+                <i class="fa fa-chevron-left"></i> react+react-router搭建管理系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/08/批量kill-Linux进程/" rel="prev" title="批量kill Linux进程">
+                批量kill Linux进程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Jeffrey Pacino" />
+          <p class="site-author-name" itemprop="name">Jeffrey Pacino</p>
+           
+              <p class="site-description motion-element" itemprop="description">Humble to the dust and then out of the flowers</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/drawwon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=847707695&site=qq&menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:jeffrey.pacino@gmail.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-paper-plane"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">1.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static关键字"><span class="nav-number">1.1.</span> <span class="nav-text">static关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符"><span class="nav-number">1.2.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#foreach"><span class="nav-number">1.3.</span> <span class="nav-text">foreach</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器和垃圾回收器"><span class="nav-number">2.</span> <span class="nav-text">构造器和垃圾回收器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造器"><span class="nav-number">2.1.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法重载"><span class="nav-number">2.2.</span> <span class="nav-text">方法重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在构造函数中调用构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">在构造函数中调用构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收的自适应技术"><span class="nav-number">3.1.</span> <span class="nav-text">垃圾回收的自适应技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类成员初始化顺序"><span class="nav-number">3.2.</span> <span class="nav-text">类成员初始化顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态数据"><span class="nav-number">3.3.</span> <span class="nav-text">静态数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组初始化"><span class="nav-number">3.4.</span> <span class="nav-text">数组初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可变参数列表"><span class="nav-number">3.5.</span> <span class="nav-text">可变参数列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举enum"><span class="nav-number">3.6.</span> <span class="nav-text">枚举enum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问权限控制"><span class="nav-number">4.</span> <span class="nav-text">访问权限控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包"><span class="nav-number">4.1.</span> <span class="nav-text">包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包定义与引用"><span class="nav-number">4.2.</span> <span class="nav-text">包定义与引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问权限控制-1"><span class="nav-number">4.3.</span> <span class="nav-text">访问权限控制</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeffrey Pacino</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://mathjax.josephjctang.com/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+  
+
+
+  
+
+</body>
+</html>
