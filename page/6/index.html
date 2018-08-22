@@ -305,6 +305,134 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2017/11/25/args-kwargs的使用方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeffrey Pacino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangZhao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/25/args-kwargs的使用方法/" itemprop="url">
+                  *args,**kwargs的使用方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T16:09:50+08:00">
+                2017-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>*args</code>和<code>**kargs</code>是一种约定俗称的用法，目的是用于传入不定数量的参数，前者把传入的参数变成一个tuple，后者把传入的参数编程一个字典</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">In [1]: def foo(*args):</span><br><span class="line">   ...:     for a in args:</span><br><span class="line">   ...:         print a</span><br><span class="line">   ...:         </span><br><span class="line">   ...:         </span><br><span class="line"></span><br><span class="line">In [2]: foo(1)</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [4]: foo(1,2,3)</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>The <code>**kwargs</code> will give you all <strong>keyword arguments</strong> except for those corresponding to a formal parameter as a dictionary.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [5]: def bar(**kwargs):</span><br><span class="line">   ...:     for a in kwargs:</span><br><span class="line">   ...:         print a, kwargs[a]</span><br><span class="line">   ...:         </span><br><span class="line">   ...:         </span><br><span class="line"></span><br><span class="line">In [6]: bar(name=&apos;one&apos;, age=27)</span><br><span class="line">age 27</span><br><span class="line">name one</span><br></pre></td></tr></table></figure>
+<p>Both idioms can be mixed with normal arguments to allow a set of fixed and some variable arguments:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def foo(kind, *args, **kwargs):</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+<p>Another usage of the <code>*l</code> idiom is to <strong>unpack argument lists</strong> when calling a function.</p>
+<p><code>*</code>的另外一个用途就是unpack(打开包裹)，比如调用zip的时候，zip的用法是传入n个对象进行zip，但是每一个都是单独的，比如你可以<code>zip(*[1,2,3])</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [9]: def foo(bar, lee):</span><br><span class="line">   ...:     print bar, lee</span><br><span class="line">   ...:     </span><br><span class="line">   ...:     </span><br><span class="line"></span><br><span class="line">In [10]: l = [1,2]</span><br><span class="line"></span><br><span class="line">In [11]: foo(*l)</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2017/10/22/numpy教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1068,248 +1196,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2017/09/24/pandas入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeffrey Pacino">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WangZhao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/24/pandas入门/" itemprop="url">
-                  pandas入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T16:54:21+08:00">
-                2017-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程学习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>pandas当中最重要的部分就是pandas提供的dataframe和series类型，可以用来保存任何形式的数据，保存之后的结果类似于二维表的形式</p>
-<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>series有两个重要的参数是values和index</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">In [76]: obj = pd.Series([4,5,6,7])</span><br><span class="line"></span><br><span class="line">In [77]: obj</span><br><span class="line">Out[77]:</span><br><span class="line">0    4</span><br><span class="line">1    5</span><br><span class="line">2    6</span><br><span class="line">3    7</span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line">In [78]: obj.index</span><br><span class="line">Out[78]: RangeIndex(start=0, stop=4, step=1)</span><br><span class="line"></span><br><span class="line">In [79]: obj.values</span><br><span class="line">Out[79]: array([4, 5, 6, 7], dtype=int64)</span><br></pre></td></tr></table></figure>
-<p>Series本身和索引都有一个index属性，<font color="red"><strong>pandas有一个重要特征就是其iloc选择时是后包含的</strong>，比如df[:4,1]是指的0,1,2,3,4行的第1列</font></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [81]: obj.name = &apos;population&apos;</span><br><span class="line"></span><br><span class="line">In [82]: obj.index.name = &apos;state&apos;</span><br><span class="line"></span><br><span class="line">In [83]: obj</span><br><span class="line">Out[83]:</span><br><span class="line">state</span><br><span class="line">0    4</span><br><span class="line">1    5</span><br><span class="line">2    6</span><br><span class="line">3    7</span><br><span class="line">Name: population, dtype: int64</span><br></pre></td></tr></table></figure>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><p>DataFrame是一个表格型数据结构，同时有行索引和列索引，列的索引被称为columns，行索引被称为index</p>
-<p>DataFrame的值仍然存储在values属性里面</p>
-<p>更换列的顺序只需要在创建dataframe的时候指定columns的值</p>
-<p>其columns和index也可以分别指定名字</p>
-<h3 id="index"><a href="#index" class="headerlink" title="index"></a>index</h3><p>index对象是不可更改的</p>
-<p>reindex方法可以改变原先index的顺序，不过值也会跟着变，相当于换行的顺序，其中的columns参数可以重新索引列，其中的method可以指定对于不存在的index的插值方法，ffill或pad表示向前填充，bfill和backfill表示向后填充</p>
-<h3 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h3><p>drop用于删除某些行或某些列，删除index行的时候只需要传入index，删除列的时候要传入columns的名字和axis=1</p>
-<h3 id="applymap和apply"><a href="#applymap和apply" class="headerlink" title="applymap和apply"></a>applymap和apply</h3><p>apply可以应用函数到dataframe上，applymap可以应用函数到元素集级别上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [8]: df = pd.DataFrame(np.arange(0,1,0.1).reshape(2,5))</span><br><span class="line"></span><br><span class="line">In [9]: df</span><br><span class="line">Out[9]:</span><br><span class="line">     0    1    2    3    4</span><br><span class="line">0  0.0  0.1  0.2  0.3  0.4</span><br><span class="line">1  0.5  0.6  0.7  0.8  0.9</span><br><span class="line"></span><br><span class="line">In [12]: df.applymap(format)</span><br><span class="line">Out[12]:</span><br><span class="line">          0         1         2         3         4</span><br><span class="line">0  0.000000  0.100000  0.200000  0.300000  0.400000</span><br><span class="line">1  0.500000  0.600000  0.700000  0.800000  0.900000</span><br></pre></td></tr></table></figure>
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ol>
-<li>sort_index：按照索引排序，传入axis=1则按columns进行排序，传入by参数则按照某列的值进行排序</li>
-<li>order：对Series进行排序</li>
-</ol>
-<h3 id="描述和汇总统计"><a href="#描述和汇总统计" class="headerlink" title="描述和汇总统计"></a>描述和汇总统计</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>count</td>
-<td>非NA的值的数量</td>
-</tr>
-<tr>
-<td>decribe</td>
-<td>统计性描述，包括max，min，mena等</td>
-</tr>
-<tr>
-<td>max，min</td>
-<td>最大最小值</td>
-</tr>
-<tr>
-<td>argmax, argmin</td>
-<td>获取到最大最小值的索引位置（整数）</td>
-</tr>
-<tr>
-<td>quantile</td>
-<td>计算样本的分位数</td>
-</tr>
-<tr>
-<td>sum</td>
-<td>总和</td>
-</tr>
-<tr>
-<td>median</td>
-<td>中位数</td>
-</tr>
-<tr>
-<td>mad</td>
-<td>平均绝对离差</td>
-</tr>
-<tr>
-<td>var、std</td>
-<td>方差、标准差</td>
-</tr>
-<tr>
-<td>skew</td>
-<td>三阶矩（样本的偏度）</td>
-</tr>
-<tr>
-<td>kurt</td>
-<td>四阶矩（样本的峰度）</td>
-</tr>
-<tr>
-<td>cumsum</td>
-<td>累积和</td>
-</tr>
-<tr>
-<td>cummin,cummax</td>
-<td>样本的累计最大值和累积最小值</td>
-</tr>
-<tr>
-<td>cumprod（cum表示cumulative累积的，prod表示product乘积）</td>
-<td>样本的累计积</td>
-</tr>
-<tr>
-<td>diff</td>
-<td>一阶差分</td>
-</tr>
-<tr>
-<td>pct_change</td>
-<td>计算百分数变化（比如股票涨跌计算）</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>初始化一个dataFrame，可以read_csv从csv文件获取，也可以通过如下代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.DataFrame(data, index, columns)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/24/pandas入门/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1359,7 +1245,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1370,7 +1256,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1381,7 +1267,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
