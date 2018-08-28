@@ -305,6 +305,180 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2017/11/28/pyplot入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeffrey Pacino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangZhao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/28/pyplot入门/" itemprop="url">
+                  pyplot入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-28T10:31:25+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程学习/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="plt画图"><a href="#plt画图" class="headerlink" title="plt画图"></a>plt画图</h2><p>总体思想，先使用<code>fig = plt.figure(),ax=fig.add_subplot()</code>创建图片，画好图之后，用ax.set_xxx来设置各项参数</p>
+<h3 id="设置子图之间的间距"><a href="#设置子图之间的间距" class="headerlink" title="设置子图之间的间距"></a>设置子图之间的间距</h3><p>plt.subplots_adjust(wspace, hspace)：参数分别代表水平间距和竖直间距</p>
+<h3 id="设置x轴坐标及范围"><a href="#设置x轴坐标及范围" class="headerlink" title="设置x轴坐标及范围"></a>设置x轴坐标及范围</h3><p>set_xticks：刻度值的显示值</p>
+<p>set_xticklabels：将任意标签转换为x轴标签</p>
+<p>set_xlim：只显示某一部分的时候使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax.set_xticks(range(0,1001,250))</span><br><span class="line">ax.set_xticklabels([&apos;one&apos;,&apos;two&apos;,&apos;three&apos;,&apos;four&apos;,&apos;five&apos;],rotation=30,fontsize=&apos;small&apos;)</span><br></pre></td></tr></table></figure>
+<p>同样y轴同理</p>
+<h3 id="设置title-label"><a href="#设置title-label" class="headerlink" title="设置title,label"></a>设置title,label</h3><p>set_title：设置图片title</p>
+<p>set_xlabel：设置x轴的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(1,1,1)</span><br><span class="line">ax.plot(randn(1000).cumsum(),&apos;k-&apos;)</span><br><span class="line">ax.set_xticks(range(0,1001,250))</span><br><span class="line">ax.set_xticklabels([&apos;one&apos;,&apos;two&apos;,&apos;three&apos;,&apos;four&apos;,&apos;five&apos;],rotation=30,fontsize=&apos;small&apos;)</span><br><span class="line">ax.set_xlabel(&apos;stage&apos;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h3 id="添加图例"><a href="#添加图例" class="headerlink" title="添加图例"></a>添加图例</h3><p>在画图的时候传入label，在添加图例的时候用legend就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax.plot(randn(1000).cumsum(),&apos;k-&apos;,label=&apos;one&apos;)</span><br><span class="line">ax.plot(randn(1000).cumsum(),&apos;g--&apos;,label=&apos;two&apos;)</span><br><span class="line">ax.plot(randn(1000).cumsum(),&apos;r-&apos;,label=&apos;three&apos;)</span><br><span class="line">ax.legend(loc=&apos;best&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="添加注释"><a href="#添加注释" class="headerlink" title="添加注释"></a>添加注释</h3><p>注释可以通过text，arrow，annotate等函数添加</p>
+<h3 id="保存图片到文件"><a href="#保存图片到文件" class="headerlink" title="保存图片到文件"></a>保存图片到文件</h3><p><code>plt.savefig(&#39;a.svg&#39;)</code></p>
+<h2 id="pandas当中的plot"><a href="#pandas当中的plot" class="headerlink" title="pandas当中的plot"></a>pandas当中的plot</h2><h3 id="Series-plot绘图参数"><a href="#Series-plot绘图参数" class="headerlink" title="Series.plot绘图参数"></a>Series.plot绘图参数</h3><p>label：用于图例的标签</p>
+<p>ax：绘制的画布</p>
+<p>style：风格，包括颜色和线型</p>
+<p>alpha：不透明度，0-1</p>
+<p>kind：’line’,’bar’,’barh’,’kde’</p>
+<p>logy：对y轴做对数</p>
+<p>use_index：将对象的索引用作刻度标签</p>
+<p>rot：旋转刻度标签（0-360）</p>
+<p>xticks：用作x轴刻度的值</p>
+<p>yticks：用作y刻度的值</p>
+<p>xlim，ylim：x，y轴界限</p>
+<p>grid：显示网格线</p>
+<h3 id="DataFrame-plot参数"><a href="#DataFrame-plot参数" class="headerlink" title="DataFrame.plot参数"></a>DataFrame.plot参数</h3><p>subplots：将各个dataframe列绘制到单独的subplot中</p>
+<p>sharex，sharey：如果subplots为true，共用一个x轴，或y轴</p>
+<p>figsize：图像大小</p>
+<p>title：名称</p>
+<p>legend：添加图例，默认为true</p>
+<p>sort_columns：以字母表顺序绘制各列</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2017/11/25/args-kwargs的使用方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1048,154 +1222,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2017/09/25/kaggle-titanic实战-数据挖掘实例/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeffrey Pacino">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WangZhao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/25/kaggle-titanic实战-数据挖掘实例/" itemprop="url">
-                  kaggle-titanic实战--数据挖掘实例
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-25T08:59:41+08:00">
-                2017-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程学习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>kaggle是一个国外的数据挖掘竞赛平台，大家做完竞赛之后会写一些指导，因此可以通过其他人写的指导文件进行学习，<a href="https://www.kaggle.com" target="_blank" rel="noopener">kaggle传送门</a>。</p>
-<p>其中有一个入门类的分析问题是分析Titanic号的救援问题，分析哪些因素会影响到是否被救援，首先打开Titanic这个问题的具体页面，<a href="https://www.kaggle.com/c/titanic" target="_blank" rel="noopener">Titanic: Machine Learning from Disaster</a>,</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/25/kaggle-titanic实战-数据挖掘实例/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1245,7 +1271,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1256,7 +1282,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
