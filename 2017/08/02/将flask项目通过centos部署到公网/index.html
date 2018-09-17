@@ -96,7 +96,7 @@
 <meta property="og:description" content="基本的部署方式是通过Flaks + WSGI + Nginx 首先通过远程连接到服务器">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-8-2/21096261.jpg">
-<meta property="og:updated_time" content="2018-07-14T01:16:13.568Z">
+<meta property="og:updated_time" content="2018-09-16T04:40:22.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="将flask项目通过centos部署到公网">
 <meta name="twitter:description" content="基本的部署方式是通过Flaks + WSGI + Nginx 首先通过远程连接到服务器">
@@ -428,7 +428,7 @@
 <p>此时你的命令行在最前面多了一个<code>(venv)</code>的标志，证明你已经进入了虚拟环境</p>
 <h2 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h2><p>要使用Flask框架写网页，就需要安装一系列跟Flask相关的库，此时可以使用<code>pip</code>命令的通过文件进行安装：</p>
 <p>先建立一个requirements.txt，在其中写上需要安装的库的名称和版本号(版本号可以不写，默认安装最新版本)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">touch requirements.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash">vim requirements.txt</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>touch requirements.txt</span><br><span class="line"><span class="meta">$</span>vim requirements.txt</span><br></pre></td></tr></table></figure>
 <p>在其中写入以下内容：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Flask==<span class="number">0.10</span><span class="number">.1</span></span><br><span class="line">Flask-Login==<span class="number">0.2</span><span class="number">.11</span></span><br><span class="line">Flask-Mail==<span class="number">0.9</span><span class="number">.1</span></span><br><span class="line">Flask-Moment==<span class="number">0.4</span><span class="number">.0</span></span><br><span class="line">Flask-PageDown==<span class="number">0.1</span><span class="number">.5</span></span><br><span class="line">Flask-SQLAlchemy==<span class="number">2.0</span></span><br><span class="line">Flask-Script==<span class="number">2.0</span><span class="number">.5</span></span><br><span class="line">Flask-WTF==<span class="number">0.10</span><span class="number">.2</span></span><br><span class="line">Flask-Cache==<span class="number">0.13</span><span class="number">.1</span></span><br><span class="line">Flask-Restless==<span class="number">0.15</span><span class="number">.0</span></span><br><span class="line">Flask-Uploads==<span class="number">0.1</span><span class="number">.3</span></span><br><span class="line">Jinja2==<span class="number">2.7</span><span class="number">.3</span></span><br><span class="line">Mako==<span class="number">1.0</span><span class="number">.0</span></span><br><span class="line">Markdown==<span class="number">2.5</span><span class="number">.1</span></span><br><span class="line">MarkupSafe==<span class="number">0.23</span></span><br><span class="line">SQLAlchemy==<span class="number">0.9</span><span class="number">.8</span></span><br><span class="line">WTForms==<span class="number">2.0</span><span class="number">.1</span></span><br><span class="line">Werkzeug==<span class="number">0.9</span><span class="number">.6</span></span><br><span class="line">html5lib==<span class="number">1.0</span>b3</span><br><span class="line">itsdangerous==<span class="number">0.24</span></span><br><span class="line">six==<span class="number">1.8</span><span class="number">.0</span></span><br><span class="line">awesome-slugify==<span class="number">1.6</span></span><br></pre></td></tr></table></figure>
 <p>然后通过<code>pip</code>进行批量安装：</p>
@@ -621,7 +621,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
