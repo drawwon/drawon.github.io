@@ -903,7 +903,52 @@ J(\theta)=-\frac{1}{m}\left[\sum_{i=1}^{m} \sum_{j=1}^{k} 1\left\{y^{(i)}=j\righ
 <h4 id="核函数与核技巧"><a href="#核函数与核技巧" class="headerlink" title="核函数与核技巧"></a>核函数与核技巧</h4><ul>
 <li><strong>核函数</strong>表示将输入从输入空间映射到特征空间后得到的特征向量之间的内积</li>
 </ul>
-
+<h4 id="支持向量机推导"><a href="#支持向量机推导" class="headerlink" title="支持向量机推导"></a>支持向量机推导</h4><ul>
+<li>svm由简至繁包括：线性可分支持向量机，线性支持向量机，非线性支持向量机</li>
+</ul>
+<h4 id="线性可分支持向量机的推导"><a href="#线性可分支持向量机的推导" class="headerlink" title="线性可分支持向量机的推导"></a>线性可分支持向量机的推导</h4><ul>
+<li>当训练数据<strong>线性可分</strong>时，通过<strong>硬间隔最大化</strong>，学习一个线性分类器，即线性可分支持向量机，又称<strong>硬间隔支持向量机</strong>。</li>
+</ul>
+<ul>
+<li>线性 SVM 的推导分为两部分<ol>
+<li>如何根据<strong>间隔最大化</strong>的目标导出 SVM 的<strong>标准问题</strong>；</li>
+<li>拉格朗日乘子法对偶问题的求解过程.</li>
+</ol>
+</li>
+</ul>
+<h5 id="符号定义："><a href="#符号定义：" class="headerlink" title="符号定义："></a><strong>符号定义</strong>：</h5><ul>
+<li>训练集<code>T</code></li>
+</ul>
+<script type="math/tex; mode=display">
+T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}</script><ul>
+<li>分离超平面<code>(w,b)</code>：</li>
+</ul>
+<script type="math/tex; mode=display">
+w^{*} \cdot x+b^{*}=0</script><ul>
+<li>如果使用映射函数，那么分离超平面为：</li>
+</ul>
+<script type="math/tex; mode=display">
+w^{*} \cdot \Phi(x)+b^{*}=0</script><blockquote>
+<p>映射函数 <code>Φ(x)</code> 定义了从输入空间到特征空间的变换，特征空间通常是更高维的，甚至无穷维；方便起见，这里假设 <code>Φ(x)</code> 做的是恒等变换。</p>
+</blockquote>
+<ul>
+<li>分类决策函数 <code>f(x)</code></li>
+</ul>
+<script type="math/tex; mode=display">
+f(x)=\operatorname{sign}\left(w^{*} \cdot x+b^{*}\right)</script><h5 id="SVM-标准问题的推导-2"><a href="#SVM-标准问题的推导-2" class="headerlink" title="SVM 标准问题的推导(2)"></a><strong>SVM 标准问题的推导</strong>(2)</h5><ol>
+<li><strong>从“函数间隔”到“几何间隔”</strong></li>
+</ol>
+<p>给定训练集<code>T</code>和超平面<code>(w,b)</code>，定义<strong>函数间隔</strong>$\hat{\gamma}$：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \hat{\gamma} &=\min _{i=1, \cdots, N} y_{i}\left(w x_{i}+b\right) \\ &=\min _{i=1, \cdots, N} \hat{\gamma}_{i} \end{aligned}</script><p>对 <code>w</code> 作规范化，使函数间隔成为<strong>几何间隔</strong>$\gamma$</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \gamma &=\min _{i=1, \cdots, N} y_{i}\left(\frac{w}{\|w\|} x_{i}+\frac{b}{\|w\|}\right) \\ &=\min _{i=1, \cdots, N} \frac{\gamma_{i}}{\|w\|} \end{aligned}</script><ol>
+<li><strong>最大化几何间隔</strong></li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{array}{ll}{\max _{w, b}} & {\gamma} \\ {\text { s.t. }} & {y_{i}\left(\frac{w}{\|w\|} x_{i}+\frac{b}{\|w\|}\right) \geq \gamma, \quad i=1,2, \cdots, N}\end{array}</script><p>由函数间隔与几何间隔的关系，等价于</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}{\max _{w, b}} & {\gamma} \\ {\text { s.t. }} & {y_{i}\left(\frac{w}{\|w\|} x_{i}+\frac{b}{\|w\|}\right) \geq \gamma, \quad i=1,2, \cdots, N}\end{array}</script>
           
         
       

@@ -110,7 +110,7 @@
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190221104942.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/1550713900346.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190221150512.png">
-<meta property="og:updated_time" content="2019-02-27T05:31:34.248Z">
+<meta property="og:updated_time" content="2019-02-27T11:43:05.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer笔记">
 <meta name="twitter:description" content="离春招开始的时间已经不久了，因此最近开始在工作之余看看剑指offer这本书，了解更多关于算法相关的知识。">
@@ -453,7 +453,7 @@
 <p>上述结果为:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">size1:<span class="number">20</span></span><br><span class="line">size2:<span class="number">8</span></span><br><span class="line">size3:<span class="number">8</span></span><br></pre></td></tr></table></figure>
 <p>因为数组每一个元素占4个字节，5个元素的数字就是20个字节</p>
-<p>指针data2虽然指向数组data1，但是其本身还是个数组，因此sizeof(data2)结果是8（64位系统一个指针占8个字节，32位系统一个字节占4个字节）</p>
+<p>指针data2虽然指向数组data1，但是其本身还是个指针，因此sizeof(data2)结果是8（64位系统一个指针占8个字节，32位系统一个字节占4个字节）</p>
 <p>在GetSize函数的情况中，data1通过参数传入函数，数组自动退化为指针，因此结果为一个指针的大小8；</p>
 <h5 id="面试题3：查找数组中的重复的数字"><a href="#面试题3：查找数组中的重复的数字" class="headerlink" title="面试题3：查找数组中的重复的数字"></a>面试题3：查找数组中的重复的数字</h5><blockquote>
 <p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复的次数。请找出数组中任意一个重复的数字。例如如果输入长度为7的数组{2,3,1,0,2,5,3},那么对应的输出是重复的数字2或者3。 </p>
