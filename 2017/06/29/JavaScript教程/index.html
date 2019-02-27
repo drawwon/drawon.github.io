@@ -58,7 +58,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -96,8 +96,8 @@
 <meta property="og:description" content="之前在慕课网上看了看JavaScript的教程，但是整个教程的内容不够详细，因此在廖雪峰官方网站看看关于js的教程，并重新学习和记录如下。 js用于在静态HTML页面上添加一些动态效果 ，网景公司的Brendan Eich这哥们在两周之内设计出了JavaScript语言 。为了让js称为全球标砖，欧洲计算机制造协会(European Computer Manufacturers Associati">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/00143640805071744d58164a40e42ef92b9973824451595000/l">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-7-7/21084204.jpg">
-<meta property="og:updated_time" content="2018-09-16T04:40:22.635Z">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-7/21084204.jpg">
+<meta property="og:updated_time" content="2019-02-27T05:31:34.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript教程">
 <meta name="twitter:description" content="之前在慕课网上看了看JavaScript的教程，但是整个教程的内容不够详细，因此在廖雪峰官方网站看看关于js的教程，并重新学习和记录如下。 js用于在静态HTML页面上添加一些动态效果 ，网景公司的Brendan Eich这哥们在两周之内设计出了JavaScript语言 。为了让js称为全球标砖，欧洲计算机制造协会(European Computer Manufacturers Associati">
@@ -386,11 +386,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -409,6 +404,7 @@
       
         <p>之前在慕课网上看了看JavaScript的教程，但是整个教程的内容不够详细，因此在廖雪峰官方网站看看关于js的教程，并重新学习和记录如下。</p>
 <p>js用于在静态HTML页面上添加一些动态效果 ，网景公司的Brendan Eich这哥们在两周之内设计出了JavaScript语言 。为了让js称为全球标砖，欧洲计算机制造协会(European Computer Manufacturers Association)制定了js的标准，称为RCMAscript标准，最新版ECMAscript 6标准于2015年6月发布（简称ES6)。</p>
+<a id="more"></a>
 <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>js代码一般放在<code>&lt;head&gt;</code>当中，由封闭的<code>&lt;script&gt;...&lt;/script&gt;</code>包含起来</p>
 <p>第二种是将js放在一个单独的js文件中，然后在head中声明该文件</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/js/abc.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -827,7 +823,7 @@
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br></pre></td></tr></table></figure>
 <p>左上角为原点，其余为x，y轴开始画图</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span></span><br><span class="line">    canvas = <span class="built_in">document</span>.getElementById(<span class="string">'test-shape-canvas'</span>),</span><br><span class="line">    ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line">ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>); <span class="comment">// 擦除(0,0)位置大小为200x200的矩形，擦除的意思是把该区域变为透明</span></span><br><span class="line">ctx.fillStyle = <span class="string">'#dddddd'</span>; <span class="comment">// 设置颜色</span></span><br><span class="line">ctx.fillRect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">130</span>, <span class="number">130</span>); <span class="comment">// 把(10,10)位置大小为130x130的矩形涂色</span></span><br><span class="line"><span class="comment">// 利用Path绘制复杂路径:</span></span><br><span class="line"><span class="keyword">var</span> path=<span class="keyword">new</span> Path2D();</span><br><span class="line">path.arc(<span class="number">75</span>, <span class="number">75</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI*<span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">path.moveTo(<span class="number">110</span>,<span class="number">75</span>);</span><br><span class="line">path.arc(<span class="number">75</span>, <span class="number">75</span>, <span class="number">35</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI, <span class="literal">false</span>);</span><br><span class="line">path.moveTo(<span class="number">65</span>, <span class="number">65</span>);</span><br><span class="line">path.arc(<span class="number">60</span>, <span class="number">65</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI*<span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">path.moveTo(<span class="number">95</span>, <span class="number">65</span>);</span><br><span class="line">path.arc(<span class="number">90</span>, <span class="number">65</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI*<span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">ctx.strokeStyle = <span class="string">'#0000ff'</span>;</span><br><span class="line">ctx.stroke(path);</span><br></pre></td></tr></table></figure>
-<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><h1 id="JavaScript-简介"><a href="#JavaScript-简介" class="headerlink" title="JavaScript 简介"></a>JavaScript 简介</h1><a id="more"></a>
+<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><h1 id="JavaScript-简介"><a href="#JavaScript-简介" class="headerlink" title="JavaScript 简介"></a>JavaScript 简介</h1><!--more-->
 <p>JavaScript 是互联网上最流行的脚本语言，这门语言可用于 HTML 和 web，更可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。</p>
 <p>每一句后面添加“；”</p>
 <p>放在html的head之间：</p>
@@ -862,7 +858,7 @@
 <h2 id="打开新窗口"><a href="#打开新窗口" class="headerlink" title="打开新窗口"></a>打开新窗口</h2><p><code>open()</code> 方法可以查找一个已经存在或者新建的浏览器窗口。语法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.open([URL], [窗口名称], [参数字符串])</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">窗口名称：可选参数，被打开窗口的名称。</span><br><span class="line">    1.该名称由字母、数字和下划线字符组成。</span><br><span class="line">    2.&quot;_top&quot;、&quot;_blank&quot;、&quot;_self&quot;具有特殊意义的名称。</span><br><span class="line">       _blank：在新窗口显示目标网页</span><br><span class="line">       _self：在当前窗口显示目标网页</span><br><span class="line">       _top：框架网页中在上部窗口中显示目标网页</span><br><span class="line">    3.相同 name 的窗口只能创建一个，要想创建多个窗口则 name 不能相同。</span><br><span class="line">   4.name 不能包含有空格。</span><br><span class="line">参数字符串：可选参数，设置窗口参数，各参数用逗号隔开。</span><br></pre></td></tr></table></figure>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-7-7/21084204.jpg" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-7/21084204.jpg" alt=""></p>
 <h2 id="关闭窗口"><a href="#关闭窗口" class="headerlink" title="关闭窗口"></a>关闭窗口</h2><p><code>window.close</code>关闭窗口</p>
 <h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>dom意思是document object model，文档对象模型，是把html代码分割成3类节点：文本节点，属性节点，元素节点的树形结构</p>
 <h2 id="通过id寻找元素"><a href="#通过id寻找元素" class="headerlink" title="通过id寻找元素"></a>通过id寻找元素</h2><p><code>document.getElementByid(&#39;id&#39;)</code></p>
@@ -1021,7 +1017,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1032,7 +1028,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1043,7 +1039,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1130,7 +1126,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1151,26 +1147,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
@@ -1422,26 +1398,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

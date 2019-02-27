@@ -58,7 +58,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="在数据分析程序中需要引入的包及设置用python进行数据分析的时候，需要在文件开头导入一下包 123456789101112131415161718import numpy as np # linear algebra 引入线性代数包numpyimport pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)#%matpl">
+<meta name="description" content="在数据分析程序中需要引入的包及设置用python进行数据分析的时候，需要在文件开头导入一下包">
 <meta name="keywords" content="数据挖掘,pandas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python进行数据挖掘中的常见问题及经验">
 <meta property="og:url" content="http://drawwon.github.io/2017/10/09/python进行数据挖掘中的常见问题及经验/index.html">
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
-<meta property="og:description" content="在数据分析程序中需要引入的包及设置用python进行数据分析的时候，需要在文件开头导入一下包 123456789101112131415161718import numpy as np # linear algebra 引入线性代数包numpyimport pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)#%matpl">
+<meta property="og:description" content="在数据分析程序中需要引入的包及设置用python进行数据分析的时候，需要在文件开头导入一下包">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-14T01:16:13.564Z">
+<meta property="og:updated_time" content="2019-02-27T05:31:34.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python进行数据挖掘中的常见问题及经验">
-<meta name="twitter:description" content="在数据分析程序中需要引入的包及设置用python进行数据分析的时候，需要在文件开头导入一下包 123456789101112131415161718import numpy as np # linear algebra 引入线性代数包numpyimport pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)#%matpl">
+<meta name="twitter:description" content="在数据分析程序中需要引入的包及设置用python进行数据分析的时候，需要在文件开头导入一下包">
 
 
 
@@ -394,11 +394,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -415,8 +410,8 @@
       
 
       
-        <a id="more"></a>
-<h2 id="在数据分析程序中需要引入的包及设置"><a href="#在数据分析程序中需要引入的包及设置" class="headerlink" title="在数据分析程序中需要引入的包及设置"></a>在数据分析程序中需要引入的包及设置</h2><p>用python进行数据分析的时候，需要在文件开头导入一下包</p>
+        <h2 id="在数据分析程序中需要引入的包及设置"><a href="#在数据分析程序中需要引入的包及设置" class="headerlink" title="在数据分析程序中需要引入的包及设置"></a>在数据分析程序中需要引入的包及设置</h2><p>用python进行数据分析的时候，需要在文件开头导入一下包</p>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># linear algebra 引入线性代数包numpy</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#%matplotlib inline</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt  <span class="comment"># Matlab-style plotting 画图工具包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns <span class="comment"># 画图美化工具包</span></span><br><span class="line">color = sns.color_palette()</span><br><span class="line">sns.set_style(<span class="string">'darkgrid'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ignore_warn</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">warnings.warn = ignore_warn <span class="comment">#ignore annoying warning (from sklearn and seaborn)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm, skew <span class="comment">#for some statistics</span></span><br><span class="line"></span><br><span class="line">pd.set_option(<span class="string">'display.float_format'</span>, <span class="keyword">lambda</span> x: <span class="string">'&#123;:.3f&#125;'</span>.format(x)) <span class="comment">#Limiting floats output to 3 decimal points 设置在pd中只显示3位小数</span></span><br></pre></td></tr></table></figure>
 <h2 id="画数据分布图"><a href="#画数据分布图" class="headerlink" title="画数据分布图"></a>画数据分布图</h2><p>使用<code>seaborn</code>包进行画图，其中数据分布图为<code>distplot</code>，fit参数表示需要拟合的分布类型，<code>norm</code>表示拟合正态分布，正态分布的参数可以由<code>norm.fit</code>来获得</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sns.distplot(data_train[&apos;SalePrice&apos;],fit=norm)</span><br><span class="line">(mu, sigma) = norm.fit(data_train[&apos;SalePrice&apos;])</span><br><span class="line">plt.legend([&apos;norm distribution with $\mu$=&#123;:.2f&#125;,$\sigma$=&#123;:.2f&#125;&apos;.format(mu,sigma)])</span><br></pre></td></tr></table></figure>
@@ -584,7 +579,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -595,7 +590,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -606,7 +601,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -693,7 +688,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -714,26 +709,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
@@ -985,26 +960,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

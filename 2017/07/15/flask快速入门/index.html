@@ -58,7 +58,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -95,15 +95,15 @@
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
 <meta property="og:description" content="Flask是一个开源的易配置的web框架，基于Python进行书写">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/17988963.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/7561754.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/10893416.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/36787268.jpg">
-<meta property="og:updated_time" content="2018-09-16T04:40:22.637Z">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/17988963.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/7561754.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/10893416.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/36787268.jpg">
+<meta property="og:updated_time" content="2019-02-27T05:31:34.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flask快速入门">
 <meta name="twitter:description" content="Flask是一个开源的易配置的web框架，基于Python进行书写">
-<meta name="twitter:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/17988963.jpg">
+<meta name="twitter:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/17988963.jpg">
 
 
 
@@ -388,11 +388,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -492,19 +487,19 @@
 <li><p><strong>整合wsgi中间件</strong><br>wsgi是指网络服务器网关接口，主要用于描述一个网页服务器如何与网页应用交互，使用方法如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> werkzeug.contrib.fixers <span class="keyword">import</span> LighttpdCGIRootFix</span><br><span class="line">app.wsgi_app = LighttpdCGIRootFix(app.wsgi_app)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>在自己主机上托管网页</strong><br>17.1 <strong>安装Apache</strong><br>首先安装apache（阿帕奇），这个软件主要是用于部署网页，下载方法如下：<br>①登录<a href="http://httpd.apache.org/download.cgi" target="_blank" rel="noopener">apache下载网站</a>，找到如下的for windows的软件<img src="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/17988963.jpg" alt=""></p>
-<p>②选择下图中的任意一个第三方平台进行下载，会得到一个压缩包<img src="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/7561754.jpg" alt=""></p>
+<li><p><strong>在自己主机上托管网页</strong><br>17.1 <strong>安装Apache</strong><br>首先安装apache（阿帕奇），这个软件主要是用于部署网页，下载方法如下：<br>①登录<a href="http://httpd.apache.org/download.cgi" target="_blank" rel="noopener">apache下载网站</a>，找到如下的for windows的软件<img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/17988963.jpg" alt=""></p>
+<p>②选择下图中的任意一个第三方平台进行下载，会得到一个压缩包<img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/7561754.jpg" alt=""></p>
 </li>
 </ol>
 </li>
 </ol>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/10893416.jpg" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/10893416.jpg" alt=""></p>
 <p>​    解压压缩包得到名为apache的文件夹，首先要修改<code>/Apache24/conf/htttpd.conf</code>，将其中<code>Define SRVROOT &quot;/Apache24&quot;</code>改为其现在的路径<code>Define SRVROOT &quot;D:/program files/Apache24&quot;</code>，</p>
 <p>再把<code>Listen 80</code>改为<code>Listen 88</code>（因为80端口可能已经被占用）；</p>
 <p><strong>然后</strong>，我们需要修改<code>/Apache24/conf/extra/thhpd-ssl.conf</code>以及<code>/Apache24/conf/extra/thhpd-ssl.conf</code>文件中的<code>Listen 443</code>改成<code>Listen 444</code>（因为443端口路被cmd占用）</p>
 <p>​    通过cmd进入<code>Apache24/bin</code>，输入<code>httpd.exe -k install -n apache</code>，这条指令的意思就是安装httpd.exe程序为Windows服务，名称为apache，之后你就可以通过<code>ApacheMonitor.exe</code>直接打开或者关闭Apache。</p>
 <p>​    ③为了验证Apache是否安装成功，我们需要在打开Apache服务的时候，访问127.0.0.1，如果看到如下界面，表示安装成功：</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-7-23/36787268.jpg" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-7-23/36787268.jpg" alt=""></p>
 
       
     </div>
@@ -645,7 +640,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -656,7 +651,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -667,7 +662,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -738,7 +733,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -759,26 +754,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
@@ -1030,26 +1005,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

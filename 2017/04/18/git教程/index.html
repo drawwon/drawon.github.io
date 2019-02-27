@@ -58,7 +58,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
 <meta property="og:description" content="命令总结">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/githhubpage.png">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/new-repository.png">
-<meta property="og:updated_time" content="2018-09-16T04:40:22.637Z">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/githhubpage.png">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/new-repository.png">
+<meta property="og:updated_time" content="2019-02-27T05:31:34.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git教程">
 <meta name="twitter:description" content="命令总结">
-<meta name="twitter:image" content="http://ooi9t4tvk.bkt.clouddn.com/githhubpage.png">
+<meta name="twitter:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/githhubpage.png">
 
 
 
@@ -386,11 +386,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -505,9 +500,9 @@
 <p>如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
 <p>第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：然后，</p>
 <p>点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容：</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/githhubpage.png" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/githhubpage.png" alt=""></p>
 <h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><p>首先，登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库：</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/new-repository.png" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/new-repository.png" alt=""></p>
 <p>在本地的<code>git</code>仓库下运行命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git remote add origin git@github.com:drawwon/learngit.git</span><br></pre></td></tr></table></figure>
 <p>请千万注意，把上面的<code>drawwon</code>替换成你自己的GitHub账户名，否则，你在本地关联的就是我的远程库，关联没有问题，但是你以后推送是推不上去的，因为你的SSH Key公钥不在我的账户列表中。</p>
@@ -540,6 +535,61 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;name&gt;  #合并分支到当前分支上面</span><br></pre></td></tr></table></figure>
 <p>如果需要有历史版本的merge，那么请使用—no-ff</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m &quot;merge with no-ff&quot; dev</span><br></pre></td></tr></table></figure>
+<h2 id="同步到github"><a href="#同步到github" class="headerlink" title="同步到github"></a>同步到github</h2><p><strong>接下来讲解一下如何将创建的工程同步到github上。</strong></p>
+<ul>
+<li>第一步：创建工程之后，用终端进入工程。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  cd /Users/hanwenguang/Desktop/pods/TestPreject</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步：建立本地仓库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git init</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步：将本地项目工作区的所有文件添加到暂存区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git add .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第四步：将暂存区的文件提交到本地仓库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git commit -m “注释&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第五步： 在Github上创建自己的 New repository</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与第一部分的1-4步骤相同。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第六步：将本地仓库关联到Github上（后加上仓库地址：第一部分中第五步的<em>地址</em>）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git remote add origin 地址</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第七步：将代码由本地仓库上传到Github远程仓库，刷新即可看到上传成功。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//(不加这句可能报错出现错误的主要原因是github中的README.md文件不在本地代码目录中</span><br><span class="line">$  git pull --rebase origin master </span><br><span class="line">//可以通过该命令进行代码合并</span><br><span class="line">$  git push -u origin master</span><br><span class="line">//需要填写账号、密码时候，自己填写。通常一次通过之后就不需要了。</span><br></pre></td></tr></table></figure>
+<p><strong>这样，上传文件存储和上传已有工程都已经成功。接下来下赠送提交代码的命令：</strong></p>
+<ul>
+<li>第一步： 查看目前代码的修改状态:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git status</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步： 查看代码修改的内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$  git diff &lt;file&gt;</span><br><span class="line">    //如果该文件已暂存，那么应该使用</span><br><span class="line">$  git diff –cached &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步： 暂存需要提交的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$  git add &lt;file&gt;</span><br><span class="line">    //如果是删除的文件则</span><br><span class="line">$  git rm &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第四步 ： 提交已暂存的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git commit -m &quot;注释内容&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第五步： 同步到服务器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">同步到服务器前先需要将服务器代码同步到本地</span><br><span class="line">命令：$  git pull</span><br><span class="line">如果执行失败，就按照提示还原有冲突的文件，然后再次尝试同步。</span><br><span class="line">命令：$  git checkout – &lt;有冲突的文件路径&gt;</span><br><span class="line">同步到服务器</span><br><span class="line">命令：$  git push origin master</span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<blockquote>
+<p>作者：累了就回头_我在身后</p>
+<p>链接：<a href="https://www.jianshu.com/p/6969de20cd52" target="_blank" rel="noopener">https://www.jianshu.com/p/6969de20cd52</a></p>
+</blockquote>
 
       
     </div>
@@ -685,7 +735,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -696,7 +746,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -707,7 +757,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -771,7 +821,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令总结"><span class="nav-number">1.</span> <span class="nav-text">命令总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地git命令"><span class="nav-number">1.1.</span> <span class="nav-text">本地git命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github命令"><span class="nav-number">1.2.</span> <span class="nav-text">github命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-是什么"><span class="nav-number">2.</span> <span class="nav-text">git 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式和集中式的区别"><span class="nav-number">3.</span> <span class="nav-text">分布式和集中式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">4.</span> <span class="nav-text">安装git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux上安装git："><span class="nav-number">4.1.</span> <span class="nav-text">Linux上安装git：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac-OS-X上面安装git"><span class="nav-number">4.2.</span> <span class="nav-text">Mac OS X上面安装git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WINDOWS-安装git"><span class="nav-number">4.3.</span> <span class="nav-text">WINDOWS 安装git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建版本库"><span class="nav-number">5.</span> <span class="nav-text">创建版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个版本库"><span class="nav-number">5.1.</span> <span class="nav-text">创建一个版本库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把文件添加到版本库"><span class="nav-number">6.</span> <span class="nav-text">把文件添加到版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把一个文件放到git只需要两部"><span class="nav-number">6.1.</span> <span class="nav-text">把一个文件放到git只需要两部</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件的各个版本"><span class="nav-number">7.</span> <span class="nav-text">查看文件的各个版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">8.</span> <span class="nav-text">版本回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小结："><span class="nav-number">8.1.</span> <span class="nav-text">小结：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">9.</span> <span class="nav-text">工作区和暂存区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区"><span class="nav-number">9.1.</span> <span class="nav-text">工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本库"><span class="nav-number">9.2.</span> <span class="nav-text">版本库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销修改"><span class="nav-number">10.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">11.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用github"><span class="nav-number">12.</span> <span class="nav-text">使用github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程库"><span class="nav-number">13.</span> <span class="nav-text">添加远程库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令小结"><span class="nav-number">13.1.</span> <span class="nav-text">命令小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">14.</span> <span class="nav-text">从远程库克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">15.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建分支"><span class="nav-number">15.1.</span> <span class="nav-text">创建分支</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令总结"><span class="nav-number">1.</span> <span class="nav-text">命令总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地git命令"><span class="nav-number">1.1.</span> <span class="nav-text">本地git命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github命令"><span class="nav-number">1.2.</span> <span class="nav-text">github命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-是什么"><span class="nav-number">2.</span> <span class="nav-text">git 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式和集中式的区别"><span class="nav-number">3.</span> <span class="nav-text">分布式和集中式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">4.</span> <span class="nav-text">安装git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux上安装git："><span class="nav-number">4.1.</span> <span class="nav-text">Linux上安装git：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac-OS-X上面安装git"><span class="nav-number">4.2.</span> <span class="nav-text">Mac OS X上面安装git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WINDOWS-安装git"><span class="nav-number">4.3.</span> <span class="nav-text">WINDOWS 安装git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建版本库"><span class="nav-number">5.</span> <span class="nav-text">创建版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个版本库"><span class="nav-number">5.1.</span> <span class="nav-text">创建一个版本库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把文件添加到版本库"><span class="nav-number">6.</span> <span class="nav-text">把文件添加到版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把一个文件放到git只需要两部"><span class="nav-number">6.1.</span> <span class="nav-text">把一个文件放到git只需要两部</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件的各个版本"><span class="nav-number">7.</span> <span class="nav-text">查看文件的各个版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">8.</span> <span class="nav-text">版本回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小结："><span class="nav-number">8.1.</span> <span class="nav-text">小结：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">9.</span> <span class="nav-text">工作区和暂存区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区"><span class="nav-number">9.1.</span> <span class="nav-text">工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本库"><span class="nav-number">9.2.</span> <span class="nav-text">版本库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销修改"><span class="nav-number">10.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">11.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用github"><span class="nav-number">12.</span> <span class="nav-text">使用github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程库"><span class="nav-number">13.</span> <span class="nav-text">添加远程库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令小结"><span class="nav-number">13.1.</span> <span class="nav-text">命令小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">14.</span> <span class="nav-text">从远程库克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">15.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建分支"><span class="nav-number">15.1.</span> <span class="nav-text">创建分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步到github"><span class="nav-number">16.</span> <span class="nav-text">同步到github</span></a></li></ol></div>
             
 
           </div>
@@ -794,7 +844,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -815,26 +865,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
@@ -1086,26 +1116,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

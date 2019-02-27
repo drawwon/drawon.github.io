@@ -58,7 +58,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="scrapy实战伯乐网爬虫因为我们要对scrapy进行调试，所以我们建立一个main函数来达到调试的目的，以后每次调试只要debug这个main文件就行了 123456from scrapy.cmdline import executeimport sysimport ossys.path.append(os.path.dirname(os.path.abspath(__file__)))exec">
+<meta name="description" content="scrapy实战伯乐网爬虫因为我们要对scrapy进行调试，所以我们建立一个main函数来达到调试的目的，以后每次调试只要debug这个main文件就行了">
 <meta name="keywords" content="python,爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scrapy实战伯乐网文章爬虫">
 <meta property="og:url" content="http://drawwon.github.io/2017/09/18/scrapy实战伯乐网文章爬虫/index.html">
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
-<meta property="og:description" content="scrapy实战伯乐网爬虫因为我们要对scrapy进行调试，所以我们建立一个main函数来达到调试的目的，以后每次调试只要debug这个main文件就行了 123456from scrapy.cmdline import executeimport sysimport ossys.path.append(os.path.dirname(os.path.abspath(__file__)))exec">
+<meta property="og:description" content="scrapy实战伯乐网爬虫因为我们要对scrapy进行调试，所以我们建立一个main函数来达到调试的目的，以后每次调试只要debug这个main文件就行了">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-9-10/51186543.jpg">
-<meta property="og:updated_time" content="2018-07-14T01:16:13.566Z">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-9-10/51186543.jpg">
+<meta property="og:updated_time" content="2019-02-27T05:31:34.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy实战伯乐网文章爬虫">
-<meta name="twitter:description" content="scrapy实战伯乐网爬虫因为我们要对scrapy进行调试，所以我们建立一个main函数来达到调试的目的，以后每次调试只要debug这个main文件就行了 123456from scrapy.cmdline import executeimport sysimport ossys.path.append(os.path.dirname(os.path.abspath(__file__)))exec">
-<meta name="twitter:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-9-10/51186543.jpg">
+<meta name="twitter:description" content="scrapy实战伯乐网爬虫因为我们要对scrapy进行调试，所以我们建立一个main函数来达到调试的目的，以后每次调试只要debug这个main文件就行了">
+<meta name="twitter:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-9-10/51186543.jpg">
 
 
 
@@ -385,11 +385,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -407,12 +402,13 @@
 
       
         <h1 id="scrapy实战伯乐网爬虫"><a href="#scrapy实战伯乐网爬虫" class="headerlink" title="scrapy实战伯乐网爬虫"></a>scrapy实战伯乐网爬虫</h1><p>因为我们要对scrapy进行调试，所以我们建立一个main函数来达到调试的目的，以后每次调试只要debug这个main文件就行了</p>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.cmdline <span class="keyword">import</span> execute</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">sys.path.append(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line"></span><br><span class="line">execute([<span class="string">"scrapy"</span>, <span class="string">'crawl'</span>, <span class="string">'jobbole'</span>])</span><br></pre></td></tr></table></figure>
 <p>在spider文件夹中初始化爬虫之后，可以看到一个parse函数，这个是用来处理具体的网页内容的，可以用Xpath对网页源码进行解析，其中的<code>response</code>参数表示scrapy返回的网页</p>
 <p>我们要爬取所有的文章，就要先找到所有文章的存放地点，我们将<code>class JobboleSpider</code>里面的<code>start_urls</code>改为<code>http://blog.jobbole.com/all-posts/</code>，这个页面存放了所有的posts内容</p>
 <p>从第一页开始，每次爬取该页所有posts的链接，进入每一个链接进行处理，要处理一个链接，就是将这个链接<code>yield</code>出来，首先我们先编写在每一页中提取出所有posts的方法，在parse函数中，先找到所有存放posts文件的地方：通过chrome的元素选择快捷键（如下图所示），找到所有的存放posts文件的链接</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response_nodes = response.css(<span class="string">'#archive .floated-thumb .post-thumb a'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-9-10/51186543.jpg" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-9-10/51186543.jpg" alt=""></p>
 <p>然后我们在找到的response_nodes中进行循环，并找到其中的首页图片地址和post地址，并将posts地址yield出去，交给<code>scrapy.http.Request</code>处理：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> response_node <span class="keyword">in</span> response_nodes:</span><br><span class="line">    post_url = response_node.css(<span class="string">'::attr(href)'</span>).extract_first(default=<span class="string">""</span>)</span><br><span class="line">    image_url = response_node.css(<span class="string">'img::attr(src)'</span>).extract_first(default=<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">yield</span> Request(url=post_url, meta=&#123;<span class="string">'front_image_url'</span>:image_url&#125;,</span><br><span class="line">                  callback=self.parse_detail)</span><br></pre></td></tr></table></figure>
 <p>其中的回调函数是用于具体处理网页内容的函数，meta用于传送首页的图片地址，传送的形式是字典的形式</p>
@@ -653,7 +649,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -664,7 +660,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -675,7 +671,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -762,7 +758,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -783,26 +779,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
@@ -1054,26 +1030,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

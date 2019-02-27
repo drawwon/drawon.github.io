@@ -58,7 +58,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -95,20 +95,20 @@
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
 <meta property="og:description" content="本文主要来自于mooc公开课Django课程 首先创建一个Django的虚拟环境：pip install virtualenv，然后使用virtualenv 虚拟环境名建立一个虚拟环境，在windows下面的激活方法是 123cd django_virtualcd Scriptactivate 在linux下只需要将最后一步换位source activate">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-12-13/70910990.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-12-13/88013332.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-12-14/11540528.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-12-14/89792661.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/18-1-21/6996332.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/18-1-23/18897780.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/18-1-23/87606606.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-13/70910990.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-13/88013332.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-14/11540528.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-14/89792661.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/18-1-21/6996332.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/18-1-23/18897780.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/18-1-23/87606606.jpg">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1343961/201803/1343961-20180307112659303-1858050305.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1343961/201803/1343961-20180307140134115-22522149.png">
-<meta property="og:updated_time" content="2018-07-14T01:16:13.554Z">
+<meta property="og:updated_time" content="2019-02-27T05:31:34.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django项目学习">
 <meta name="twitter:description" content="本文主要来自于mooc公开课Django课程 首先创建一个Django的虚拟环境：pip install virtualenv，然后使用virtualenv 虚拟环境名建立一个虚拟环境，在windows下面的激活方法是 123cd django_virtualcd Scriptactivate 在linux下只需要将最后一步换位source activate">
-<meta name="twitter:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-12-13/70910990.jpg">
+<meta name="twitter:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-13/70910990.jpg">
 
 
 
@@ -404,11 +404,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -432,9 +427,9 @@
 <a id="more"></a>
 <h3 id="建立Django项目"><a href="#建立Django项目" class="headerlink" title="建立Django项目"></a>建立Django项目</h3><p>在PyCharm建立程序时，直接选择Django程序，选择解释器为virtualenv建立的django环境，即可建立django项目</p>
 <p>项目建立之后，我们得到了如下的目录结构，紫色的被标记为了templet目录，这样就能智能提示，如果你想要在import的时候不需要加入绝对路径，那么就可以<code>mark as source root</code></p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-12-13/70910990.jpg" alt="img"></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-13/70910990.jpg" alt="img"></p>
 <p>接下来我们先尝试运行该项目，点击run，运行这个Django项目，可以看到运行在了本机的8000端口，点击该地址即可访问：</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-12-13/88013332.jpg" alt="img"></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-13/88013332.jpg" alt="img"></p>
 <p>如果要配置监听所有ip，那么我们需要通过<code>run-Edit configurations</code>，将监听端口改为0.0.0.0</p>
 <h3 id="Navicat使用"><a href="#Navicat使用" class="headerlink" title="Navicat使用"></a>Navicat使用</h3><p>安装好Navicat之后，打开软件，建立连接，之后建立表，设计表的字段，设计完之后按<code>ctrl+s</code>保存，之后就可以插入数据条目，这就是简单的使用方法，具体使用会在之后用到的时候详细介绍。<a href="%5Bhttp://pan.baidu.com/s/1pLNJOBD">下载地址请点击</a></p>
 <h3 id="Django目录结构"><a href="#Django目录结构" class="headerlink" title="Django目录结构"></a>Django目录结构</h3><p>首先看看之前提到的建立django之后的目录结构，windows使用<code>tree \F .</code>得到如下结构，linux中使用<code>apt-get install tree</code>，然后<code>tree .即可得到</code>：</p>
@@ -467,13 +462,13 @@
 <p>####migration生成数据表 通过<code>tools-Run manage.py Task</code>来连接数据库，首先需要安装mysqlclient，用<code>pip install mysqlclient</code>安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; makemigrations   # 用于生成一个基于你对模型改变的迁移，在这里就是数据库类型从sqlite迁移到mysql</span><br><span class="line">&gt; migrate		  # 用于应用改变</span><br></pre></td></tr></table></figure>
 <p>此时Django自动生成了一大堆数据库表，在Navicat中可以看到表的名称：</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-12-14/11540528.jpg" alt="img"></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-14/11540528.jpg" alt="img"></p>
 <p>此时可以点击run运行整个系统，可以在127.0.0.1:8000上访问该网址</p>
 <h4 id="配置static文件夹地址"><a href="#配置static文件夹地址" class="headerlink" title="配置static文件夹地址"></a>配置static文件夹地址</h4><p>但是此时的style.css无法被找到，我们要在settings.py中配置一下static文件夹的地址，因为<code>STATICFILES_DIRS</code> 可能不止一个，所以用list的形式进行赋值，其中BASE_DIR是项目文件的根目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR,&apos;static&apos;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h3 id="urls-py配置和views-py函数"><a href="#urls-py配置和views-py函数" class="headerlink" title="urls.py配置和views.py函数"></a>urls.py配置和views.py函数</h3><p>在urls.py中添加新的页面，页面的处理函数要在<code>apps-message-views.py</code> 中新增，首先我们在<code>view.py</code> 中构造如下函数，直接return render的模板，其中request参数是Django的请求，每个views函数都得有：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def getform(request):</span><br><span class="line">    return render(request, template_name=&apos;course-comment.html&apos;)</span><br></pre></td></tr></table></figure>
-<h3 id="项目配置流程"><a href="#项目配置流程" class="headerlink" title="项目配置流程"></a>项目配置流程</h3><p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-12-14/89792661.jpg" alt="img"></p>
+<h3 id="项目配置流程"><a href="#项目配置流程" class="headerlink" title="项目配置流程"></a>项目配置流程</h3><p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-12-14/89792661.jpg" alt="img"></p>
 <p>整体来说，先设置数据库和STATICFILES_DIRS，之后这一块不再动，主要就是views.py写后端逻辑，urls.py写页面地址url配置</p>
 <h3 id="Django-orm-模型设计"><a href="#Django-orm-模型设计" class="headerlink" title="Django orm 模型设计"></a>Django orm 模型设计</h3><p>普通的数据库调用方法，连接（connect），生成cursor，excute sql语句，cursor.fetchall( )</p>
 <p>orm就是把一个表映射成一个类，比如要找出name只需要调用<code>book.name</code></p>
@@ -516,7 +511,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;&#123; % url &apos;form&apos; % &#125;&quot; method=&quot;post&quot; class=&quot;smart-green&quot;&gt;</span><br></pre></td></tr></table></figure>
 <p>注意，在url配置中一定要加上<code>/$</code> 表示以<code>/</code>结尾，不然再进行正则匹配的时候可能会匹配到别的网页</p>
 <h3 id="url匹配"><a href="#url匹配" class="headerlink" title="url匹配"></a>url匹配</h3><p>必须在url前面加上<code>^</code>，后面加上<code>/$</code>，这样不会匹配出错</p>
-<h2 id="mooc开发实战"><a href="#mooc开发实战" class="headerlink" title="mooc开发实战"></a>mooc开发实战</h2><h3 id="app设计"><a href="#app设计" class="headerlink" title="app设计"></a>app设计</h3><p><img src="http://ooi9t4tvk.bkt.clouddn.com/18-1-21/6996332.jpg" alt="img"></p>
+<h2 id="mooc开发实战"><a href="#mooc开发实战" class="headerlink" title="mooc开发实战"></a>mooc开发实战</h2><h3 id="app设计"><a href="#app设计" class="headerlink" title="app设计"></a>app设计</h3><p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/18-1-21/6996332.jpg" alt="img"></p>
 <h3 id="新建虚拟环境"><a href="#新建虚拟环境" class="headerlink" title="新建虚拟环境"></a>新建虚拟环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkvirtualenv mooc</span><br><span class="line">cd mooc/Script</span><br><span class="line">activate</span><br><span class="line">pip install Django mysqlclient</span><br></pre></td></tr></table></figure>
 <h3 id="新建Django项目"><a href="#新建Django项目" class="headerlink" title="新建Django项目"></a>新建Django项目</h3><p>通过pycharm建立Django项目，名字为MxOnline，首先在settings.py中更改数据库引擎</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    &apos;default&apos;: &#123;</span><br><span class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</span><br><span class="line">        &apos;NAME&apos;: &apos;mxonline&apos;,</span><br><span class="line">        &apos;USER&apos;: &apos;root&apos;,</span><br><span class="line">        &apos;PASSWORD&apos;: &apos;root&apos;,</span><br><span class="line">        &apos;HOST&apos;: &apos;127.0.0.1&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -525,9 +520,9 @@
 <h3 id="扩展user表"><a href="#扩展user表" class="headerlink" title="扩展user表"></a>扩展user表</h3><p>首先<code>startapp users</code>，在models当中，新建一个<code>UserProfile</code>，继承<code>django.contrib.auth.models.AbstractUser</code>，加入你需要的自定义字段，并定义好meta信息中的<code>verbose_name</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line">from django.contrib.auth.models import AbstractUser</span><br><span class="line"></span><br><span class="line"># Create your models here.</span><br><span class="line">class UserProfile(AbstractUser):</span><br><span class="line">    nick_name = models.CharField(max_length=50,verbose_name=&apos;昵称&apos;,default=&apos;&apos;)</span><br><span class="line">    birthday = models.DateField(verbose_name=&apos;生日&apos;,null=True,blank=True)</span><br><span class="line">    gender = models.CharField(max_length=5,choices=((&apos;male&apos;,&apos;男&apos;),(&apos;female&apos;,&apos;女&apos;)),default=&apos;&apos;)</span><br><span class="line">    address = models.CharField(max_length=100,default=&apos;&apos;)</span><br><span class="line">    mobile = models.CharField(max_length=11, null=True, blank=True)</span><br><span class="line">    image = models.ImageField(upload_to=&apos;image/%Y/%m&apos;,default=&apos;image/default.png&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        verbose_name = &apos;用户信息&apos;</span><br><span class="line">        verbose_name_plural = verbose_name</span><br></pre></td></tr></table></figure>
 <p>然后run <a href="http://manage.py" target="_blank" rel="noopener">manage.py</a>，通过<code>makemigrations users</code>和<code>migragate users</code>生成新的user表，可能会报错，报错时只需要将之前生成的所有表删除后重新生成即可</p>
-<h3 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h3><p><img src="http://ooi9t4tvk.bkt.clouddn.com/18-1-23/18897780.jpg" alt="img"></p>
+<h3 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h3><p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/18-1-23/18897780.jpg" alt="img"></p>
 <p>避免交叉引用，不然会出错，使用上层app引用下层app</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/18-1-23/87606606.jpg" alt="img"></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/18-1-23/87606606.jpg" alt="img"></p>
 <h3 id="加入邮件验证码和轮播图"><a href="#加入邮件验证码和轮播图" class="headerlink" title="加入邮件验证码和轮播图"></a>加入邮件验证码和轮播图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class EmailVerifyRecord(models.Model):</span><br><span class="line">    code = models.CharField(max_length=20, verbose_name=&apos;验证码&apos;)</span><br><span class="line">    email = models.EmailField(max_length=50, verbose_name= &apos;邮箱&apos;)</span><br><span class="line">    send_type = models.CharField(choices=((&apos;register&apos;,&apos;注册&apos;),(&apos;forget&apos;,&apos;找回密码&apos;)),max_length=10)</span><br><span class="line">    send_time = models.DateTimeField(default=datetime.now) #记得去掉datetime.now的括号，不然只会记录class生成的时间</span><br><span class="line">    class Meta:</span><br><span class="line">        verbose_name = &apos;邮箱验证码&apos;</span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">class Banner(models.Model):</span><br><span class="line">    title = models.CharField(max_length=100, verbose_name=&apos;标题&apos;)</span><br><span class="line">    image = models.ImageField(upload_to=&apos;banner/%Y/%m&apos;, verbose_name=&apos;轮播图&apos;)</span><br><span class="line">    url = models.URLField(max_length=500, verbose_name=&apos;访问地址&apos;)</span><br><span class="line">    index = models.IntegerField(default=100, verbose_name=&apos;顺序&apos;)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=&apos;添加时间&apos;)</span><br><span class="line">    class Meta:</span><br><span class="line">        verbose_name = &apos;轮播图&apos;</span><br><span class="line">        verbose_name_plural = verbose_name</span><br></pre></td></tr></table></figure>
 <h3 id="课程model设计"><a href="#课程model设计" class="headerlink" title="课程model设计"></a>课程model设计</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Course -- 课程基本信息</span><br><span class="line">Lesson -- 章节信息</span><br><span class="line">Video -- 视频</span><br><span class="line">CourseResource -- 课程资源</span><br></pre></td></tr></table></figure>
 <p>一共有上述四张表</p>
@@ -797,7 +792,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -808,7 +803,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -819,7 +814,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -906,7 +901,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -927,26 +922,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
@@ -1198,26 +1173,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

@@ -58,7 +58,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -96,12 +96,12 @@
 <meta property="og:description" content="第 0001 题：">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://i.imgur.com/aVhbegV.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-5-19/17092919-file_1495191243805_2e7f.jpg">
-<meta property="og:image" content="http://ooi9t4tvk.bkt.clouddn.com/17-5-25/96708619.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-5-19/17092919-file_1495191243805_2e7f.jpg">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-5-25/96708619.jpg">
 <meta property="og:image" content="http://i.imgur.com/rOHbUzg.png">
 <meta property="og:image" content="http://i.imgur.com/iuz0Pbv.png">
 <meta property="og:image" content="http://i.imgur.com/VIyCZ0i.jpg">
-<meta property="og:updated_time" content="2018-09-16T04:40:22.641Z">
+<meta property="og:updated_time" content="2019-02-27T05:31:34.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python练习册 from github">
 <meta name="twitter:description" content="第 0001 题：">
@@ -390,11 +390,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -503,7 +498,7 @@
 <li><p>要得到模糊图片，用<code>PIL</code>当中的<code>filter</code>函数进行高斯滤波，参数为<code>ImageFilter.BLUR</code></p>
 <p>​</p>
 <p>效果</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-5-19/17092919-file_1495191243805_2e7f.jpg" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-5-19/17092919-file_1495191243805_2e7f.jpg" alt=""></p>
 </li>
 </ol>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageDraw</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image,ImageFont,ImageFilter</span><br><span class="line">l = []</span><br><span class="line">num = <span class="number">4</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(num):</span><br><span class="line">    l.append(random.choice(string.letters+<span class="string">''</span>.join([str(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)])))</span><br><span class="line">pic = Image.new(<span class="string">'RGB'</span>,(<span class="number">500</span>,<span class="number">200</span>),<span class="number">0xffff</span>)</span><br><span class="line">draw = ImageDraw.Draw(pic)</span><br><span class="line">color2 = [<span class="string">'purple'</span>,<span class="string">'green'</span>,<span class="string">'brown'</span>]</span><br><span class="line">color1 = [<span class="string">'BurlyWood'</span>,<span class="string">'DarkGray'</span>,<span class="string">'DarkOliveGreen'</span>]</span><br><span class="line">width, height = pic.size</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(width+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(height+<span class="number">1</span>):</span><br><span class="line">        draw.point(xy=(i,j),fill=random.choice(color1))</span><br><span class="line">font = ImageFont.truetype(<span class="string">"arial.ttf"</span>, <span class="number">100</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(l)):</span><br><span class="line">    x = i*width/num+<span class="number">5</span></span><br><span class="line">    c = random.choice(color2)</span><br><span class="line">    draw.text(xy=(x,<span class="number">50</span>),text=l[i],fill=c,font=font)</span><br><span class="line"></span><br><span class="line">pic = pic.filter(ImageFilter.BLUR)</span><br><span class="line">pic.show()</span><br><span class="line">pic.save(<span class="string">'a.jpg'</span>)</span><br></pre></td></tr></table></figure>
@@ -537,7 +532,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; &#123;</span><br><span class="line">&gt; 	&quot;1&quot;:[&quot;张三&quot;,150,120,100],</span><br><span class="line">&gt; 	&quot;2&quot;:[&quot;李四&quot;,90,99,95],</span><br><span class="line">&gt; 	&quot;3&quot;:[&quot;王五&quot;,60,66,68]</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>请将上述内容写到 student.xls 文件中，如下图所示：</p>
-<p><img src="http://ooi9t4tvk.bkt.clouddn.com/17-5-25/96708619.jpg" alt=""></p>
+<p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/pics/17-5-25/96708619.jpg" alt=""></p>
 <h2 id="解题思路-10"><a href="#解题思路-10" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
 <li>txt文件是json格式，那我们那就引入<code>json</code>包，用<code>json.loads()</code>函数将txt转换为一个列表</li>
 <li>要把列表写到excel中，要用到<code>xlwt</code>包，先用<code>excel = wlwt.workbook()</code>新建一个工作簿，然后用<code>sheet = excel.add_sheet()</code>加入一个sheet，然后用<code>sheet.write(row,col, text)</code>写入内容，最后<code>excel.save(filename)</code>保存xls</li>
@@ -806,7 +801,7 @@ status = db.IntField(default=0)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -817,7 +812,7 @@ status = db.IntField(default=0)
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -828,7 +823,7 @@ status = db.IntField(default=0)
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -915,7 +910,7 @@ status = db.IntField(default=0)
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -936,26 +931,6 @@ status = db.IntField(default=0)
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
@@ -1207,26 +1182,6 @@ status = db.IntField(default=0)
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
