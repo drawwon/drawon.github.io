@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104909.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190227145622.png">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=1%5Cleft%5C%7B+%5Ccdot+%5Cright%5C%7D">
-<meta property="og:updated_time" content="2019-02-27T16:13:11.432Z">
+<meta property="og:updated_time" content="2019-02-28T09:17:48.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习知识复习">
 <meta name="twitter:description" content="机器学习机器学习基础偏差与方差 偏差. 偏差度量了学习算法预测的期望值与真实结果的偏离程度, 即 刻画了学习算法本身的拟合能力 .  方差. 方差表示模型预测的期望值与预测值之间的平方和，度量了同样大小的训练集的变动所导致的学习性能的变化, 即 刻画了数据扰动所造成的影响 .  噪声. 噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界, 即 刻画了学习问题本身的难度 . 巧妇难为无米">
@@ -426,6 +426,7 @@
 <p>噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界, 即 <strong>刻画了学习问题本身的难度</strong> . 巧妇难为无米之炊, 给一堆很差的食材, 要想做出一顿美味, 肯定是很有难度的.</p>
 </li>
 </ul>
+<a id="more"></a>
 <h4 id="导致偏差和方差的原因"><a href="#导致偏差和方差的原因" class="headerlink" title="导致偏差和方差的原因"></a>导致偏差和方差的原因</h4><ul>
 <li><p>偏差</p>
 <p>通常是由于我们对学习算法做了错误的假设，或者模型的复杂度不够；</p>
@@ -946,9 +947,311 @@ f(x)=\operatorname{sign}\left(w^{*} \cdot x+b^{*}\right)</script><h5 id="SVM-标
 <li><strong>最大化几何间隔</strong></li>
 </ol>
 <script type="math/tex; mode=display">
-\begin{array}{ll}{\max _{w, b}} & {\gamma} \\ {\text { s.t. }} & {y_{i}\left(\frac{w}{\|w\|} x_{i}+\frac{b}{\|w\|}\right) \geq \gamma, \quad i=1,2, \cdots, N}\end{array}</script><p>由函数间隔与几何间隔的关系，等价于</p>
+\begin{array}{ll}{\max _{w, b}} & \hat{\gamma} \\ {\text { s.t. }} & {y_{i}\left(wx_{i}+b\right) \geq \hat\gamma, \quad i=1,2, \cdots, N}\end{array}</script><p>由函数间隔与几何间隔的关系，等价于</p>
 <script type="math/tex; mode=display">
-\begin{array}{ll}{\max _{w, b}} & {\gamma} \\ {\text { s.t. }} & {y_{i}\left(\frac{w}{\|w\|} x_{i}+\frac{b}{\|w\|}\right) \geq \gamma, \quad i=1,2, \cdots, N}\end{array}</script>
+\begin{array}{ll}{\max _{w, b}} & {\gamma} \\ {\text { s.t. }} & {y_{i}\left(\frac{w}{\|w\|} x_{i}+\frac{b}{\|w\|}\right) \geq \gamma, \quad i=1,2, \cdots, N}\end{array}</script><ol>
+<li>西瓜书的SVM推导</li>
+</ol>
+<p>上面的两步推理方式感觉不如西瓜书上面的直接，下面用西瓜书的公式来证明：</p>
+<p>用r表示一个点到分类超平面的距离：</p>
+<script type="math/tex; mode=display">
+r=\frac{\left|w^{T} x+b\right|}{\|w\|}</script><p>假设超平面<code>(w,b)</code>能够正确分类，也就是对于$y<em>i=1$，有$w^{T} x</em>{i}+b&gt;0$；对于$y<em>i=-1$，有$w^{T} x</em>{i}+b&lt;0​$，则：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{ll}{w^{\mathrm{T}} x_{i}+b \geqslant+1,} & {y_{i}=+1} \\ {w^{T} x_{i}+b \leqslant-1,} & {y_{i}=-1}\end{array}\right.</script><p>对于距离超平面最近（支持向量）的点，r的距离为1，那么两个异类支持向量到超平面距离和为</p>
+<script type="math/tex; mode=display">\gamma = \frac{2}{\|w\|}</script><p>这被称为“间隔”</p>
+<p>我们要最大化间隔，也就是要找到$w, b$，使得$\gamma$最大，即：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}{\max _{w, b} \frac{2}{\|w\|}} \\ {\text {s.t.} y_{i}\left(w^{T} x_{i}+b\right) \geqslant 1, \quad i=1,2, \ldots, m}\end{array}</script><p>为了最大化间隔，仅需要最大化$\frac{1}{|w|}$，等价于最小化$|w|^2$，上面的问题转化为：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}{\min _{\boldsymbol{w}, b} \frac{1}{2}\|\boldsymbol{w}\|^{2}} \\ {\text { s.t. } y_{i}\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}_{i}+b\right) \geqslant 1, \quad i=1,2, \ldots, m}\end{array}</script><p>这是一个规划问题，在运筹学里面，这样的问题可以通过拉格朗日方程，求他的对偶问题来求解。</p>
+<p>令$\alpha_i \ge 0$，上面问题的拉格朗日函数如下：</p>
+<script type="math/tex; mode=display">
+L(\boldsymbol{w}, b, \boldsymbol{\alpha})=\frac{1}{2}\|\boldsymbol{w}\|^{2}+\sum_{i=1}^{m} \alpha_{i}\left(1-y_{i}\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}_{i}+b\right)\right)</script><p>令拉格朗日函数对$w,b$求导为0可得:</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \boldsymbol{w} &=\sum_{i=1}^{m} \alpha_{i} y_{i} \boldsymbol{x}_{i} \\ 0 &=\sum_{i=1}^{m} \alpha_{i} y_{i} \end{aligned}</script><p>将解得的$w$带入拉格朗日方程可得对偶问题:</p>
+<script type="math/tex; mode=display">
+\max _{\alpha} \quad \sum_{i=1}^{m} \alpha_{i}-\frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_{i} \alpha_{j} y_{i} y_{j} x_{i}^{T} x_{j} \\
+\text { s.t. } \quad {\sum_{i=1}^{m} a_{i} y_{i}=0} \\ {\alpha_{i} \geqslant 0, \quad i=1,2, \ldots, m}</script><p>解出$\alpha$之后，带入原分类超平面方程可得:</p>
+<script type="math/tex; mode=display">
+\begin{aligned} f(x) &=w^{T} x+b \\ &=\sum_{i=1}^{m} \alpha_{i} y_{i} x_{i}^{T} x+b \end{aligned}</script><p>对偶问题是一个二次规划问题，求解对偶问题的方法是SMO（sequential minimal optimization）</p>
+<ol>
+<li><p><strong>核函数</strong></p>
+<p>对于在原始空间中不可分的问题，可以将原始空间映射到一个更高维度的特征空间，是的样本在这个特征空间中线性可分。用$\phi(x)$表示将x映射之后的特征向量，那么特征空间中的超平面可以表示为:</p>
+<script type="math/tex; mode=display">
+f(x)=w^{T} \phi(x)+b</script><p>类似的，对于$w,b$，有：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}{\min _{w, b} \frac{1}{2}\|w\|^{2}} \\ {\text { s.t. } y_{i}\left(w^{T} \phi\left(x_{i}\right)+b\right) \geqslant 1, \quad i=1,2, \ldots, m}\end{array}</script><p>其对偶问题为：</p>
+<script type="math/tex; mode=display">
+\max _{\alpha} \quad \sum_{i=1}^{m} \alpha_{i}-\frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_{i} \alpha_{j} y_{i} y_{j} \phi (x_{i})^{T} \phi (x_{j}) \\\text { s.t. } \quad {\sum_{i=1}^{m} a_{i} y_{i}=0} \\ {\alpha_{i} \geqslant 0, \quad i=1,2, \ldots, m}</script><p>求解上面的问题涉及到计算$\phi (x<em>{i})^{T} \phi (x</em>{j}) $，这是样本$x<em>i$和$x_j$映射到特征空间之后的内积，由于特征空间维数很高，甚至可能是无穷维，因此直接计算$\phi (x</em>{i})^{T} \phi (x_{j})$通常比较难，为了避开这个问题，设计了核函数：</p>
+<script type="math/tex; mode=display">
+\kappa\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=\left\langle\phi\left(\boldsymbol{x}_{i}\right), \phi\left(\boldsymbol{x}_{j}\right)\right\rangle=\phi\left(\boldsymbol{x}_{i}\right)^{\mathrm{T}} \phi\left(\boldsymbol{x}_{j}\right)</script><p>在高维中的内积可以通过低维度中的核函数来求取。</p>
+<p>于是上面的对偶问题可以写为：</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}{\max _{\alpha}} & {\sum_{i=1}^{m} \alpha_{i}-\frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m}}\alpha_{i} \alpha_{j} y_{i} y_{j} \kappa\left(x_{i}, x_{j}\right) \\ {\text { s.t. }} & {\sum_{i=1}^{m} \alpha_{i} y_{i}=0}\end{array}\\
+\alpha_{i} \geqslant 0, \quad i=1,2, \ldots, m</script><p>求解得到：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} f(\boldsymbol{x}) &=\boldsymbol{w}^{\mathrm{T}} \phi(\boldsymbol{x})+b \\ &=\sum_{i=1}^{m} \alpha_{i} y_{i} \phi\left(\boldsymbol{x}_{i}\right)^{\mathrm{T}} \phi(\boldsymbol{x})+b \\ &=\sum_{i=1}^{m} \alpha_{i} y_{i} \kappa\left(\boldsymbol{x}, \boldsymbol{x}_{i}\right)+b \end{aligned}</script></li>
+<li><p>常用核函数</p>
+<p>| 名称       | 表达式                                                       | 参数                                 |<br>| ————— | —————————————————————————————— | —————————————————— |<br>| 线性核     | $\kappa\left(\boldsymbol{x}<em>{i}, \boldsymbol{x}</em>{j}\right)=x<em>i^Tx_j$ |                                      |<br>| 多项式核   | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}<em>{j}\right)=(x_i^Tx_j)^d$ | $d \ge1$为多项式的次数               |<br>| 高斯核     | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}<em>{j}\right)=\exp \left(-\frac{|x-y|^{2}}{2\sigma^{2}}\right)$ | $\sigma \ge 0$为高斯核的带宽         |<br>| 拉普拉斯核 | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}<em>{j}\right)=\exp \left(-\frac{|x-y|}{\sigma}\right)$ | $\sigma \ge 0$                       |<br>| Sigmoid核  | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}_{j}\right)=tanh(\beta x_i^Tx_j+\theta)$ | tanh为双正切函数，$\beta&gt;0,\theta&lt;0$ |</p>
+</li>
+<li><p>软间隔</p>
+<p>上面求解最大最小值的时候，约束条件是必须全部满足。但是一个超平面不一定在特征空间中是线性可分的。即使存在一个超平面能分开，要找到合适的核函数也很难，因此有了软间隔。</p>
+<p>软间隔的意思就是某些点可以不满足约束。用替代损失来表示因为某些点不满足造成的损失。</p>
+</li>
+</ol>
+<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><h4 id="分类树-ID3-决策树与-C4-5-决策树-TODO"><a href="#分类树-ID3-决策树与-C4-5-决策树-TODO" class="headerlink" title="分类树 - ID3 决策树与 C4.5 决策树 TODO"></a>分类树 - ID3 决策树与 C4.5 决策树 TODO</h4><ul>
+<li>ID3 决策树和 C4.5 决策树的<strong>区别</strong>在于：前者使用<strong>信息增益</strong>来进行特征选择，而后者使用<strong>信息增益比</strong>。</li>
+</ul>
+<h4 id="回归树-CART-决策树"><a href="#回归树-CART-决策树" class="headerlink" title="回归树 - CART 决策树"></a>回归树 - CART 决策树</h4><ul>
+<li>CART 算法是在给定输入随机变量 <em>X</em> 条件下输出随机变量 <em>Y</em> 的<strong>条件概率分布</strong>的学习方法。</li>
+</ul>
+<ul>
+<li><p>CART 算法假设决策树是<strong>二叉树</strong>，内部节点特征的取值为“<strong>是</strong>”和“<strong>否</strong>”。</p>
+<p>这样的决策树等价于递归地二分每个特征，<strong>将输入空间/特征空间划分为有限个单元</strong>，然后在这些单元上确定在输入给定的条件下输出的<strong>条件概率分布</strong>。</p>
+</li>
+<li><p>CART 决策树<strong>既可以用于分类，也可以用于回归</strong>；</p>
+<p>对回归树 CART 算法用<strong>平方误差最小化</strong>准则来选择特征，对分类树用<strong>基尼指数最小化</strong>准则选择特征</p>
+</li>
+</ul>
+<h5 id="CART-回归树算法推导"><a href="#CART-回归树算法推导" class="headerlink" title="CART 回归树算法推导"></a>CART 回归树算法推导</h5><ul>
+<li><p>一个回归树对应着输入空间/<strong>特征空间</strong>的一个<strong>划分</strong>以及在划分单元上的<strong>输出值</strong>；</p>
+</li>
+<li><p>假设已将输入空间划分为 <code>M</code> 个单元：<code>{R_1,..,R_m,..,R_M}</code>，并在每个单元上对应有输出值 <code>c_m</code>，则该回归树可表示为:</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{m=1}^{M} c_{m} I\left(x \in R_{m}\right)</script><blockquote>
+<p><code>I(x)</code> 为指示函数</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><strong>如果已经划分好了输入空间</strong>，通常使用<strong>平方误差</strong>作为损失函数来表示回归树对于训练数据的预测误差，通过最小化损失函数来求解每个划分单元的<strong>最优输出值</strong>。</li>
+</ul>
+<h5 id="如何划分输入空间"><a href="#如何划分输入空间" class="headerlink" title="如何划分输入空间"></a>如何划分输入空间</h5><ul>
+<li><p>一个启发式方法是：<strong>以特征向量中的某一个特征为标准进行切分</strong>。</p>
+<p>假设选择<strong>特征向量中第 j 个变量</strong>作为<strong>切分变量</strong>，然后选择<strong>某个实例中第 j 个值 s</strong> 作为<strong>切分点</strong>，则定义如下两个划分单元</p>
+<script type="math/tex; mode=display">
+R_{1}(j, s)=\{x | x^{(j)} \leq s\}, \quad R_{2}(j, s)=\{x | x^{(j)}>s\}</script></li>
+<li><p>遍历<strong>每个实例</strong>的第<code>j</code>个值<code>s</code>，选择满足以下条件的作为<strong>最优切分变量j和切分点s</strong></p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\min _{j, s}\left[\min _{c_{1}} \sum_{x_{i} \in R_{1}(j, s)}\left(y_{i}-c_{1}\right)^{2}+\min _{c_{2}} \sum_{x_{i} \in R_{2}(j, s)}\left(y_{i}-c_{2}\right)^{2}\right]</script><p>其中输出值 <code>c1</code> 和 <code>c2</code> 分别为</p>
+<script type="math/tex; mode=display">
+\hat{c}_{1}=\operatorname{avg}\left(y_{i} | x_{i} \in R_{1}(j, s)\right), \quad \hat{c}_{2}=\operatorname{avg}\left(y_{i} | x_{i} \in R_{2}(j, s)\right)</script><p>接着，继续对两个子空间重复以上步骤，直到满足条件为止；得到将输入空间划分为<code>M</code>个区域的决策树</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{m=1}^{M} \hat{c}_{m} I\left(x \in R_{m}\right)</script><h5 id="示例-选择切分变量与切分点"><a href="#示例-选择切分变量与切分点" class="headerlink" title="示例: 选择切分变量与切分点"></a>示例: 选择切分变量与切分点</h5><blockquote>
+<p>《统计学习方法》 8.4.2</p>
+</blockquote>
+<ul>
+<li>训练集</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>x_i</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>y_i</td>
+<td>5.56</td>
+<td>5.70</td>
+<td>5.91</td>
+<td>6.40</td>
+<td>6.80</td>
+<td>7.05</td>
+<td>8.90</td>
+<td>8.70</td>
+<td>9.00</td>
+<td>9.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>这里只有一个特征，即<code>j=1</code>；然后遍历每个实例的值作为<strong>切分点</strong></p>
+<p><code>s = {1, 2, 3, 4, 5, 6, 7, 8, 9}</code></p>
+<blockquote>
+<p>原书使用的切分点为 <code>{1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5}</code>，即相邻两个点的均值；因为切分点并没有参与运算，所以我觉得两者没有区别；</p>
+<p>最后一个点无法将数据划分为两个空间，所以不需要</p>
+</blockquote>
+</li>
+<li><p>以 <code>s=1</code> 为例</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{array}{l}{R_{1}(1,1)=\{x | x \leq 1\}=\{1\}} \\ {R_{2}(1,1)=\{x | x>1\}=\{2,3,4,5,6,7,8,9,10\}} \\ {c_{1}=\frac{1}{\left|R_{1}\right|}=\frac{1}{1} \sum_{x_{i} \in R_{1}} y_{i}=5.56} \\ {c_{2}=\frac{1}{\left|R_{2}\right|}=\frac{1}{9} \sum_{x_{i} \in R_{2}} y_{i}=7.50} \\ {m(s)=\min _{c_{1}} \sum_{x_{i} \in R_{1}}\left(y_{i}-c_{1}\right)^{2}+\min _{c_{2}} \sum_{x_{i} \in R_{2}}\left(y_{i}-c_{2}\right)^{2}=0+15.72=15.72}\end{array}</script><p>所有 <code>m(s)</code> 的计算结果如下</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>s</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m(s)</td>
+<td>15.72</td>
+<td>12.07</td>
+<td>8.36</td>
+<td>5.78</td>
+<td>3.91</td>
+<td>1.93</td>
+<td>8.01</td>
+<td>11.73</td>
+<td>15.74</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>当 <code>s=6</code> 时 <code>m(s)</code> 达到最小值，此时</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}{R_{1}(1,6)=\{x | x \leq 6\}=\{1,2,3,4,5,6\}} \\ {R_{2}(1,6)=\{x | x>6\}=\{7,8,9,10\}} \\ {c_{1}=\frac{1}{\left|R_{1}\right|}=\frac{1}{6} \sum_{x_{i} \in R_{1}} y_{i}=6.24} \\ {c_{2}=\frac{1}{\left|R_{2}\right|}=\frac{1}{4} \sum_{x_{i} \in R_{2}} y_{i}=8.91}\end{array}</script><p>所以第一棵决策树为</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}T_{1}(x)=\left\{\begin{array}{ll}{6.24,} & {x<6} \\ {8.91,} & {x \geq 6}\end{array}\right.\\
+f_1(x)=T_1(x)\end{array}</script><h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><ul>
+<li>基本思想：由多个学习器组合成一个性能更好的学习器</li>
+<li><strong>集成学习为什么有效？</strong>——不同的模型通常会在测试集上产生不同的误差。平均上，集成模型能至少与其任一成员表现一致；并且<strong>如果成员的误差是独立的</strong>，集成模型将显著地比其成员表现更好。</li>
+</ul>
+<h4 id="1-Boosting"><a href="#1-Boosting" class="headerlink" title="1. Boosting"></a>1. Boosting</h4><ul>
+<li><p><strong>Boosting</strong>（提升）方法从某个<strong>基学习器</strong>出发，反复学习，得到一系列基学习器，然后组合它们构成一个强学习器。</p>
+</li>
+<li><p>Boosting 基于<strong>串行策略</strong>：基学习器之间存在依赖关系，新的学习器需要依据旧的学习器生成。</p>
+</li>
+<li><p>代表算法/模型:</p>
+<ul>
+<li><a href="https://github.com/imhuay/Algorithm_Interview_Notes-Chinese/blob/master/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.md#%E6%8F%90%E5%8D%87%E6%96%B9%E6%B3%95-adaboost" target="_blank" rel="noopener">提升方法 AdaBoost</a></li>
+<li>提升树</li>
+<li>梯度提升树 GBDT</li>
+</ul>
+</li>
+</ul>
+<h5 id="Boosting-策略要解决的两个基本问题"><a href="#Boosting-策略要解决的两个基本问题" class="headerlink" title="Boosting 策略要解决的两个基本问题"></a>Boosting 策略要解决的两个基本问题</h5><ol>
+<li>每一轮如何改变数据的权值或概率分布？</li>
+<li>如何将弱分类器组合成一个强分类器？</li>
+</ol>
+<h5 id="AdaBoost-算法"><a href="#AdaBoost-算法" class="headerlink" title="AdaBoost 算法"></a>AdaBoost 算法</h5><ul>
+<li>AdaBoost 是 Boosting 策略的一种具体算法</li>
+</ul>
+<p><strong>AdaBoost 算法解决 Boosting 两个基本问题的方法</strong></p>
+<ol>
+<li>每一轮如何改变数据的权值或概率分布？——开始时，每个样本的权值是一样的，AdaBoost 的做法是提高上一轮弱分类器错误分类样本的权值，同时降低那些被正确分类样本的权值。</li>
+<li>如何将弱分类器组合成一个强分类器？—— AdaBoost 采取加权表决的方法（<a href="https://github.com/imhuay/Algorithm_Interview_Notes-Chinese/blob/master/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.md#%E5%8A%A0%E6%B3%95%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener">加法模型</a>）。具体的，AdaBoost 会加大分类误差率小的基学习器的权值，使其在表决中起到更大的作用，同时减小分类误差率大的基学习器的权值。</li>
+</ol>
+<h5 id="AdaBoost-算法描述"><a href="#AdaBoost-算法描述" class="headerlink" title="AdaBoost 算法描述"></a>AdaBoost 算法描述</h5><ul>
+<li>输入：训练集 <code>T={(x1,y1),..,(xN,yN)}, xi ∈ R^n, yi ∈ {-1,+1}</code>，基学习器 <code>G1(x)</code></li>
+<li>输出：最终学习器 <code>G(x)</code></li>
+</ul>
+<ol>
+<li>初始化训练数据的权值分布</li>
+</ol>
+<script type="math/tex; mode=display">
+D_{1}=\left(w_{1,1}, \cdots, w_{1, i}, \cdots, w_{1, N}\right), \quad w_{1, i}=\frac{1}{N}, \quad i=1,2, \cdots, N</script><ol>
+<li><p>对 <code>m=1,2,..,M</code></p>
+<p>i. 使用权值分布为<code>D_m</code>的训练集，得到基分类器：</p>
+<script type="math/tex; mode=display">
+G_{m}(x) : \chi \rightarrow\{-1,+1\}</script><p>ii. 计算 <code>G_m(x)</code> 在训练集上的分类误差率</p>
+<script type="math/tex; mode=display">
+\begin{aligned} e_{m} &=P\left(G_{m}\left(x_{i}\right) \neq y_{i}\right) \\ &=\sum_{i=1}^{N} w_{m, i} \cdot I\left(G_{m}\left(x_{i}\right) \neq y_{i}\right) \end{aligned}</script></li>
+</ol>
+<blockquote>
+<p>I(x)<code>为指示函数：若</code>G(x)!=y<code>为真，则</code>I(G(x)!=y)=1<code>，反之为</code>0</p>
+<p>实际上分类误差率就等于所有<strong>分类错误的数据的权值之和</strong></p>
+</blockquote>
+<p>​    iii. 计算 <code>G_m(x)</code> 的系数</p>
+<script type="math/tex; mode=display">
+\alpha_{m}=\frac{1}{2} \ln \frac{1-e_{m}}{e_{m}}</script><p>​    iv. 更新训练街的权值分布</p>
+<script type="math/tex; mode=display">
+\begin{aligned} D_{m+1} &=\left(w_{m+1,1}, \cdots, w_{m+1, i}, \cdots, w_{m+1, N}\right) \\ w_{m+1, i} &=\frac{w_{m, i} \cdot \exp \left(-\alpha_{m} \cdot y_{i} G_{m}\left(x_{i}\right)\right)}{Z_{m}} \\ Z_{m} &=\sum_{i=1}^{N} w_{m, i} \cdot \exp \left(-\alpha_{m} \cdot y_{i} G_{m}\left(x_{i}\right)\right) \end{aligned}</script><p>​    其中 <code>Z_m</code> 为<strong>规范化因子</strong>，使 <code>D_m+1</code> 成为一个<strong>概率分布</strong>，类似 <code>Softmax</code> 函数</p>
+<p>​    因为 <code>y, G(x) ∈ {-1, 1}</code>，所以实际上</p>
+<script type="math/tex; mode=display">
+y_{i} G_{m}\left(x_{i}\right)=\left\{\begin{array}{cl}{1,} & {G_{m}\left(x_{i}\right)=y_{i}} \\ {-1,} & {G_{m}\left(x_{i}\right) \neq y_{i}}\end{array}\right.</script><p>​    因此 $w_{m+1,i}$ 也可以写作</p>
+<script type="math/tex; mode=display">
+w_{m+1, i}=\left\{\begin{array}{ll}{\frac{w_{m, i}}{Z_{m}} e^{-\alpha_{m}},} & {G_{m}\left(x_{i}\right)=y_{i}} \\ {\frac{w_{m, i}}{Z_{m}} e^{\alpha_{m}},} & {G_{m}\left(x_{i}\right) \neq y_{i}}\end{array}\right.</script><ol>
+<li><p>模型的更新算法：</p>
+<script type="math/tex; mode=display">
+f_{k}(x)=f_{k-1}(x)+\alpha_{k} G_{k}(x)</script></li>
+<li><p>构建基学习器的<strong>线性组合</strong></p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+G(x)=\operatorname{sign}\left(\sum_{m=1}^{M} \alpha_{m} G_{m}(x)\right)</script><h5 id="AdaBoost-算法要点说明"><a href="#AdaBoost-算法要点说明" class="headerlink" title="AdaBoost 算法要点说明"></a>AdaBoost 算法要点说明</h5><ul>
+<li>开始时，训练集中所有数据具有均匀的权值分布</li>
+<li>计算分类误差率，实际上就是计算所有分类错误的数据的权值之和</li>
+<li><code>G_m(x)</code> 的系数 <code>α_m</code> 表示该学习器在最终学习器中的重要性；公式$\alpha<em>{m}=\frac{1}{2} \ln \frac{1-e</em>{m}}{e_{m}}$表明当分类错误率 $e_m \le 1/2$时，$α_m \ge 0$，并且 $α_m$ 随 $e_m$ 的减小而增大</li>
+<li>被基分类器分类错误的样本权值会扩大，而分类正确的权值会缩小——<strong>不改变训练数据，而不断改变训练数据权值的分布，使训练数据在基学习器的学习中起到不同的作用</strong>，这是 AdaBoost 的一个特点。</li>
+</ul>
+<h5 id="梯度提升决策树-GBDT-Gradient-Boosting-Decision-Tree"><a href="#梯度提升决策树-GBDT-Gradient-Boosting-Decision-Tree" class="headerlink" title="梯度提升决策树 GBDT(Gradient Boosting Decision Tree)"></a>梯度提升决策树 GBDT(Gradient Boosting Decision Tree)</h5><ul>
+<li>GBDT 是以<strong>决策树</strong>为基学习器、采用 Boosting 策略的一种集成学习模型</li>
+<li><strong>与提升树的区别</strong>：残差的计算不同，提升树使用的是真正的残差，梯度提升树用当前模型的负梯度来拟合残差。</li>
+</ul>
+<h6 id="提升树"><a href="#提升树" class="headerlink" title="提升树"></a>提升树</h6><ul>
+<li>以<strong>决策树</strong>为基学习器，对分类问题使用二叉分类树，回归问题使用二叉回归树。</li>
+<li>解决回归问题时，通过不断拟合残差得到新的树。</li>
+</ul>
+<ul>
+<li>提升树模型可表示为<strong>决策树的加法模型</strong>：<script type="math/tex; mode=display">
+f_{M}(x)=\sum_{m=1}^{M} T\left(x ; \Theta_{m}\right)</script></li>
+</ul>
+<ul>
+<li>首先初始化提升树 <code>f_0(x)=0</code>，则第 m 步的模型为</li>
+</ul>
+<script type="math/tex; mode=display">
+f_{m}(x)=f_{m-1}(x)+T\left(x ; \Theta_{m}\right)</script><ul>
+<li>然后通过最小化损失函数决定下一个决策树的参数<script type="math/tex; mode=display">
+\hat{\Theta}_{m}=\arg \min _{\Theta_{m}} \sum_{i=1}^{N} L\left(y_{i}, f_{m-1}\left(x_{i}\right)+T\left(x_{i} ; \Theta_{m}\right)\right)</script></li>
+</ul>
+<ul>
+<li>对于二分类问题，提升树算法只需要将AdaBoost 算法中的基学习器限制为二叉分类树即可</li>
+</ul>
+<h6 id="提升树算法描述"><a href="#提升树算法描述" class="headerlink" title="提升树算法描述"></a>提升树算法描述</h6><p>在回归问题中，新的树是通过不断拟合<strong>残差</strong>（residual）得到的。</p>
+<ul>
+<li>输入：训练集 <code>T={(x1,y1),..,(xN,yN)}, xi ∈ R^n, yi ∈ R</code></li>
+<li>输出：回归提升树 <code>f_M(x)</code></li>
+</ul>
+<ol>
+<li><p>初始化 <code>f_0(x)=0</code></p>
+</li>
+<li><p>对 <code>m=1,2,..,M</code></p>
+<p>i.计算<strong>残差</strong></p>
+<script type="math/tex; mode=display">
+r_{m, i}=y_{i}-f_{m-1}\left(x_{i}\right), \quad i=1,2, \dots, N</script><p><strong>ii.拟合残差</strong>学习下一个回归树的参数</p>
+<script type="math/tex; mode=display">
+\hat{\Theta}_{m}=\arg \min _{\Theta_{m}} \sum_{i=1}^{N} L\left(r_{m, i}, T\left(x_{i} ; \Theta_{m}\right)\right)</script><p>iii. 更新 <code>f_m(x)</code></p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+f_{m}(x)=f_{m-1}(x)+T\left(x ; \Theta_{m}\right)</script><p>​    iv. 得到回归提升树</p>
+<script type="math/tex; mode=display">
+f_{M}(x)=\sum_{m=1}^{M} T\left(x ; \Theta_{m}\right)</script><h4 id="2-Bagging"><a href="#2-Bagging" class="headerlink" title="2. Bagging"></a>2. Bagging</h4><ul>
+<li>Bagging 基于<strong>并行策略</strong>：基学习器之间不存在依赖关系，可同时生成。</li>
+<li>代表算法/模型:<ul>
+<li><a href="https://github.com/imhuay/Algorithm_Interview_Notes-Chinese/blob/master/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.md#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97" target="_blank" rel="noopener">随机森林</a></li>
+<li>神经网络的 <strong>Dropout</strong> 策略</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
@@ -1181,7 +1484,7 @@ f(x)=\operatorname{sign}\left(w^{*} \cdot x+b^{*}\right)</script><h5 id="SVM-标
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-number">1.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习基础"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#偏差与方差"><span class="nav-number">1.1.1.</span> <span class="nav-text">偏差与方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导致偏差和方差的原因"><span class="nav-number">1.1.2.</span> <span class="nav-text">导致偏差和方差的原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习中的偏差与方差"><span class="nav-number">1.2.</span> <span class="nav-text">深度学习中的偏差与方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏差与方差的权衡"><span class="nav-number">1.3.</span> <span class="nav-text">偏差与方差的权衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">1.4.</span> <span class="nav-text">生成模型与判别模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先验概率与后验概率"><span class="nav-number">1.5.</span> <span class="nav-text">先验概率与后验概率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习实践"><span class="nav-number">2.</span> <span class="nav-text">机器学习实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超参数选择"><span class="nav-number">2.1.</span> <span class="nav-text">超参数选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-Search"><span class="nav-number">2.1.2.</span> <span class="nav-text">Random Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关库（未使用）"><span class="nav-number">2.1.3.</span> <span class="nav-text">相关库（未使用）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#余弦相似度（Cos距离）与欧氏距离的区别和联系"><span class="nav-number">2.2.</span> <span class="nav-text">余弦相似度（Cos距离）与欧氏距离的区别和联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习和无监督学习"><span class="nav-number">2.3.</span> <span class="nav-text">监督学习和无监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熵，交叉熵和相对熵"><span class="nav-number">2.4.</span> <span class="nav-text">熵，交叉熵和相对熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混淆矩阵、模型度量指标：准确率、精确率、召回率、F1-值等"><span class="nav-number">2.5.</span> <span class="nav-text">混淆矩阵、模型度量指标：准确率、精确率、召回率、F1 值等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何处理数据中的缺失值"><span class="nav-number">2.6.</span> <span class="nav-text">如何处理数据中的缺失值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联规则挖掘的-3-个度量指标：支持度、置信度、提升度"><span class="nav-number">2.7.</span> <span class="nav-text">关联规则挖掘的 3 个度量指标：支持度、置信度、提升度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规则的有效性："><span class="nav-number">2.8.</span> <span class="nav-text">规则的有效性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断规则的有效性"><span class="nav-number">2.9.</span> <span class="nav-text">判断规则的有效性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习算法"><span class="nav-number">3.</span> <span class="nav-text">机器学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息论"><span class="nav-number">3.1.</span> <span class="nav-text">信息论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵"><span class="nav-number">3.2.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">3.3.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归模型定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">逻辑回归模型定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归的推导"><span class="nav-number">3.3.2.</span> <span class="nav-text">逻辑回归的推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多分类逻辑回归"><span class="nav-number">3.3.3.</span> <span class="nav-text">多分类逻辑回归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机"><span class="nav-number">3.4.</span> <span class="nav-text">支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是支持向量"><span class="nav-number">3.4.1.</span> <span class="nav-text">什么是支持向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机的分类"><span class="nav-number">3.4.2.</span> <span class="nav-text">支持向量机的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核函数与核技巧"><span class="nav-number">3.4.3.</span> <span class="nav-text">核函数与核技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机推导"><span class="nav-number">3.4.4.</span> <span class="nav-text">支持向量机推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性可分支持向量机的推导"><span class="nav-number">3.4.5.</span> <span class="nav-text">线性可分支持向量机的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#符号定义："><span class="nav-number">3.4.5.1.</span> <span class="nav-text">符号定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-标准问题的推导-2"><span class="nav-number">3.4.5.2.</span> <span class="nav-text">SVM 标准问题的推导(2)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-number">1.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习基础"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#偏差与方差"><span class="nav-number">1.1.1.</span> <span class="nav-text">偏差与方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导致偏差和方差的原因"><span class="nav-number">1.1.2.</span> <span class="nav-text">导致偏差和方差的原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习中的偏差与方差"><span class="nav-number">1.2.</span> <span class="nav-text">深度学习中的偏差与方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏差与方差的权衡"><span class="nav-number">1.3.</span> <span class="nav-text">偏差与方差的权衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">1.4.</span> <span class="nav-text">生成模型与判别模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先验概率与后验概率"><span class="nav-number">1.5.</span> <span class="nav-text">先验概率与后验概率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习实践"><span class="nav-number">2.</span> <span class="nav-text">机器学习实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超参数选择"><span class="nav-number">2.1.</span> <span class="nav-text">超参数选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-Search"><span class="nav-number">2.1.2.</span> <span class="nav-text">Random Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关库（未使用）"><span class="nav-number">2.1.3.</span> <span class="nav-text">相关库（未使用）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#余弦相似度（Cos距离）与欧氏距离的区别和联系"><span class="nav-number">2.2.</span> <span class="nav-text">余弦相似度（Cos距离）与欧氏距离的区别和联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习和无监督学习"><span class="nav-number">2.3.</span> <span class="nav-text">监督学习和无监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熵，交叉熵和相对熵"><span class="nav-number">2.4.</span> <span class="nav-text">熵，交叉熵和相对熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混淆矩阵、模型度量指标：准确率、精确率、召回率、F1-值等"><span class="nav-number">2.5.</span> <span class="nav-text">混淆矩阵、模型度量指标：准确率、精确率、召回率、F1 值等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何处理数据中的缺失值"><span class="nav-number">2.6.</span> <span class="nav-text">如何处理数据中的缺失值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联规则挖掘的-3-个度量指标：支持度、置信度、提升度"><span class="nav-number">2.7.</span> <span class="nav-text">关联规则挖掘的 3 个度量指标：支持度、置信度、提升度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规则的有效性："><span class="nav-number">2.8.</span> <span class="nav-text">规则的有效性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断规则的有效性"><span class="nav-number">2.9.</span> <span class="nav-text">判断规则的有效性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习算法"><span class="nav-number">3.</span> <span class="nav-text">机器学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息论"><span class="nav-number">3.1.</span> <span class="nav-text">信息论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵"><span class="nav-number">3.2.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">3.3.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归模型定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">逻辑回归模型定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归的推导"><span class="nav-number">3.3.2.</span> <span class="nav-text">逻辑回归的推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多分类逻辑回归"><span class="nav-number">3.3.3.</span> <span class="nav-text">多分类逻辑回归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机"><span class="nav-number">3.4.</span> <span class="nav-text">支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是支持向量"><span class="nav-number">3.4.1.</span> <span class="nav-text">什么是支持向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机的分类"><span class="nav-number">3.4.2.</span> <span class="nav-text">支持向量机的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核函数与核技巧"><span class="nav-number">3.4.3.</span> <span class="nav-text">核函数与核技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机推导"><span class="nav-number">3.4.4.</span> <span class="nav-text">支持向量机推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性可分支持向量机的推导"><span class="nav-number">3.4.5.</span> <span class="nav-text">线性可分支持向量机的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#符号定义："><span class="nav-number">3.4.5.1.</span> <span class="nav-text">符号定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-标准问题的推导-2"><span class="nav-number">3.4.5.2.</span> <span class="nav-text">SVM 标准问题的推导(2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树"><span class="nav-number">3.5.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类树-ID3-决策树与-C4-5-决策树-TODO"><span class="nav-number">3.5.1.</span> <span class="nav-text">分类树 - ID3 决策树与 C4.5 决策树 TODO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回归树-CART-决策树"><span class="nav-number">3.5.2.</span> <span class="nav-text">回归树 - CART 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CART-回归树算法推导"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">CART 回归树算法推导</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何划分输入空间"><span class="nav-number">3.5.2.2.</span> <span class="nav-text">如何划分输入空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#示例-选择切分变量与切分点"><span class="nav-number">3.5.2.3.</span> <span class="nav-text">示例: 选择切分变量与切分点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成学习"><span class="nav-number">3.6.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Boosting"><span class="nav-number">3.6.1.</span> <span class="nav-text">1. Boosting</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Boosting-策略要解决的两个基本问题"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">Boosting 策略要解决的两个基本问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">AdaBoost 算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法描述"><span class="nav-number">3.6.1.3.</span> <span class="nav-text">AdaBoost 算法描述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法要点说明"><span class="nav-number">3.6.1.4.</span> <span class="nav-text">AdaBoost 算法要点说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#梯度提升决策树-GBDT-Gradient-Boosting-Decision-Tree"><span class="nav-number">3.6.1.5.</span> <span class="nav-text">梯度提升决策树 GBDT(Gradient Boosting Decision Tree)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#提升树"><span class="nav-number">3.6.1.5.1.</span> <span class="nav-text">提升树</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#提升树算法描述"><span class="nav-number">3.6.1.5.2.</span> <span class="nav-text">提升树算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Bagging"><span class="nav-number">3.6.2.</span> <span class="nav-text">2. Bagging</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
