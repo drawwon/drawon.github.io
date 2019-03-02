@@ -99,7 +99,8 @@
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104909.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190227145622.png">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=1%5Cleft%5C%7B+%5Ccdot+%5Cright%5C%7D">
-<meta property="og:updated_time" content="2019-03-02T07:35:36.972Z">
+<meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190302153912.png">
+<meta property="og:updated_time" content="2019-03-02T07:58:52.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习知识复习">
 <meta name="twitter:description" content="机器学习">
@@ -525,10 +526,10 @@
 <p><strong>2.3. 为什么 L1 正则化可以产生稀疏权值，而 L2 不会？</strong><br>L1正则化和L2正则化可以看做是损失函数的惩罚项。所谓『惩罚』是指对损失函数中的某些参数做一些限制。对于线性回归模型，使用L1正则化的模型建叫做Lasso回归，使用L2正则化的模型叫做Ridge回归（岭回归）。</p>
 <p>L1回归的公式如下：</p>
 <script type="math/tex; mode=display">
-J=J_{0}+\alpha \sum_{w}|w|</script><p>其中$J_0$是原始的损失函数，加号后面的一项是L1正则化项，α是正则化系数。</p>
-<p>注意到L1正则化是权值的绝对值之和，$J​$是带有绝对值符号的函数，因此$J​$是不完全可微的。机器学习的任务就是要通过一些方法（比如梯度下降）求出损失函数的最小值。当我们在原始损失函数$J<em>0​$后添加L1正则化项时，相当于对$J_0​$做了一个约束。令$L=\alpha \sum</em>{w}|w|​$，则$J=J_{0}+L​$，此时我们的任务变成在L1约束下求出$J_0​$取最小值的解。考虑二维的情况，即只有两个权值$w^1​$和$w^2​$，此时$L=\left|w^{1}\right|+\left|w^{2}\right|​$对于梯度下降法，求解$J_0​$的过程可以画出等值线，同时L1正则化的函数L也可以在w1w2w1w2的二维平面上画出来。如下图：</p>
+J=J_{0}+\alpha \sum_{w}|w|</script><p>其中$J_0​$是原始的损失函数，加号后面的一项是L1正则化项，α是正则化系数。</p>
+<p>注意到L1正则化是权值的绝对值之和，$J$是带有绝对值符号的函数，因此$J$是不完全可微的。机器学习的任务就是要通过一些方法（比如梯度下降）求出损失函数的最小值。当我们在原始损失函数$J_0$后添加L1正则化项时，相当于对$J_0$做了一个约束。令$L=\alpha \sum_w|w|$，则$J=J_0+L$，此时我们的任务变成在L1约束下求出$J_0$取最小值的解。考虑二维的情况，即只有两个权值$w^1$和$w^2$，此时$L=\left|w^1\right|+\left|w^2\right|$对于梯度下降法，求解$J_0$的过程可以画出等值线，同时L1正则化的函数L也可以在w1w2的二维平面上画出来。如下图：</p>
 <p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104434.png" alt=""></p>
-<p>图中等值线是$J<em>{0}​$的等值线，黑色方形是L函数的图形。在图中，当$J</em>{0}​$等值线与$L​$图形首次相交的地方就是最优解。上图中$J<em>{0}​$与L在L的一个顶点处相交，这个顶点就是最优解。注意到这个顶点的值是$\left(w^{1}, w^{2}\right)=(0, w)​$。可以直观想象，因为L函数有很多『突出的角』（二维情况下四个，多维情况下更多），$J</em>{0}​$与这些角接触的机率会远大于与L其它部位接触的机率，而在这些角上，会有很多权值等于0，这就是为什么L1正则化可以产生稀疏模型，进而可以用于特征选择。</p>
+<p>图中等值线是$J_0​$的等值线，黑色方形是L函数的图形。在图中，当$J_0​$等值线与$L​$图形首次相交的地方就是最优解。上图中$J_0​$与L在L的一个顶点处相交，这个顶点就是最优解。注意到这个顶点的值是$\left(w^1, w^2\right)=(0, w)​$。可以直观想象，因为L函数有很多『突出的角』（二维情况下四个，多维情况下更多），$J_0​$与这些角接触的机率会远大于与L其它部位接触的机率，而在这些角上，会有很多权值等于0，这就是为什么L1正则化可以产生稀疏模型，进而可以用于特征选择。</p>
 <p>而L2正则化的公式如下：</p>
 <script type="math/tex; mode=display">J=J_{0}+\alpha \sum_{m} w^{2}</script><p>平面图如下，因为此时L2的图形是一个圆，因此两者相交的点没有0的情况，这就是L2不产生稀疏矩阵的原因。</p>
 <p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104909.png" alt=""></p>
@@ -536,7 +537,7 @@ J=J_{0}+\alpha \sum_{w}|w|</script><p>其中$J_0$是原始的损失函数，加�
 </ol>
 </li>
 </ul>
-<p>P.S. 为什么相切的点就是所求的点。我们要求$J_0$在L约束下的最小值，L是约束，那么我们就只能在下面的菱形和圆形里面取值，相切那个点。（彩色等值线是越靠近外面越大）</p>
+<p>P.S. 为什么相切的点就是所求的点。我们要求$J_0​$在L约束下的最小值，L是约束，那么我们就只能在下面的菱形和圆形里面取值，相切那个点。（彩色等值线是越靠近外面越大）</p>
 <h3 id="偏差与方差的权衡"><a href="#偏差与方差的权衡" class="headerlink" title="偏差与方差的权衡"></a>偏差与方差的权衡</h3><ul>
 <li>给定一个机器学习任务：<ul>
 <li>训练不足时，模型拟合能力不足，此时偏差是主要影响模型泛化误差的原因。</li>
@@ -990,9 +991,10 @@ f(x)=w^{T} \phi(x)+b</script><p>类似的，对于$w,b$，有：</p>
 \alpha_{i} \geqslant 0, \quad i=1,2, \ldots, m</script><p>求解得到：</p>
 <script type="math/tex; mode=display">
 \begin{aligned} f(\boldsymbol{x}) &=\boldsymbol{w}^{\mathrm{T}} \phi(\boldsymbol{x})+b \\ &=\sum_{i=1}^{m} \alpha_{i} y_{i} \phi\left(\boldsymbol{x}_{i}\right)^{\mathrm{T}} \phi(\boldsymbol{x})+b \\ &=\sum_{i=1}^{m} \alpha_{i} y_{i} \kappa\left(\boldsymbol{x}, \boldsymbol{x}_{i}\right)+b \end{aligned}</script></li>
-<li><p>常用核函数</p>
-<p>| 名称       | 表达式                                                       | 参数                                 |<br>| ————— | —————————————————————————————— | —————————————————— |<br>| 线性核     | $\kappa\left(\boldsymbol{x}<em>{i}, \boldsymbol{x}</em>{j}\right)=x<em>i^Tx_j$ |                                      |<br>| 多项式核   | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}<em>{j}\right)=(x_i^Tx_j)^d$ | $d \ge1$为多项式的次数               |<br>| 高斯核     | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}<em>{j}\right)=\exp \left(-\frac{|x-y|^{2}}{2\sigma^{2}}\right)$ | $\sigma \ge 0$为高斯核的带宽         |<br>| 拉普拉斯核 | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}<em>{j}\right)=\exp \left(-\frac{|x-y|}{\sigma}\right)$ | $\sigma \ge 0$                       |<br>| Sigmoid核  | $\kappa\left(\boldsymbol{x}</em>{i}, \boldsymbol{x}_{j}\right)=tanh(\beta x_i^Tx_j+\theta)$ | tanh为双正切函数，$\beta&gt;0,\theta&lt;0$ |</p>
+<li><p>常用核函数<br><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190302153912.png" alt=""></p>
 </li>
+</ol>
+<ol>
 <li><p>软间隔</p>
 <p>上面求解最大最小值的时候，约束条件是必须全部满足。但是一个超平面不一定在特征空间中是线性可分的。即使存在一个超平面能分开，要找到合适的核函数也很难，因此有了软间隔。</p>
 <p>软间隔的意思就是某些点可以不满足约束。用替代损失来表示因为某些点不满足造成的损失。</p>
@@ -1149,6 +1151,16 @@ f_1(x)=T_1(x)\end{array}</script><h3 id="集成学习"><a href="#集成学习" c
 <li>每一轮如何改变数据的权值或概率分布？</li>
 <li>如何将弱分类器组合成一个强分类器？</li>
 </ol>
+<ul>
+<li>基于<strong>串行策略</strong>：基学习器之间存在依赖关系，新的学习器需要根据上一个学习器生成。</li>
+<li>基本思路：<ul>
+<li>先从<strong>初始训练集</strong>训练一个基学习器；初始训练集中各样本的权重是相同的；</li>
+<li>根据上一个基学习器的表现，<strong>调整样本权重</strong>，使分类错误的样本得到更多的关注；</li>
+<li>基于调整后的样本分布，训练下一个基学习器；</li>
+<li>测试时，对各基学习器<strong>加权</strong>得到最终结果</li>
+</ul>
+</li>
+</ul>
 <h5 id="AdaBoost-算法"><a href="#AdaBoost-算法" class="headerlink" title="AdaBoost 算法"></a>AdaBoost 算法</h5><ul>
 <li>AdaBoost 是 Boosting 策略的一种具体算法</li>
 </ul>
@@ -1243,10 +1255,83 @@ r_{m, i}=y_{i}-f_{m-1}\left(x_{i}\right), \quad i=1,2, \dots, N</script><p><stro
 f_{m}(x)=f_{m-1}(x)+T\left(x ; \Theta_{m}\right)</script><p>​    iv. 得到回归提升树</p>
 <script type="math/tex; mode=display">
 f_{M}(x)=\sum_{m=1}^{M} T\left(x ; \Theta_{m}\right)</script><h4 id="2-Bagging"><a href="#2-Bagging" class="headerlink" title="2. Bagging"></a>2. Bagging</h4><ul>
-<li>Bagging 基于<strong>并行策略</strong>：基学习器之间不存在依赖关系，可同时生成。</li>
-<li>代表算法/模型:<ul>
+<li><p>基于<strong>并行策略</strong>：基学习器之间不存在依赖关系，可同时生成。</p>
+</li>
+<li><p><strong>基本思路</strong>：</p>
+<ul>
+<li>利用<strong>自助采样法</strong>对训练集随机采样，重复进行 <code>T</code> 次;</li>
+<li>基于每个采样集训练一个基学习器，并得到 <code>T</code> 个基学习器；</li>
+<li><p>预测时，集体<strong>投票决策</strong>。</p>
+</li>
+<li><p>训练每个基学习器时只使用一部分样本；</p>
+<blockquote>
+<p>偏好不稳定的学习器作为基学习器；</p>
+<p>所谓不稳定的学习器，指的是对<strong>样本分布</strong>较为敏感的学习器。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>代表算法/模型:</p>
+<ul>
 <li><a href="https://github.com/imhuay/Algorithm_Interview_Notes-Chinese/blob/master/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/A-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.md#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97" target="_blank" rel="noopener">随机森林</a></li>
 <li>神经网络的 <strong>Dropout</strong> 策略</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-Stacking"><a href="#3-Stacking" class="headerlink" title="3. Stacking"></a>3. Stacking</h4><h4 id="Stacking-方法"><a href="#Stacking-方法" class="headerlink" title="Stacking 方法"></a>Stacking 方法</h4><ul>
+<li>基于<strong>串行策略</strong>：初级学习器与次级学习器之间存在依赖关系，初学习器的输出作为次级学习器的输入。</li>
+<li>基本思路：<ul>
+<li>先从初始训练集训练 <code>T</code> 个<strong>不同的初级学习器</strong>;</li>
+<li>利用每个初级学习器的<strong>输出</strong>构建一个<strong>次级数据集</strong>，该数据集依然使用初始数据集的标签；</li>
+<li>根据新的数据集训练<strong>次级学习器</strong>；</li>
+<li><strong>多级学习器</strong>的构建过程类似。</li>
+</ul>
+</li>
+</ul>
+<h4 id="集成学习常见问题"><a href="#集成学习常见问题" class="headerlink" title="集成学习常见问题"></a>集成学习常见问题</h4><p><strong>1. 使用决策树作为基学习器的原因：</strong></p>
+<blockquote>
+<p>(1). 决策树的表达能力和泛化能力，可以通过剪枝快速调整；<br>(2). 决策树可以方便地将<strong>样本的权重</strong>整合到训练过程中；<br>(3). 决策树是一种<strong>不稳定</strong>的学习器；<br>  所谓不稳定，指的是数据样本的扰动会对决策树的结果产生较大的影响；</p>
+</blockquote>
+<ul>
+<li>后两点分别适合 Boosting 策略和 Bagging 策略；所以它们一般都使用决策树作为基学习器。</li>
+</ul>
+<p><strong>2. 为什么不稳定的学习器更适合作为基学习器？</strong></p>
+<ul>
+<li>不稳定的学习器容易受到<strong>样本分布</strong>的影响（方差大），很好的引入了<strong>随机性</strong>；这有助于在集成学习（特别是采用 <strong>Bagging</strong>策略）中提升模型的<strong>泛化能力</strong>。</li>
+<li>为了更好的引入随机性，有时会随机选择一个<strong>属性子集</strong>中的最优分裂属性，而不是全局最优（<strong>随机森林</strong>）</li>
+</ul>
+<p><strong>3. 还有哪些模型也适合作为基学习器？</strong></p>
+<ul>
+<li>神经网络<ul>
+<li>神经网络也属于<strong>不稳定</strong>的学习器；</li>
+<li>此外，通过调整神经元的数量、网络层数，连接方式初始权重也能很好的引入随机性和改变模型的表达能力和泛化能力。</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Bagging 方法中能使用线性分类器作为基学习器吗？ Boosting 呢？</strong></p>
+<ul>
+<li>Bagging 方法中<strong>不推荐</strong><ul>
+<li>线性分类器都属于稳定的学习器（方差小），对数据不敏感；</li>
+<li>甚至可能因为 Bagging 的采样，导致在训练中难以收敛，增大集成分类器的<strong>偏差</strong></li>
+</ul>
+</li>
+<li>Boosting 方法中<strong>可以使用</strong><ul>
+<li>Boosting 方法主要通过降低<strong>偏差</strong>的方式来提升模型的性能，而线性分类器本身具有方差小的特点，所以两者有一定相性</li>
+<li>XGBoost 中就支持以线性分类器作为基学习器。</li>
+</ul>
+</li>
+</ul>
+<p><strong>5. Boosting/Bagging 与 偏差/方差 的关系</strong></p>
+<ul>
+<li>简单来说，<strong>Boosting</strong> 能提升弱分类器性能的原因是降低了<strong>偏差</strong>；<strong>Bagging</strong> 则是降低了<strong>方差</strong>；</li>
+<li>Boosting方法：<ul>
+<li>Boosting 的<strong>基本思路</strong>就是在不断减小模型的<strong>训练误差</strong>（拟合残差或者加大错类的权重），加强模型的学习能力，从而减小偏差；</li>
+<li>但 Boosting 不会显著降低方差，因为其训练过程中各基学习器是强相关的，缺少独立性。</li>
+</ul>
+</li>
+<li>Bagging方法：<ul>
+<li>对 <code>n</code> 个<strong>独立不相关的模型</strong>预测结果取平均，方差是原来的 <code>1/n</code>；</li>
+<li>假设所有基分类器出错的概率是独立的，<strong>超过半数</strong>基分类器出错的概率会随着基分类器的数量增加而下降。</li>
 </ul>
 </li>
 </ul>
@@ -1483,7 +1568,7 @@ f_{M}(x)=\sum_{m=1}^{M} T\left(x ; \Theta_{m}\right)</script><h4 id="2-Bagging">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-number">1.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习基础"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#偏差与方差"><span class="nav-number">1.1.1.</span> <span class="nav-text">偏差与方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导致偏差和方差的原因"><span class="nav-number">1.1.2.</span> <span class="nav-text">导致偏差和方差的原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习中的偏差与方差"><span class="nav-number">1.2.</span> <span class="nav-text">深度学习中的偏差与方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏差与方差的权衡"><span class="nav-number">1.3.</span> <span class="nav-text">偏差与方差的权衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">1.4.</span> <span class="nav-text">生成模型与判别模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先验概率与后验概率"><span class="nav-number">1.5.</span> <span class="nav-text">先验概率与后验概率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习实践"><span class="nav-number">2.</span> <span class="nav-text">机器学习实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超参数选择"><span class="nav-number">2.1.</span> <span class="nav-text">超参数选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-Search"><span class="nav-number">2.1.2.</span> <span class="nav-text">Random Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关库（未使用）"><span class="nav-number">2.1.3.</span> <span class="nav-text">相关库（未使用）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#余弦相似度（Cos距离）与欧氏距离的区别和联系"><span class="nav-number">2.2.</span> <span class="nav-text">余弦相似度（Cos距离）与欧氏距离的区别和联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习和无监督学习"><span class="nav-number">2.3.</span> <span class="nav-text">监督学习和无监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熵，交叉熵和相对熵"><span class="nav-number">2.4.</span> <span class="nav-text">熵，交叉熵和相对熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混淆矩阵、模型度量指标：准确率、精确率、召回率、F1-值等"><span class="nav-number">2.5.</span> <span class="nav-text">混淆矩阵、模型度量指标：准确率、精确率、召回率、F1 值等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何处理数据中的缺失值"><span class="nav-number">2.6.</span> <span class="nav-text">如何处理数据中的缺失值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联规则挖掘的-3-个度量指标：支持度、置信度、提升度"><span class="nav-number">2.7.</span> <span class="nav-text">关联规则挖掘的 3 个度量指标：支持度、置信度、提升度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规则的有效性："><span class="nav-number">2.8.</span> <span class="nav-text">规则的有效性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断规则的有效性"><span class="nav-number">2.9.</span> <span class="nav-text">判断规则的有效性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习算法"><span class="nav-number">3.</span> <span class="nav-text">机器学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息论"><span class="nav-number">3.1.</span> <span class="nav-text">信息论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵"><span class="nav-number">3.2.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">3.3.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归模型定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">逻辑回归模型定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归的推导"><span class="nav-number">3.3.2.</span> <span class="nav-text">逻辑回归的推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多分类逻辑回归"><span class="nav-number">3.3.3.</span> <span class="nav-text">多分类逻辑回归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机"><span class="nav-number">3.4.</span> <span class="nav-text">支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是支持向量"><span class="nav-number">3.4.1.</span> <span class="nav-text">什么是支持向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机的分类"><span class="nav-number">3.4.2.</span> <span class="nav-text">支持向量机的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核函数与核技巧"><span class="nav-number">3.4.3.</span> <span class="nav-text">核函数与核技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机推导"><span class="nav-number">3.4.4.</span> <span class="nav-text">支持向量机推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性可分支持向量机的推导"><span class="nav-number">3.4.5.</span> <span class="nav-text">线性可分支持向量机的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#符号定义："><span class="nav-number">3.4.5.1.</span> <span class="nav-text">符号定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-标准问题的推导-2"><span class="nav-number">3.4.5.2.</span> <span class="nav-text">SVM 标准问题的推导(2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树"><span class="nav-number">3.5.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类树-ID3-决策树与-C4-5-决策树-TODO"><span class="nav-number">3.5.1.</span> <span class="nav-text">分类树 - ID3 决策树与 C4.5 决策树 TODO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回归树-CART-决策树"><span class="nav-number">3.5.2.</span> <span class="nav-text">回归树 - CART 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CART-回归树算法推导"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">CART 回归树算法推导</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何划分输入空间"><span class="nav-number">3.5.2.2.</span> <span class="nav-text">如何划分输入空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#示例-选择切分变量与切分点"><span class="nav-number">3.5.2.3.</span> <span class="nav-text">示例: 选择切分变量与切分点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成学习"><span class="nav-number">3.6.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Boosting"><span class="nav-number">3.6.1.</span> <span class="nav-text">1. Boosting</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Boosting-策略要解决的两个基本问题"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">Boosting 策略要解决的两个基本问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">AdaBoost 算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法描述"><span class="nav-number">3.6.1.3.</span> <span class="nav-text">AdaBoost 算法描述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法要点说明"><span class="nav-number">3.6.1.4.</span> <span class="nav-text">AdaBoost 算法要点说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#梯度提升决策树-GBDT-Gradient-Boosting-Decision-Tree"><span class="nav-number">3.6.1.5.</span> <span class="nav-text">梯度提升决策树 GBDT(Gradient Boosting Decision Tree)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#提升树"><span class="nav-number">3.6.1.5.1.</span> <span class="nav-text">提升树</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#提升树算法描述"><span class="nav-number">3.6.1.5.2.</span> <span class="nav-text">提升树算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Bagging"><span class="nav-number">3.6.2.</span> <span class="nav-text">2. Bagging</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-number">1.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习基础"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#偏差与方差"><span class="nav-number">1.1.1.</span> <span class="nav-text">偏差与方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导致偏差和方差的原因"><span class="nav-number">1.1.2.</span> <span class="nav-text">导致偏差和方差的原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习中的偏差与方差"><span class="nav-number">1.2.</span> <span class="nav-text">深度学习中的偏差与方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏差与方差的权衡"><span class="nav-number">1.3.</span> <span class="nav-text">偏差与方差的权衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">1.4.</span> <span class="nav-text">生成模型与判别模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先验概率与后验概率"><span class="nav-number">1.5.</span> <span class="nav-text">先验概率与后验概率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习实践"><span class="nav-number">2.</span> <span class="nav-text">机器学习实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超参数选择"><span class="nav-number">2.1.</span> <span class="nav-text">超参数选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-Search"><span class="nav-number">2.1.2.</span> <span class="nav-text">Random Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关库（未使用）"><span class="nav-number">2.1.3.</span> <span class="nav-text">相关库（未使用）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#余弦相似度（Cos距离）与欧氏距离的区别和联系"><span class="nav-number">2.2.</span> <span class="nav-text">余弦相似度（Cos距离）与欧氏距离的区别和联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习和无监督学习"><span class="nav-number">2.3.</span> <span class="nav-text">监督学习和无监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熵，交叉熵和相对熵"><span class="nav-number">2.4.</span> <span class="nav-text">熵，交叉熵和相对熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混淆矩阵、模型度量指标：准确率、精确率、召回率、F1-值等"><span class="nav-number">2.5.</span> <span class="nav-text">混淆矩阵、模型度量指标：准确率、精确率、召回率、F1 值等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何处理数据中的缺失值"><span class="nav-number">2.6.</span> <span class="nav-text">如何处理数据中的缺失值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联规则挖掘的-3-个度量指标：支持度、置信度、提升度"><span class="nav-number">2.7.</span> <span class="nav-text">关联规则挖掘的 3 个度量指标：支持度、置信度、提升度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规则的有效性："><span class="nav-number">2.8.</span> <span class="nav-text">规则的有效性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断规则的有效性"><span class="nav-number">2.9.</span> <span class="nav-text">判断规则的有效性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习算法"><span class="nav-number">3.</span> <span class="nav-text">机器学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息论"><span class="nav-number">3.1.</span> <span class="nav-text">信息论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵"><span class="nav-number">3.2.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">3.3.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归模型定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">逻辑回归模型定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑回归的推导"><span class="nav-number">3.3.2.</span> <span class="nav-text">逻辑回归的推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多分类逻辑回归"><span class="nav-number">3.3.3.</span> <span class="nav-text">多分类逻辑回归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机"><span class="nav-number">3.4.</span> <span class="nav-text">支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是支持向量"><span class="nav-number">3.4.1.</span> <span class="nav-text">什么是支持向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机的分类"><span class="nav-number">3.4.2.</span> <span class="nav-text">支持向量机的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核函数与核技巧"><span class="nav-number">3.4.3.</span> <span class="nav-text">核函数与核技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持向量机推导"><span class="nav-number">3.4.4.</span> <span class="nav-text">支持向量机推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性可分支持向量机的推导"><span class="nav-number">3.4.5.</span> <span class="nav-text">线性可分支持向量机的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#符号定义："><span class="nav-number">3.4.5.1.</span> <span class="nav-text">符号定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-标准问题的推导-2"><span class="nav-number">3.4.5.2.</span> <span class="nav-text">SVM 标准问题的推导(2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树"><span class="nav-number">3.5.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类树-ID3-决策树与-C4-5-决策树-TODO"><span class="nav-number">3.5.1.</span> <span class="nav-text">分类树 - ID3 决策树与 C4.5 决策树 TODO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回归树-CART-决策树"><span class="nav-number">3.5.2.</span> <span class="nav-text">回归树 - CART 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CART-回归树算法推导"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">CART 回归树算法推导</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何划分输入空间"><span class="nav-number">3.5.2.2.</span> <span class="nav-text">如何划分输入空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#示例-选择切分变量与切分点"><span class="nav-number">3.5.2.3.</span> <span class="nav-text">示例: 选择切分变量与切分点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成学习"><span class="nav-number">3.6.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Boosting"><span class="nav-number">3.6.1.</span> <span class="nav-text">1. Boosting</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Boosting-策略要解决的两个基本问题"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">Boosting 策略要解决的两个基本问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">AdaBoost 算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法描述"><span class="nav-number">3.6.1.3.</span> <span class="nav-text">AdaBoost 算法描述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdaBoost-算法要点说明"><span class="nav-number">3.6.1.4.</span> <span class="nav-text">AdaBoost 算法要点说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#梯度提升决策树-GBDT-Gradient-Boosting-Decision-Tree"><span class="nav-number">3.6.1.5.</span> <span class="nav-text">梯度提升决策树 GBDT(Gradient Boosting Decision Tree)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#提升树"><span class="nav-number">3.6.1.5.1.</span> <span class="nav-text">提升树</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#提升树算法描述"><span class="nav-number">3.6.1.5.2.</span> <span class="nav-text">提升树算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Bagging"><span class="nav-number">3.6.2.</span> <span class="nav-text">2. Bagging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Stacking"><span class="nav-number">3.6.3.</span> <span class="nav-text">3. Stacking</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stacking-方法"><span class="nav-number">3.6.4.</span> <span class="nav-text">Stacking 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集成学习常见问题"><span class="nav-number">3.6.5.</span> <span class="nav-text">集成学习常见问题</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
