@@ -87,22 +87,22 @@
 
 
 
-<meta name="description" content="机器学习机器学习基础偏差与方差 偏差. 偏差度量了学习算法预测的期望值与真实结果的偏离程度, 即 刻画了学习算法本身的拟合能力 .  方差. 方差表示模型预测的期望值与预测值之间的平方和，度量了同样大小的训练集的变动所导致的学习性能的变化, 即 刻画了数据扰动所造成的影响 .  噪声. 噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界, 即 刻画了学习问题本身的难度 . 巧妇难为无米">
+<meta name="description" content="机器学习">
 <meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习知识复习">
 <meta property="og:url" content="http://drawwon.github.io/2019/02/25/机器学习知识复习/index.html">
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
-<meta property="og:description" content="机器学习机器学习基础偏差与方差 偏差. 偏差度量了学习算法预测的期望值与真实结果的偏离程度, 即 刻画了学习算法本身的拟合能力 .  方差. 方差表示模型预测的期望值与预测值之间的平方和，度量了同样大小的训练集的变动所导致的学习性能的变化, 即 刻画了数据扰动所造成的影响 .  噪声. 噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界, 即 刻画了学习问题本身的难度 . 巧妇难为无米">
+<meta property="og:description" content="机器学习">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104434.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104909.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190227145622.png">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=1%5Cleft%5C%7B+%5Ccdot+%5Cright%5C%7D">
-<meta property="og:updated_time" content="2019-02-28T09:17:48.983Z">
+<meta property="og:updated_time" content="2019-03-02T07:35:36.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习知识复习">
-<meta name="twitter:description" content="机器学习机器学习基础偏差与方差 偏差. 偏差度量了学习算法预测的期望值与真实结果的偏离程度, 即 刻画了学习算法本身的拟合能力 .  方差. 方差表示模型预测的期望值与预测值之间的平方和，度量了同样大小的训练集的变动所导致的学习性能的变化, 即 刻画了数据扰动所造成的影响 .  噪声. 噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界, 即 刻画了学习问题本身的难度 . 巧妇难为无米">
+<meta name="twitter:description" content="机器学习">
 <meta name="twitter:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104434.png">
 
 
@@ -415,7 +415,8 @@
       
 
       
-        <h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><h3 id="机器学习基础"><a href="#机器学习基础" class="headerlink" title="机器学习基础"></a>机器学习基础</h3><h4 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h4><ul>
+        <h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><a id="more"></a>
+<h3 id="机器学习基础"><a href="#机器学习基础" class="headerlink" title="机器学习基础"></a>机器学习基础</h3><h4 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h4><ul>
 <li><p>偏差.</p>
 <p>偏差度量了学习<strong>算法预测的期望值</strong>与<strong>真实结果</strong>的偏离程度, 即 <strong>刻画了学习算法本身的拟合能力</strong> .</p>
 </li>
@@ -426,7 +427,6 @@
 <p>噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界, 即 <strong>刻画了学习问题本身的难度</strong> . 巧妇难为无米之炊, 给一堆很差的食材, 要想做出一顿美味, 肯定是很有难度的.</p>
 </li>
 </ul>
-<a id="more"></a>
 <h4 id="导致偏差和方差的原因"><a href="#导致偏差和方差的原因" class="headerlink" title="导致偏差和方差的原因"></a>导致偏差和方差的原因</h4><ul>
 <li><p>偏差</p>
 <p>通常是由于我们对学习算法做了错误的假设，或者模型的复杂度不够；</p>
@@ -500,11 +500,10 @@
 </ul>
 <p>具体来说：BN就是</p>
 <ul>
-<li>在训练时用每一批数据的均值和标准差做平均得到$\hat{X}_k$，然后用</li>
-</ul>
-<p>$y<em>{k} \leftarrow \gamma \hat{X}</em>{k}+\beta$做变换得到最终需要的x，进行训练。</p>
-<ul>
-<li>而测试时用每批数据得到的均值方差求平均来做归一化</li>
+<li><p>在训练时用每一批数据的均值和标准差做平均得到$\hat{X}_k$，然后用$y_k \leftarrow \gamma \hat X_k+\beta$做变换得到最终需要的x，进行训练。</p>
+</li>
+<li><p>而测试时用每批数据得到的均值方差求平均来做归一化</p>
+</li>
 </ul>
 </li>
 <li><p><strong>L1/L2 范数正则化</strong></p>
@@ -526,10 +525,10 @@
 <p><strong>2.3. 为什么 L1 正则化可以产生稀疏权值，而 L2 不会？</strong><br>L1正则化和L2正则化可以看做是损失函数的惩罚项。所谓『惩罚』是指对损失函数中的某些参数做一些限制。对于线性回归模型，使用L1正则化的模型建叫做Lasso回归，使用L2正则化的模型叫做Ridge回归（岭回归）。</p>
 <p>L1回归的公式如下：</p>
 <script type="math/tex; mode=display">
-J=J_{0}+\alpha \sum_{w}|w|</script><p>其中$J_{0}$是原始的损失函数，加号后面的一项是L1正则化项，$\alpha$是正则化系数</p>
-<p>其中$J<em>0$是原始的损失函数，加号后面的一项是L1正则化项，αα是正则化系数。注意到L1正则化是权值的绝对值之和，$J$是带有绝对值符号的函数，因此$J$是不完全可微的。机器学习的任务就是要通过一些方法（比如梯度下降）求出损失函数的最小值。当我们在原始损失函数$J_0$后添加L1正则化项时，相当于对$J_0$做了一个约束。令$L=\alpha \sum</em>{w}|w|$，则$J=J_{0}+L$，此时我们的任务变成在L1约束下求出$J_0$取最小值的解。考虑二维的情况，即只有两个权值$w^1$和$w^2$，此时$L=\left|w^{1}\right|+\left|w^{2}\right|$对于梯度下降法，求解$J_0$的过程可以画出等值线，同时L1正则化的函数L也可以在w1w2w1w2的二维平面上画出来。如下图：</p>
+J=J_{0}+\alpha \sum_{w}|w|</script><p>其中$J_0$是原始的损失函数，加号后面的一项是L1正则化项，α是正则化系数。</p>
+<p>注意到L1正则化是权值的绝对值之和，$J​$是带有绝对值符号的函数，因此$J​$是不完全可微的。机器学习的任务就是要通过一些方法（比如梯度下降）求出损失函数的最小值。当我们在原始损失函数$J<em>0​$后添加L1正则化项时，相当于对$J_0​$做了一个约束。令$L=\alpha \sum</em>{w}|w|​$，则$J=J_{0}+L​$，此时我们的任务变成在L1约束下求出$J_0​$取最小值的解。考虑二维的情况，即只有两个权值$w^1​$和$w^2​$，此时$L=\left|w^{1}\right|+\left|w^{2}\right|​$对于梯度下降法，求解$J_0​$的过程可以画出等值线，同时L1正则化的函数L也可以在w1w2w1w2的二维平面上画出来。如下图：</p>
 <p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104434.png" alt=""></p>
-<p>图中等值线是$J<em>{0}$的等值线，黑色方形是L函数的图形。在图中，当$J</em>{0}$等值线与$L$图形首次相交的地方就是最优解。上图中$J<em>{0}$与L在L的一个顶点处相交，这个顶点就是最优解。注意到这个顶点的值是$\left(w^{1}, w^{2}\right)=(0, w)$。可以直观想象，因为L函数有很多『突出的角』（二维情况下四个，多维情况下更多），$J</em>{0}$与这些角接触的机率会远大于与L其它部位接触的机率，而在这些角上，会有很多权值等于0，这就是为什么L1正则化可以产生稀疏模型，进而可以用于特征选择。</p>
+<p>图中等值线是$J<em>{0}​$的等值线，黑色方形是L函数的图形。在图中，当$J</em>{0}​$等值线与$L​$图形首次相交的地方就是最优解。上图中$J<em>{0}​$与L在L的一个顶点处相交，这个顶点就是最优解。注意到这个顶点的值是$\left(w^{1}, w^{2}\right)=(0, w)​$。可以直观想象，因为L函数有很多『突出的角』（二维情况下四个，多维情况下更多），$J</em>{0}​$与这些角接触的机率会远大于与L其它部位接触的机率，而在这些角上，会有很多权值等于0，这就是为什么L1正则化可以产生稀疏模型，进而可以用于特征选择。</p>
 <p>而L2正则化的公式如下：</p>
 <script type="math/tex; mode=display">J=J_{0}+\alpha \sum_{m} w^{2}</script><p>平面图如下，因为此时L2的图形是一个圆，因此两者相交的点没有0的情况，这就是L2不产生稀疏矩阵的原因。</p>
 <p><img src="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190226104909.png" alt=""></p>
@@ -683,7 +682,7 @@ P(Y | X)=\frac{P(X | Y) * P(Y)}{P(X)}</script><h2 id="机器学习实践"><a hre
 <li><p><strong>交叉熵</strong>，其用来衡量在给定的真实分布下，使用<strong>非真实分布</strong>所指定的策略消除系统的不确定性所需要付出的努力的大小</p>
 <script type="math/tex; mode=display">
 \sum_{k=1}^{N} p_{k} \log _{2} \frac{1}{q_{k}}</script><p>其中$p_k$是真实分布，$q_k$为非真实分布</p>
-<p>因此，交叉熵越低，这个消除系统不确定性的策略就越好，最低的交叉熵也就是使用了真实分布所计算出来的信息熵，因为此时$p<em>{k}=q</em>{k}$ ，交叉熵 = 信息熵。这也是为什么在机器学习中的分类算法中，我们总是最小化交叉熵，因为交叉熵越低，就证明由算法所产生的策略最接近最优策略，也间接证明我们算法所算出的非真实分布越接近真实分布。</p>
+<p>因此，交叉熵越低，这个消除系统不确定性的策略就越好，最低的交叉熵也就是使用了真实分布所计算出来的信息熵，因为此时$p_k=q_k$ ，交叉熵 = 信息熵。这也是为什么在机器学习中的分类算法中，我们总是最小化交叉熵，因为交叉熵越低，就证明由算法所产生的策略最接近最优策略，也间接证明我们算法所算出的非真实分布越接近真实分布。</p>
 </li>
 <li><p><strong>相对熵</strong>，其用来衡量两个取值为正的函数或概率分布之间的差异，即：<br>相对熵 = 某个策略的交叉熵 - 信息熵</p>
 </li>
@@ -955,7 +954,7 @@ f(x)=\operatorname{sign}\left(w^{*} \cdot x+b^{*}\right)</script><h5 id="SVM-标
 <p>上面的两步推理方式感觉不如西瓜书上面的直接，下面用西瓜书的公式来证明：</p>
 <p>用r表示一个点到分类超平面的距离：</p>
 <script type="math/tex; mode=display">
-r=\frac{\left|w^{T} x+b\right|}{\|w\|}</script><p>假设超平面<code>(w,b)</code>能够正确分类，也就是对于$y<em>i=1$，有$w^{T} x</em>{i}+b&gt;0$；对于$y<em>i=-1$，有$w^{T} x</em>{i}+b&lt;0​$，则：</p>
+r=\frac{\left|w^{T} x+b\right|}{\|w\|}</script><p>假设超平面<code>(w,b)</code>能够正确分类，也就是对于$y<em>i=1$，有$w^T x_i+b&gt;0$；对于$y_i=-1$，有$w^{T} x</em>{i}+b&lt;0$，则：</p>
 <script type="math/tex; mode=display">
 \left\{\begin{array}{ll}{w^{\mathrm{T}} x_{i}+b \geqslant+1,} & {y_{i}=+1} \\ {w^{T} x_{i}+b \leqslant-1,} & {y_{i}=-1}\end{array}\right.</script><p>对于距离超平面最近（支持向量）的点，r的距离为1，那么两个异类支持向量到超平面距离和为</p>
 <script type="math/tex; mode=display">\gamma = \frac{2}{\|w\|}</script><p>这被称为“间隔”</p>
