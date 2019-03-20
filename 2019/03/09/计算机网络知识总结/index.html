@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190309102820.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190309103537.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190309104421.png">
-<meta property="og:updated_time" content="2019-03-12T02:15:54.580Z">
+<meta property="og:updated_time" content="2019-03-19T07:55:39.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络知识总结">
 <meta name="twitter:description" content="1. 说一下OSI七层模型 TCP/IP四层模型 五层协议">
@@ -565,6 +565,95 @@
 <li>流量控制需要通信双方各维护一个发送窗、一个接收窗，对任意一方，接收窗大小由自身决定，发送窗大小由接收方响应的TCP报文段中窗口值确定；拥塞控制的拥塞窗口大小变化由试探性发送一定数据量数据探查网络状况后而自适应调整。</li>
 <li>实际最终发送窗口 = min{流控发送窗口，拥塞窗口}。</li>
 </ul>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><h4 id="1-HTTP状态"><a href="#1-HTTP状态" class="headerlink" title="1. HTTP状态"></a>1. HTTP状态</h4><p>服务器返回的 <strong>响应报文</strong> 中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>类别</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1XX</td>
+<td>Informational（信息性状态码）</td>
+<td>接收的请求正在处理</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>Success（成功状态码）</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>Redirection（重定向状态码）</td>
+<td>需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>Client Error（客户端错误状态码）</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>Server Error（服务器错误状态码）</td>
+<td>服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="（1）1XX-信息"><a href="#（1）1XX-信息" class="headerlink" title="（1）1XX 信息"></a>（1）1XX 信息</h5><ul>
+<li><strong>100 Continue</strong> ：表明到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应。</li>
+</ul>
+<h5 id="（2）2XX-成功"><a href="#（2）2XX-成功" class="headerlink" title="（2）2XX 成功"></a>（2）2XX 成功</h5><ul>
+<li><strong>200 OK</strong></li>
+<li><strong>204 No Content</strong> ：请求已经成功处理，但是返回的响应报文不包含实体的主体部分。一般在只需要从客户端往服务器发送信息，而不需要返回数据时使用。</li>
+<li><strong>206 Partial Content</strong> ：表示客户端进行了范围请求。响应报文包含由 Content-Range 指定范围的实体内容。</li>
+</ul>
+<h5 id="（3）3XX-重定向"><a href="#（3）3XX-重定向" class="headerlink" title="（3）3XX 重定向"></a>（3）3XX 重定向</h5><ul>
+<li><strong>301 Moved Permanently</strong> ：永久性重定向</li>
+<li><strong>302 Found</strong> ：临时性重定向</li>
+<li><strong>303 See Other</strong> ：和 302 有着相同的功能，但是 303 明确要求客户端应该采用 GET 方法获取资源。</li>
+<li>注：虽然 HTTP 协议规定 301、302 状态下重定向时不允许把 POST 方法改成 GET 方法，但是大多数浏览器都会在 301、302 和 303 状态下的重定向把 POST 方法改成 GET 方法。</li>
+<li><strong>304 Not Modified</strong> ：如果请求报文首部包含一些条件，例如：If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since，如果不满足条件，则服务器会返回 304 状态码。</li>
+<li><strong>307 Temporary Redirect</strong> ：临时重定向，与 302 的含义类似，但是 307 要求浏览器不会把重定向请求的 POST 方法改成 GET 方法。</li>
+</ul>
+<h5 id="（4）4XX-客户端错误"><a href="#（4）4XX-客户端错误" class="headerlink" title="（4）4XX 客户端错误"></a>（4）4XX 客户端错误</h5><ul>
+<li><strong>400 Bad Request</strong> ：请求报文中存在语法错误。</li>
+<li><strong>401 Unauthorized</strong> ：该状态码表示发送的请求需要有认证信息（BASIC 认证、DIGEST 认证）。如果之前已进行过一次请求，则表示用户认证失败。</li>
+<li><strong>403 Forbidden</strong> ：请求被拒绝，服务器端没有必要给出拒绝的详细理由。</li>
+<li><strong>404 Not Found</strong></li>
+</ul>
+<h5 id="（5）5XX-服务器错误"><a href="#（5）5XX-服务器错误" class="headerlink" title="（5）5XX 服务器错误"></a>（5）5XX 服务器错误</h5><ul>
+<li><strong>500 Internal Server Error</strong> ：服务器正在执行请求时发生错误。</li>
+<li><strong>503 Service Unavailable</strong> ：服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</li>
+</ul>
+<h4 id="5-GET和POST的区别？【阿里面经OneNote】"><a href="#5-GET和POST的区别？【阿里面经OneNote】" class="headerlink" title="5. GET和POST的区别？【阿里面经OneNote】"></a>5. GET和POST的区别？【阿里面经OneNote】</h4><blockquote>
+<p>就下面的找几个点和面试官侃侃而谈即可，不可能全部都记得，想到什么讲什么吧</p>
+</blockquote>
+<ul>
+<li>GET 被强制服务器支持</li>
+<li>浏览器对URL的长度有限制，所以GET请求不能代替POST请求发送大量数据</li>
+<li>GET请求发送数据更小</li>
+<li>GET请求是不安全的</li>
+<li>GET请求是幂等的<ul>
+<li>幂等的意味着对同一URL的多个请求应该返回同样的结果</li>
+</ul>
+</li>
+<li>POST请求不能被缓存</li>
+<li>POST请求相对GET请求是「安全」的<ul>
+<li>这里安全的含义仅仅是指是非修改信息</li>
+</ul>
+</li>
+<li>GET用于信息获取，而且是安全的和幂等的<ul>
+<li>所谓安全的意味着该操作用于获取信息而非修改信息。换句话说，GET 请求一般不应产生副作用。就是说，它仅仅是获取资源信息，就像数据库查询一样，不会修改，增加数据，不会影响资源的状态。</li>
+</ul>
+</li>
+<li>POST是用于修改服务器上的资源的请求</li>
+<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
+</ul>
 
       
     </div>
@@ -802,7 +891,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说一下OSI七层模型-TCP-IP四层模型-五层协议"><span class="nav-number">1.</span> <span class="nav-text">1. 说一下OSI七层模型 TCP/IP四层模型 五层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1）五层协议"><span class="nav-number">1.1.</span> <span class="nav-text">1）五层协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2）ISO七层模型中表示层和会话层功能是什么？"><span class="nav-number">1.2.</span> <span class="nav-text">2）ISO七层模型中表示层和会话层功能是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3）数据在各层之间的传递过程"><span class="nav-number">1.3.</span> <span class="nav-text">3）数据在各层之间的传递过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）TCP-IP四层模型"><span class="nav-number">1.4.</span> <span class="nav-text">4）TCP/IP四层模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-TCP报头格式和UDP报头格式"><span class="nav-number">2.</span> <span class="nav-text">2. TCP报头格式和UDP报头格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）UDP-和-TCP-的特点"><span class="nav-number">2.1.</span> <span class="nav-text">（1）UDP 和 TCP 的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）UDP-首部格式"><span class="nav-number">2.2.</span> <span class="nav-text">（2）UDP 首部格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）TCP-首部格式"><span class="nav-number">2.3.</span> <span class="nav-text">（3）TCP 首部格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-TCP三次握手？那四次挥手呢？如何保障可靠传输"><span class="nav-number">3.</span> <span class="nav-text">3. TCP三次握手？那四次挥手呢？如何保障可靠传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）三次握手"><span class="nav-number">3.1.</span> <span class="nav-text">（1）三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）为什么TCP连接需要三次握手，两次不可以吗，为什么"><span class="nav-number">3.2.</span> <span class="nav-text">（2）为什么TCP连接需要三次握手，两次不可以吗，为什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）四次挥手"><span class="nav-number">3.3.</span> <span class="nav-text">（3）四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（4）四次挥手的原因"><span class="nav-number">3.4.</span> <span class="nav-text">（4）四次挥手的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（5）TIME-WAIT"><span class="nav-number">3.5.</span> <span class="nav-text">（5）TIME_WAIT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（6）如何保证可靠传输"><span class="nav-number">3.6.</span> <span class="nav-text">（6）如何保证可靠传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（7）TCP和HTTP"><span class="nav-number">3.7.</span> <span class="nav-text">（7）TCP和HTTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-TCP和UDP区别？如何改进TCP"><span class="nav-number">4.</span> <span class="nav-text">5. TCP和UDP区别？如何改进TCP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-TCP滑动窗口"><span class="nav-number">5.</span> <span class="nav-text">6. TCP滑动窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-TCP流量控制"><span class="nav-number">6.</span> <span class="nav-text">7. TCP流量控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）慢开始与拥塞避免"><span class="nav-number">6.1.</span> <span class="nav-text">（1）慢开始与拥塞避免</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）快重传与快恢复"><span class="nav-number">6.2.</span> <span class="nav-text">（2）快重传与快恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）发送窗口的上限值"><span class="nav-number">6.3.</span> <span class="nav-text">（3）发送窗口的上限值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-如何区分流量控制和拥塞控制"><span class="nav-number">7.</span> <span class="nav-text">9. 如何区分流量控制和拥塞控制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说一下OSI七层模型-TCP-IP四层模型-五层协议"><span class="nav-number">1.</span> <span class="nav-text">1. 说一下OSI七层模型 TCP/IP四层模型 五层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1）五层协议"><span class="nav-number">1.1.</span> <span class="nav-text">1）五层协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2）ISO七层模型中表示层和会话层功能是什么？"><span class="nav-number">1.2.</span> <span class="nav-text">2）ISO七层模型中表示层和会话层功能是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3）数据在各层之间的传递过程"><span class="nav-number">1.3.</span> <span class="nav-text">3）数据在各层之间的传递过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）TCP-IP四层模型"><span class="nav-number">1.4.</span> <span class="nav-text">4）TCP/IP四层模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-TCP报头格式和UDP报头格式"><span class="nav-number">2.</span> <span class="nav-text">2. TCP报头格式和UDP报头格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）UDP-和-TCP-的特点"><span class="nav-number">2.1.</span> <span class="nav-text">（1）UDP 和 TCP 的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）UDP-首部格式"><span class="nav-number">2.2.</span> <span class="nav-text">（2）UDP 首部格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）TCP-首部格式"><span class="nav-number">2.3.</span> <span class="nav-text">（3）TCP 首部格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-TCP三次握手？那四次挥手呢？如何保障可靠传输"><span class="nav-number">3.</span> <span class="nav-text">3. TCP三次握手？那四次挥手呢？如何保障可靠传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）三次握手"><span class="nav-number">3.1.</span> <span class="nav-text">（1）三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）为什么TCP连接需要三次握手，两次不可以吗，为什么"><span class="nav-number">3.2.</span> <span class="nav-text">（2）为什么TCP连接需要三次握手，两次不可以吗，为什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）四次挥手"><span class="nav-number">3.3.</span> <span class="nav-text">（3）四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（4）四次挥手的原因"><span class="nav-number">3.4.</span> <span class="nav-text">（4）四次挥手的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（5）TIME-WAIT"><span class="nav-number">3.5.</span> <span class="nav-text">（5）TIME_WAIT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（6）如何保证可靠传输"><span class="nav-number">3.6.</span> <span class="nav-text">（6）如何保证可靠传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（7）TCP和HTTP"><span class="nav-number">3.7.</span> <span class="nav-text">（7）TCP和HTTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-TCP和UDP区别？如何改进TCP"><span class="nav-number">4.</span> <span class="nav-text">5. TCP和UDP区别？如何改进TCP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-TCP滑动窗口"><span class="nav-number">5.</span> <span class="nav-text">6. TCP滑动窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-TCP流量控制"><span class="nav-number">6.</span> <span class="nav-text">7. TCP流量控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）慢开始与拥塞避免"><span class="nav-number">6.1.</span> <span class="nav-text">（1）慢开始与拥塞避免</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）快重传与快恢复"><span class="nav-number">6.2.</span> <span class="nav-text">（2）快重传与快恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）发送窗口的上限值"><span class="nav-number">6.3.</span> <span class="nav-text">（3）发送窗口的上限值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-如何区分流量控制和拥塞控制"><span class="nav-number">7.</span> <span class="nav-text">9. 如何区分流量控制和拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">7.1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-HTTP状态"><span class="nav-number">7.1.1.</span> <span class="nav-text">1. HTTP状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）1XX-信息"><span class="nav-number">7.1.1.1.</span> <span class="nav-text">（1）1XX 信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（2）2XX-成功"><span class="nav-number">7.1.1.2.</span> <span class="nav-text">（2）2XX 成功</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（3）3XX-重定向"><span class="nav-number">7.1.1.3.</span> <span class="nav-text">（3）3XX 重定向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（4）4XX-客户端错误"><span class="nav-number">7.1.1.4.</span> <span class="nav-text">（4）4XX 客户端错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（5）5XX-服务器错误"><span class="nav-number">7.1.1.5.</span> <span class="nav-text">（5）5XX 服务器错误</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-GET和POST的区别？【阿里面经OneNote】"><span class="nav-number">7.1.2.</span> <span class="nav-text">5. GET和POST的区别？【阿里面经OneNote】</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
