@@ -305,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/03/23/项目总结/">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/01/07/hexo设置图片大小/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeffrey Pacino">
@@ -327,8 +327,8 @@
             
               
                 
-                <a class="post-title-link" href="/2019/03/23/项目总结/" itemprop="url">
-                  项目总结
+                <a class="post-title-link" href="/2019/01/07/hexo设置图片大小/" itemprop="url">
+                  hexo设置图片大小
                 </a>
               
             
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T10:36:03+08:00">
-                2019-03-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-07T22:00:19+08:00">
+                2019-01-07
               </time>
             
 
@@ -367,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作，是是是/" itemprop="url" rel="index">
-                    <span itemprop="name">工作，是是是</span>
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -403,14 +403,14 @@
 
       
         
-          <h2 id="手环手写用户身份识别"><a href="#手环手写用户身份识别" class="headerlink" title="手环手写用户身份识别"></a>手环手写用户身份识别</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/23/项目总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>在hexo中一般插入图片的方式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(图片名称)[图片地址]</span><br></pre></td></tr></table></figure>
+<p>如果想要控制图片大小，可以用html的方式来插入图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;图片地址&quot; width=&quot;50%&quot; height=&quot;50%&quot;  style=&quot;margin: 0 auto;&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>其中后面的<code>style=&quot;margin:0 auto;&quot;</code>用来控制图片的居中，图片大小有width和height控制，可以输入50%这样的比例，也可以直接输入大小200px这样的值</p>
+
+          
         
       
     </div>
@@ -452,7 +452,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/03/15/java常见面试题/">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/12/17/windows开机启动程序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeffrey Pacino">
@@ -474,8 +474,8 @@
             
               
                 
-                <a class="post-title-link" href="/2019/03/15/java常见面试题/" itemprop="url">
-                  java常见面试题
+                <a class="post-title-link" href="/2018/12/17/windows开机启动程序/" itemprop="url">
+                  windows开机启动程序
                 </a>
               
             
@@ -491,8 +491,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-15T10:40:55+08:00">
-                2019-03-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-17T21:13:20+08:00">
+                2018-12-17
               </time>
             
 
@@ -514,8 +514,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -550,14 +550,13 @@
 
       
         
-          <h4 id="1-面向对象特征"><a href="#1-面向对象特征" class="headerlink" title="1. 面向对象特征"></a>1. 面向对象特征</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/15/java常见面试题/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>如果要让某个程序开机启动，可以直接放入开始文件夹中，打开开始文件夹的方法是，运行-<code>shell:startup</code>即可</p>
+<p>但是如果某个程序需要通过命令行加上参数运行怎么办呢，这个时候可以用python通过pyinstaller打包成exe文件再放入开始文件夹。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保存成start_frp.py</span></span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="comment"># startupinfo的作用是不显示可视化窗口</span></span><br><span class="line">startupinfo = subprocess.STARTUPINFO()</span><br><span class="line">startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW</span><br><span class="line">subprocess.Popen([<span class="string">r"C:\Users\Jeffrey\OneDrive - sei.xjtu.edu.cn\python exercise\frp_0.22.0_windows_amd64\frpc.exe"</span>,</span><br><span class="line">                  <span class="string">"-c"</span>, <span class="string">r"C:\Users\Jeffrey\OneDrive - sei.xjtu.edu.cn\python exercise\frp_0.22.0_windows_amd64\frpc.ini"</span>],startupinfo=startupinfo).wait()</span><br></pre></td></tr></table></figure>
+<p>用<code>pyinstaller start_frp.py -F -w</code>，<code>-F</code>是只生成一个可执行文件，<code>-w</code>是不提供可视化输入输出，这样得到<code>/dist/start_frp.exe</code>，直接放入开始文件夹就行了</p>
+
+          
         
       
     </div>
@@ -599,7 +598,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/03/09/操作系统知识点总结/">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/12/04/准确率-Accuracy-精确率-Precision-召回率-Recall-和F1-Measure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeffrey Pacino">
@@ -621,8 +620,8 @@
             
               
                 
-                <a class="post-title-link" href="/2019/03/09/操作系统知识点总结/" itemprop="url">
-                  操作系统知识点总结
+                <a class="post-title-link" href="/2018/12/04/准确率-Accuracy-精确率-Precision-召回率-Recall-和F1-Measure/" itemprop="url">
+                  准确率(Accuracy),精确率(Precision),召回率(Recall)和F1-Measure(转)
                 </a>
               
             
@@ -638,304 +637,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-09T12:13:53+08:00">
-                2019-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-操作系统基本特征"><a href="#1-操作系统基本特征" class="headerlink" title="1. 操作系统基本特征"></a>1. 操作系统基本特征</h2><h3 id="1-并发"><a href="#1-并发" class="headerlink" title="1. 并发"></a>1. 并发</h3><p>并发是指宏观上在一段时间内能同时运行多个程序，而并行则指同一时刻能运行多个指令。</p>
-<p>并行需要硬件支持，如多流水线或者多处理器。</p>
-<p>操作系统通过引入进程和线程，使得程序能够并发运行。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/09/操作系统知识点总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/03/09/计算机网络知识总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeffrey Pacino">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WangZhao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/09/计算机网络知识总结/" itemprop="url">
-                  计算机网络知识总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-09T10:05:46+08:00">
-                2019-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-说一下OSI七层模型-TCP-IP四层模型-五层协议"><a href="#1-说一下OSI七层模型-TCP-IP四层模型-五层协议" class="headerlink" title="1. 说一下OSI七层模型 TCP/IP四层模型 五层协议"></a>1. 说一下OSI七层模型 TCP/IP四层模型 五层协议</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/09/计算机网络知识总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/03/02/深度学习知识复习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeffrey Pacino">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WangZhao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/02/深度学习知识复习/" itemprop="url">
-                  深度学习知识复习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-02T16:20:34+08:00">
-                2019-03-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-04T10:31:05+08:00">
+                2018-12-04
               </time>
             
 
@@ -964,17 +667,6 @@
 
                 
                 
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
               
             </span>
           
@@ -1004,18 +696,10 @@
 
       
         
-          <h1 id="过拟合与欠拟合"><a href="#过拟合与欠拟合" class="headerlink" title="过拟合与欠拟合"></a>过拟合与欠拟合</h1><ul>
-<li><strong>欠拟合</strong>指模型不能在<strong>训练集</strong>上获得足够低的<strong>训练误差</strong>；</li>
-</ul>
-<ul>
-<li>过拟合指模型的训练误差与测试误差（泛化误差）之间差距过大；<ul>
-<li>反映在<strong>评价指标</strong>上，就是模型在训练集上表现良好，但是在测试集和新数据上表现一般（<strong>泛化能力差</strong>）；</li>
-</ul>
-</li>
-</ul>
+          <p>器学习(ML), 自然语言处理(NLP), 信息检索(IR)等领域, 评估(Evaluation)是一个必要的工作, 而其评价指标往往有如下几点: 准确率(Accuracy), 精确率(Precision), 召回率(Recall) 和 F1-Measure.(注：相对来说，IR 的 ground truth 很多时候是一个 Ordered List, 而不是一个 Bool 类型的 Unordered Collection，在都找到的情况下，排在第三名还是第四名损失并不是很大，而排在第一名和第一百名，虽然都是“找到了”，但是意义是不一样的，因此更多可能适用于 <a href="https://en.wikipedia.org/wiki/Information%20retrieval#Mean_average_precision" target="_blank" rel="noopener">MAP</a> 之类评估指标.)</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/02/深度学习知识复习/#more" rel="contents">
+            <a class="btn" href="/2018/12/04/准确率-Accuracy-精确率-Precision-召回率-Recall-和F1-Measure/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1061,7 +745,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/02/25/机器学习知识复习/">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/09/27/java常用数据结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeffrey Pacino">
@@ -1083,8 +767,8 @@
             
               
                 
-                <a class="post-title-link" href="/2019/02/25/机器学习知识复习/" itemprop="url">
-                  机器学习知识复习
+                <a class="post-title-link" href="/2018/09/27/java常用数据结构/" itemprop="url">
+                  java常用数据结构
                 </a>
               
             
@@ -1100,8 +784,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T09:54:28+08:00">
-                2019-02-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-27T10:18:49+08:00">
+                2018-09-27
               </time>
             
 
@@ -1123,19 +807,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -1170,10 +843,315 @@
 
       
         
-          <h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2>
+          <p>java.util包中三个重要的接口及特点：List（列表）、Set（保证集合中元素唯一）、Map（维护多个key-value键值对，保证key唯一）。其不同子类的实现各有差异，如是否同步（线程安全）、是否有序。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/02/25/机器学习知识复习/#more" rel="contents">
+            <a class="btn" href="/2018/09/27/java常用数据结构/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/09/25/Spring实战课程——微信点餐平台/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeffrey Pacino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangZhao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/09/25/Spring实战课程——微信点餐平台/" itemprop="url">
+                  Spring实战课程——微信点餐平台
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T16:58:02+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/网页/" itemprop="url" rel="index">
+                    <span itemprop="name">网页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>此教程跟随慕课网实战课程进行：<a href="https://coding.imooc.com/class/117.html" target="_blank" rel="noopener">https://coding.imooc.com/class/117.html</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/25/Spring实战课程——微信点餐平台/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/09/25/在服务器部署Jupyter-Notebook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeffrey Pacino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangZhao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/09/25/在服务器部署Jupyter-Notebook/" itemprop="url">
+                  在服务器部署Jupyter Notebook
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T16:52:09+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程工具/" itemprop="url" rel="index">
+                    <span itemprop="name">编程工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在服务器安装Jupyter后：<br> 1、生成配置文件<code>$jupyter notebook --generate-config</code><br> 2、终端输入<code>ipython</code>,生成密码</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/25/在服务器部署Jupyter-Notebook/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1270,7 +1248,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1281,7 +1259,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
