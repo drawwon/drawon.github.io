@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
 <meta property="og:description" content="一、Redis1. 简介单线程为什么这么快？  纯内存 非阻塞IO 避免线程切换和竞争消耗  单线程Redis注意事项  一次只运行一条命令 拒绝长（慢）命令，例如：keys、flushall、flushdb、slow lua script、mutil/exec、operate big value(collection) Redis其实不是单线程，fysnc file descriptor进行持久">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-24T08:38:02.924Z">
+<meta property="og:updated_time" content="2019-03-26T13:33:40.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis知识总结">
 <meta name="twitter:description" content="一、Redis1. 简介单线程为什么这么快？  纯内存 非阻塞IO 避免线程切换和竞争消耗  单线程Redis注意事项  一次只运行一条命令 拒绝长（慢）命令，例如：keys、flushall、flushdb、slow lua script、mutil/exec、operate big value(collection) Redis其实不是单线程，fysnc file descriptor进行持久">
@@ -476,6 +476,24 @@
 <p>zadd zset-key 728 member1：加入值为728，key为member1的键值对</p>
 </li>
 </ol>
+<h2 id="什么是-RedLock"><a href="#什么是-RedLock" class="headerlink" title="什么是 RedLock"></a>什么是 RedLock</h2><p>Redis 官方站这篇文章提出了一种权威的基于 Redis 实现分布式锁的方式名叫 <em>Redlock</em>，此种方式比原先的单节点的方法更安全。它可以保证以下特性：</p>
+<ol>
+<li>安全特性：互斥访问，即永远只有一个 client 能拿到锁</li>
+<li>避免死锁：最终 client 都可能拿到锁，不会出现死锁的情况，即使原本锁住某资源的 client crash 了或者出现了网络分区</li>
+<li>容错性：只要大部分 Redis 节点存活就可以正常提供服务</li>
+</ol>
+<h3 id="redlock的实现方式"><a href="#redlock的实现方式" class="headerlink" title="redlock的实现方式"></a><strong>redlock的实现方式</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set key value nx px</span><br></pre></td></tr></table></figure>
+<h2 id="Redlock-算法"><a href="#Redlock-算法" class="headerlink" title="Redlock 算法"></a>Redlock 算法</h2><p>算法很易懂，起 5 个 master 节点，分布在不同的机房尽量保证可用性。为了获得锁，client 会进行如下操作：</p>
+<ol>
+<li>得到当前的时间，微妙单位</li>
+<li>尝试顺序地在 5 个实例上申请锁，当然需要使用相同的 key 和 random value，这里一个 client 需要合理设置与 master 节点沟通的 timeout 大小，避免长时间和一个 fail 了的节点浪费时间</li>
+<li>当 client 在大于等于 3 个 master 上成功申请到锁的时候，且它会计算申请锁消耗了多少时间，这部分消耗的时间采用获得锁的当下时间减去第一步获得的时间戳得到，如果锁的持续时长（lock validity time）比流逝的时间多的话，那么锁就真正获取到了。</li>
+<li>如果锁申请到了，那么锁真正的 lock validity time 应该是 origin（lock validity time） - 申请锁期间流逝的时间</li>
+<li>如果 client 申请锁失败了，那么它就会在少部分申请成功锁的 master 节点上执行释放锁的操作，重置状态</li>
+</ol>
+<h2 id="放锁"><a href="#放锁" class="headerlink" title="放锁"></a>放锁</h2><p>放锁操作很简单，就是依次释放所有节点上的锁就行了</p>
+<h2 id="性能、崩溃恢复和-fsync"><a href="#性能、崩溃恢复和-fsync" class="headerlink" title="性能、崩溃恢复和 fsync"></a>性能、崩溃恢复和 fsync</h2><p>如果我们的节点没有持久化机制，client 从 5 个 master 中的 3 个处获得了锁，然后其中一个重启了，这是注意 <strong>整个环境中又出现了 3 个 master 可供另一个 client 申请同一把锁！</strong> 违反了互斥性。如果我们开启了 AOF 持久化那么情况会稍微好转一些，因为 Redis 的过期机制是语义层面实现的，所以在 server 挂了的时候时间依旧在流逝，重启之后锁状态不会受到污染。但是考虑断电之后呢，AOF部分命令没来得及刷回磁盘直接丢失了，除非我们配置刷回策略为 fsync = always，但这会损伤性能。解决这个问题的方法是，当一个节点重启之后，我们规定在 max TTL 期间它是不可用的，这样它就不会干扰原本已经申请到的锁，等到它 crash 前的那部分锁都过期了，环境不存在历史锁了，那么再把这个节点加进来正常工作。</p>
+<h4 id="Redlock可靠吗"><a href="#Redlock可靠吗" class="headerlink" title="Redlock可靠吗"></a><strong>Redlock可靠吗</strong></h4><p>不可靠，因为万一多个节点之间的通信延迟，就会出错。可靠的方式是使用zookeeper和fencing token（每次获取锁共享变量+1）。</p>
 
       
     </div>
@@ -711,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Redis"><span class="nav-number">1.</span> <span class="nav-text">一、Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1. 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-应用场景"><span class="nav-number">1.2.</span> <span class="nav-text">2. 应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据类型"><span class="nav-number">1.3.</span> <span class="nav-text">3. 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-持久化"><span class="nav-number">1.4.</span> <span class="nav-text">4.持久化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-基本指令"><span class="nav-number">1.5.</span> <span class="nav-text">5.基本指令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Redis"><span class="nav-number">1.</span> <span class="nav-text">一、Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1. 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-应用场景"><span class="nav-number">1.2.</span> <span class="nav-text">2. 应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据类型"><span class="nav-number">1.3.</span> <span class="nav-text">3. 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-持久化"><span class="nav-number">1.4.</span> <span class="nav-text">4.持久化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-基本指令"><span class="nav-number">1.5.</span> <span class="nav-text">5.基本指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-RedLock"><span class="nav-number">1.6.</span> <span class="nav-text">什么是 RedLock</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redlock的实现方式"><span class="nav-number">1.6.1.</span> <span class="nav-text">redlock的实现方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redlock-算法"><span class="nav-number">1.7.</span> <span class="nav-text">Redlock 算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#放锁"><span class="nav-number">1.8.</span> <span class="nav-text">放锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能、崩溃恢复和-fsync"><span class="nav-number">1.9.</span> <span class="nav-text">性能、崩溃恢复和 fsync</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redlock可靠吗"><span class="nav-number">1.9.0.1.</span> <span class="nav-text">Redlock可靠吗</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
