@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[最长回文子串算法——Manacher's Algorithm 马拉车算法]]></title>
+    <url>%2F2019%2F04%2F11%2F%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94Manacher-s-Algorithm-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[这个马拉车算法Manacher‘s Algorithm是用来查找一个字符串的最长回文子串的线性方法，由一个叫Manacher的人在1975年发明的，这个方法的最大贡献是在于将时间复杂度提升到了线性，这是非常了不起的。对于回文串想必大家都不陌生，就是正读反读都一样的字符串，比如 “bob”, “level”, “noon” 等等，那么如何在一个字符串中找出最长回文子串呢，可以以每一个字符为中心，向两边寻找回文子串，在遍历完整个数组后，就可以找到最长的回文子串。但是这个方法的时间复杂度为O(n*n)，并不是很高效，下面我们来看时间复杂度为O(n)的马拉车算法。 由于回文串的长度可奇可偶，比如”bob”是奇数形式的回文，”noon”就是偶数形式的回文，马拉车算法的第一步是预处理，做法是在每一个字符的左右都加上一个特殊字符，比如加上’#’，那么 bob —&gt; #b#o#b# noon —&gt; #n#o#o#n# 这样做的好处是不论原字符串是奇数还是偶数个，处理之后得到的字符串的个数都是奇数个，这样就不用分情况讨论了，而可以一起搞定。接下来我们还需要和处理后的字符串t等长的数组p，其中p[i]表示以t[i]字符为中心的回文子串的半径，若p[i] = 1，则该回文子串就是t[i]本身，那么我们来看一个简单的例子： # 1 # 2 # 2 # 1 # 2 # 2 #1 2 1 2 5 2 1 6 1 2 3 2 1 为啥我们关心回文子串的半径呢？看上面那个例子，以中间的 ‘1’ 为中心的回文子串 “#2#2#1#2#2#” 的半径是6，而未添加#号的回文子串为 “22122”，长度是5，为半径减1。这是个普遍的规律么？我们再看看之前的那个 “#b#o#b#”，我们很容易看出来以中间的 ‘o’ 为中心的回文串的半径是4，而 “bob”的长度是3，符合规律。再来看偶数个的情况”noon”，添加#号后的回文串为 “#n#o#o#n#”，以最中间的 ‘#’ 为中心的回文串的半径是5，而 “noon” 的长度是4，完美符合规律。所以我们只要找到了最大的半径，就知道最长的回文子串的字符个数了。只知道长度无法定位子串，我们还需要知道子串的起始位置。 我们还是先来看中间的 ‘1’ 在字符串 “#1#2#2#1#2#2#” 中的位置是7，而半径是6，貌似7-6=1，刚好就是回文子串 “22122” 在原串 “122122” 中的起始位置1。那么我们再来验证下 “bob”，”o” 在 “#b#o#b#” 中的位置是3，但是半径是4，这一减成负的了，肯定不对。所以我们应该至少把中心位置向后移动一位，才能为0啊，那么我们就需要在前面增加一个字符，这个字符不能是#号，也不能是s中可能出现的字符，所以我们暂且就用美元号吧，毕竟是博主最爱的东西嘛。这样都不相同的话就不会改变p值了，那么末尾要不要对应的也添加呢，其实不用的，不用加的原因是字符串的结尾标识为’\0’，等于默认加过了。那此时 “o” 在 “$#b#o#b#” 中的位置是4，半径是4，一减就是0了，貌似没啥问题。我们再来验证一下那个数字串，中间的 ‘1’ 在字符串 “$#1#2#2#1#2#2#” 中的位置是8，而半径是6，这一减就是2了，而我们需要的是1，所以我们要除以2。之前的 “bob” 因为相减已经是0了，除以2还是0，没有问题。再来验证一下 “noon”，中间的 ‘#’ 在字符串 “​$#n#o#o#n#” 中的位置是5，半径也是5，相减并除以2还是0，完美。可以任意试试其他的例子，都是符合这个规律的，最长子串的长度是半径减1，起始位置是中间位置减去半径再除以2。 那么下面我们就来看如何求p数组，需要新增两个辅助变量mx和id，其中id为能延伸到最右端的位置的那个回文子串的中心点位置，mx是回文串能延伸到的最右端的位置，这个算法的最核心的一行如下： 1p[i] = mx &gt; i ? min(p[2 * id - i], mx - i) : 1; 可以这么说，这行要是理解了，那么马拉车算法基本上就没啥问题了，那么这一行代码拆开来看就是 如果 mx &gt; i, 则 p[i] = min( p[2 * id - i] , mx - i ) 否则，p[i] = 1 当 mx - i &gt; P[j] 的时候，以S[j]为中心的回文子串包含在以S[id]为中心的回文子串中，由于 i 和 j 对称，以S[i]为中心的回文子串必然包含在以S[id]为中心的回文子串中，所以必有 P[i] = P[j]，其中 j = 2*id - i，因为 j 到 id 之间到距离等于 id 到 i 之间到距离，为 i - id，所以 j = id - (i - id) = 2*id - i，参见下图。 当 P[j] &gt;= mx - i 的时候，以S[j]为中心的回文子串不一定完全包含于以S[id]为中心的回文子串中，但是基于对称性可知，下图中两个绿框所包围的部分是相同的，也就是说以S[i]为中心的回文子串，其向右至少会扩张到mx的位置，也就是说 P[i] = mx - i。至于mx之后的部分是否对称，就只能老老实实去匹配了，这就是后面紧跟到while循环的作用。 对于 mx &lt;= i 的情况，无法对 P[i]做更多的假设，只能P[i] = 1，然后再去匹配了。 c++代码如下 123456789101112131415161718192021222324252627282930313233343536373839#include &lt;vector&gt;#include &lt;iostream&gt;#include &lt;string&gt;using namespace std;string Manacher(string s) &#123; // Insert '#' string t = "$#"; for (int i = 0; i &lt; s.size(); ++i) &#123; t += s[i]; t += "#"; &#125; // Process t vector&lt;int&gt; p(t.size(), 0); int mx = 0, id = 0, resLen = 0, resCenter = 0; for (int i = 1; i &lt; t.size(); ++i) &#123; p[i] = mx &gt; i ? min(p[2 * id - i], mx - i) : 1; while (t[i + p[i]] == t[i - p[i]]) ++p[i]; if (mx &lt; i + p[i]) &#123; mx = i + p[i]; id = i; &#125; if (resLen &lt; p[i]) &#123; resLen = p[i]; resCenter = i; &#125; &#125; return s.substr((resCenter - resLen) / 2, resLen - 1);&#125;int main() &#123; string s1 = "12212"; cout &lt;&lt; Manacher(s1) &lt;&lt; endl; string s2 = "122122"; cout &lt;&lt; Manacher(s2) &lt;&lt; endl; string s = "waabwswfd"; cout &lt;&lt; Manacher(s) &lt;&lt; endl;&#125; python代码如下： 1234567891011121314151617181920212223def maxLenParaString(s): if not s: return 0 t = '$#' for i in range(len(s)): t += s[i] t += '#' p = [0 for _ in range(len(t))] tempR = 0 tempCenter = 0 resLen = 0 resCenter = 0 for i in range(len(t)): if tempR &gt; i: p[i] = min(p[2 * tempCenter - i], tempR - i) else: p[i] = 1 while t[i+p[i]]==t[i-p[i]]: p[i]+=1 if resLen&lt;p[i]: resLen=p[i]-1 resCenter=i return resLen,resCenter]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ssm到springboot的校园电商平台]]></title>
     <url>%2F2019%2F04%2F10%2Fssm%E5%88%B0springboot%E7%9A%84%E6%A0%A1%E5%9B%AD%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0%2F</url>
-    <content type="text"><![CDATA[曾经流行的框架名称是SSH，由Spring，spring MVC，hibernate组成 后来逐渐切换到SSM，由Spring，Spring MVC，MyBatis组成 再到现在流行的框架已经变成SpringBoot和MyBatis组成了 MavenMaven是一个构建项目的工具，他的主要思想是通过配置一个pom.xml文件（project object model），一键式迁移java环境，不管在哪个环境中，只要拿到这个pom.xml，相关依赖就可以一键下载部署。]]></content>
+    <content type="text"><![CDATA[曾经流行的框架名称是SSH，由Spring，spring MVC，hibernate组成 后来逐渐切换到SSM，由Spring，Spring MVC，MyBatis组成 再到现在流行的框架已经变成SpringBoot和MyBatis组成了 MavenMaven是一个构建项目的工具，他的主要思想是通过配置一个pom.xml文件（project object model），一键式迁移java环境，不管在哪个环境中，只要拿到这个pom.xml，相关依赖就可以一键下载部署。 因为之前对spring没有了解，先看看《spring 实战》这本书 spring基本概念bean是spring的基本应用组件，spring最核心的内容就是IOC（DI）与AOP 我们考虑一下DI是怎么实现的。先看一个例子DamselRescuingKnight，实现的Knight接口，有个私有变量quest表示他能干的事情，比如拯救女子，或者是屠杀恶龙，如果你将quest写死为RescueDamselQuest，那么DamselRescuingKnight和RescueDamselQuest的耦合程度就太大了，这样不利于代码的修改和复用。 12345678910package com.spring.sample.knights;public class DamselRescuingKnight implements Knight &#123; private RescueDamselQuest quest; public DamselRescuingKnight() &#123; this.quest = new RescueDamselQuest(); //与RescueDamselQuest紧耦合 &#125; public void embarkOnQuest() &#123; quest.emark(); &#125;&#125; 所谓的耦合就是互相依赖，如果一个类里面完全依赖另外一个类，需要改动的时候，那么要改动的地方可能就很多，所以spring的第一个好处是依赖注入，减少代码耦合。 第一个注入方式，是通过构造器注入，就是在构造器中传入参数，那么这个quest就可以是任何类型的quest了。 12345678910111213package com.spring.sample.knights;public class BraveKnight implements Knight &#123; private Quest quest; public BraveKnight(Quest quest) &#123; // Quest实例被注入 this.quest = quest; &#125; public void embarkOnQuest() &#123; quest.emark(); &#125;&#125; 第二个注入方式就是Spring当中常用的，叫做装配(创建应用组件之间写作的行为称为装配)，就是用xml的方式来配置。 12345678910111213package com.spring.sample.knights;import java.io.PrintStream;public class SlayDragonQuest implements Quest &#123; private PrintStream stream; public SlayDragonQuest(PrintStream stream) &#123; this.stream = stream; &#125; public void emark() &#123; stream.println("Embarking on quest to slay the dragon!"); &#125;&#125; 装配的xml文件如下： 12345678910111213&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"&gt; &lt;bean id="knight" class="com.spring.sample.knights.BraveKnight"&gt; &lt;constructor-arg ref="quest" /&gt; &lt;/bean&gt; &lt;bean id="quest" class="com.spring.sample.knights.SlayDragonQuest"&gt; &lt;constructor-arg value="#&#123;T(System).out&#125;" /&gt; &lt;/bean&gt;&lt;/beans&gt; Spring 3.0引入了JavaConfig，这种写法比xml文件的好处是具备类型安全检查，例如，上面XML配置文件可以这么写： 123456789101112131415161718192021package com.spring.sample.knights.config;import com.spring.sample.knights.BraveKnight;import com.spring.sample.knights.Knight;import com.spring.sample.knights.Quest;import com.spring.sample.knights.SlayDragonQuest;import org.springframework.context.annotation.Bean;import org.springframework.context.annotation.Configuration;@Configurationpublic class KnightConfig &#123; @Bean public Knight knight() &#123; return new BraveKnight(quest()); &#125; @Bean public Quest quest() &#123; return new SlayDragonQuest(System.out); &#125;&#125;]]></content>
       <categories>
         <category>编程学习</category>
       </categories>
@@ -138,8 +149,8 @@
         <category>Ubuntu</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>Linux</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -656,8 +667,8 @@
       </categories>
       <tags>
         <tag>数据分析</tag>
-        <tag>pandas</tag>
         <tag>python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
