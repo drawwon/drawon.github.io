@@ -97,7 +97,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190411213259.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190411213328.png">
-<meta property="og:updated_time" content="2019-04-11T13:45:20.018Z">
+<meta property="og:updated_time" content="2019-04-22T02:58:23.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最长回文子串算法——Manacher&#39;s Algorithm 马拉车算法">
 <meta name="twitter:description" content="这个马拉车算法Manacher‘s Algorithm是用来查找一个字符串的最长回文子串的线性方法，由一个叫Manacher的人在1975年发明的，这个方法的最大贡献是在于将时间复杂度提升到了线性，这是非常了不起的。对于回文串想必大家都不陌生，就是正读反读都一样的字符串，比如 “bob”, “level”, “noon” 等等，那么如何在一个字符串中找出最长回文子串呢，可以以每一个字符为中心，向两">
@@ -403,6 +403,7 @@
 
       
         <p>这个马拉车算法Manacher‘s Algorithm是用来查找一个字符串的<a href="http://en.wikipedia.org/wiki/Longest_palindromic_substring" target="_blank" rel="noopener">最长回文子串</a>的线性方法，由一个叫Manacher的人在1975年发明的，这个方法的最大贡献是在于将时间复杂度提升到了线性，这是非常了不起的。对于回文串想必大家都不陌生，就是正读反读都一样的字符串，比如 “bob”, “level”, “noon” 等等，那么如何在一个字符串中找出最长回文子串呢，可以以每一个字符为中心，向两边寻找回文子串，在遍历完整个数组后，就可以找到最长的回文子串。但是这个方法的时间复杂度为O(n*n)，并不是很高效，下面我们来看时间复杂度为O(n)的马拉车算法。</p>
+<a id="more"></a>
 <p>由于回文串的长度可奇可偶，比如”bob”是奇数形式的回文，”noon”就是偶数形式的回文，马拉车算法的第一步是预处理，做法是在每一个字符的左右都加上一个特殊字符，比如加上’#’，那么</p>
 <p>bob    —&gt;      #b#o#b#</p>
 <p>noon    —&gt;    #n#o#o#n# </p>
