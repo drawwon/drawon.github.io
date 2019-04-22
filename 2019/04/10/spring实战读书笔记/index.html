@@ -90,14 +90,14 @@
 <meta name="description" content="曾经流行的框架名称是SSH，由Spring，spring MVC，hibernate组成 后来逐渐切换到SSM，由Spring，Spring MVC，MyBatis组成 再到现在流行的框架已经变成SpringBoot和MyBatis组成了 MavenMaven是一个构建项目的工具，他的主要思想是通过配置一个pom.xml文件（project object model），一键式迁移java环境，不管">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssm到springboot的校园电商平台">
-<meta property="og:url" content="http://drawwon.github.io/2019/04/10/ssm到springboot的校园电商平台/index.html">
+<meta property="og:title" content="Spring实战读书笔记">
+<meta property="og:url" content="http://drawwon.github.io/2019/04/10/spring实战读书笔记/index.html">
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
 <meta property="og:description" content="曾经流行的框架名称是SSH，由Spring，spring MVC，hibernate组成 后来逐渐切换到SSM，由Spring，Spring MVC，MyBatis组成 再到现在流行的框架已经变成SpringBoot和MyBatis组成了 MavenMaven是一个构建项目的工具，他的主要思想是通过配置一个pom.xml文件（project object model），一键式迁移java环境，不管">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-13T01:43:42.144Z">
+<meta property="og:updated_time" content="2019-04-22T02:31:34.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssm到springboot的校园电商平台">
+<meta name="twitter:title" content="Spring实战读书笔记">
 <meta name="twitter:description" content="曾经流行的框架名称是SSH，由Spring，spring MVC，hibernate组成 后来逐渐切换到SSM，由Spring，Spring MVC，MyBatis组成 再到现在流行的框架已经变成SpringBoot和MyBatis组成了 MavenMaven是一个构建项目的工具，他的主要思想是通过配置一个pom.xml文件（project object model），一键式迁移java环境，不管">
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://drawwon.github.io/2019/04/10/ssm到springboot的校园电商平台/"/>
+  <link rel="canonical" href="http://drawwon.github.io/2019/04/10/spring实战读书笔记/"/>
 
 
 
 
 
-  <title> ssm到springboot的校园电商平台 | WangZhao's Blog </title>
+  <title> Spring实战读书笔记 | WangZhao's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -305,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/04/10/ssm到springboot的校园电商平台/">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2019/04/10/spring实战读书笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeffrey Pacino">
@@ -326,7 +326,7 @@
             
             
               
-                ssm到springboot的校园电商平台
+                Spring实战读书笔记
               
             
           </h1>
@@ -403,7 +403,7 @@
 <p>后来逐渐切换到<code>SSM</code>，由Spring，Spring MVC，MyBatis组成</p>
 <p>再到现在流行的框架已经变成SpringBoot和MyBatis组成了</p>
 <h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p>Maven是一个构建项目的工具，他的主要思想是通过配置一个pom.xml文件（project object model），一键式迁移java环境，不管在哪个环境中，只要拿到这个pom.xml，相关依赖就可以一键下载部署。</p>
-<p>因为之前对spring没有了解，先看看《spring 实战》这本书</p>
+<p>因为之前对spring了解不多，先看看《spring 实战》这本书</p>
 <h3 id="spring基本概念"><a href="#spring基本概念" class="headerlink" title="spring基本概念"></a>spring基本概念</h3><p>bean是spring的基本应用组件，spring最核心的内容就是IOC（DI）与AOP</p>
 <p>我们考虑一下DI是怎么实现的。先看一个例子DamselRescuingKnight，实现的Knight接口，有个私有变量quest表示他能干的事情，比如拯救女子，或者是屠杀恶龙，如果你将quest写死为RescueDamselQuest，那么DamselRescuingKnight和RescueDamselQuest的耦合程度就太大了，这样不利于代码的修改和复用。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.spring.sample.knights;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DamselRescuingKnight</span> <span class="keyword">implements</span> <span class="title">Knight</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> RescueDamselQuest quest;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DamselRescuingKnight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.quest = <span class="keyword">new</span> RescueDamselQuest(); <span class="comment">//与RescueDamselQuest紧耦合</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">embarkOnQuest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        quest.emark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
