@@ -305,6 +305,243 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/03/24/redis知识总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeffrey Pacino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangZhao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/24/redis知识总结/" itemprop="url">
+                  redis知识总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-24T15:04:16+08:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、Redis"><a href="#一、Redis" class="headerlink" title="一、Redis"></a>一、Redis</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p><strong>单线程为什么这么快？</strong></p>
+<ol>
+<li>纯内存</li>
+<li>非阻塞IO</li>
+<li>避免线程切换和竞争消耗</li>
+</ol>
+<p><strong>单线程Redis注意事项</strong></p>
+<ol>
+<li>一次只运行一条命令</li>
+<li>拒绝长（慢）命令，例如：keys、flushall、flushdb、slow lua script、mutil/exec、operate big value(collection)</li>
+<li>Redis其实不是单线程，fysnc file descriptor进行持久化</li>
+</ol>
+<p><strong>Redis特点</strong></p>
+<ol>
+<li>速度快</li>
+<li>持久化</li>
+<li>多钟数据结构</li>
+<li>支持多种编程语言</li>
+<li>功能丰富</li>
+<li>简单</li>
+<li>主从复制</li>
+<li>高可用，分布式</li>
+</ol>
+<p><strong>补充知识：同步非同步，阻塞非阻塞</strong></p>
+<p><strong>1. 同步和异步关注的是消息通信机制</strong> (synchronous communication/ asynchronous communication)</p>
+<p>所谓同步，就是在发出一个调用时，在没有得到结果之前，该调用就不返回。但是一旦调用返回，就得到返回值了。换句话说，就是由调用者主动等待这个调用的结果。</p>
+<p>异步则是相反，调用在发出之后，这个调用就直接返回了，所以没有返回结果。换句话说，当一个异步过程调用发出后，调用者不会立刻得到结果。而是在调用发出后，被调用者通过状态、通知来通知调用者，或通过回调函数处理这个调用。</p>
+<p>总结：同步和异步主要关注的是不是调用函数自己返回调用结果，同步是调用者返回调用结果，异步是调用发出后立马返回空值，由回调函数返回调用结果</p>
+<p><strong>2.阻塞与非阻塞</strong></p>
+<p><strong>阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的状态.</strong></p>
+<p>阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。<br>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</p>
+<h2 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h2><p>缓存系统、排行榜、计数器、社交网络、消息队列系统、实时系统</p>
+<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3. 数据类型"></a>3. 数据类型</h2><p>支持的数据类型：字符串、列表、集合、字典（hash）、有序集合(ZSET)</p>
+<h2 id="4-持久化"><a href="#4-持久化" class="headerlink" title="4.持久化"></a>4.持久化</h2><ol>
+<li>Redis 默认开启RDB持久化方式，在指定的时间间隔内，执行指定次数的写操作，则将内存中的数据写入到磁盘中。</li>
+<li>RDB (Redis Database Backup)持久化适合大规模的数据恢复但它的数据一致性和完整性较差。</li>
+<li>Redis 需要手动开启AOF(Append Only File)持久化方式，默认是每秒将写操作日志追加到AOF文件中。</li>
+<li>AOF 的数据完整性比RDB高，但记录内容多了，会影响数据恢复的效率。</li>
+</ol>
+<h2 id="5-基本指令"><a href="#5-基本指令" class="headerlink" title="5.基本指令"></a>5.基本指令</h2><ol>
+<li>string</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set key value [EX seconds] [PX ms] [nx|xx]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>key: 键名</li>
+<li>value: 键值</li>
+<li>ex seconds: 键秒级过期时间</li>
+<li>ex ms: 键毫秒及过期时间</li>
+<li>nx: 键不存在才能设置，setnx和nx选项作用一样，用于添加，分布式锁的实现</li>
+<li>xx: 键存在才能设置，setxx和xx选项作用一样，用于更新</li>
+</ul>
+<ol>
+<li><p>list</p>
+<p>rpush：右边插入</p>
+<p>lrange list-key start end：列出start到end范围的key值</p>
+</li>
+<li><p>set</p>
+<p>sadd set-key item：set插入值</p>
+<p>smembers set-key：列出set的key值</p>
+<p>sismember set-key item4：查看是否set的member</p>
+<p>srem set-key item2：set remove key</p>
+</li>
+<li><p>hash</p>
+<p>hset user name LotusChing：设置user的name为lotus</p>
+<p>hset user age 21</p>
+<p>hget user name：获取user的name</p>
+<p>hkeys user：获取user的key值</p>
+<p>hvals user：获取user的键值</p>
+<p>hdel user age：删除hash中某个键</p>
+<p>hlen user：获取user的键值对个数</p>
+<p>hmset user name “LotusChing” age 21 gender “Male”：批量设置key-value</p>
+<p>hmget user name age gender：批量获取value</p>
+</li>
+<li><p>zset</p>
+<p>zadd zset-key 728 member1：加入值为728，key为member1的键值对</p>
+</li>
+</ol>
+<h2 id="什么是-RedLock"><a href="#什么是-RedLock" class="headerlink" title="什么是 RedLock"></a>什么是 RedLock</h2><p>Redis 官方站这篇文章提出了一种权威的基于 Redis 实现分布式锁的方式名叫 <em>Redlock</em>，此种方式比原先的单节点的方法更安全。它可以保证以下特性：</p>
+<ol>
+<li>安全特性：互斥访问，即永远只有一个 client 能拿到锁</li>
+<li>避免死锁：最终 client 都可能拿到锁，不会出现死锁的情况，即使原本锁住某资源的 client crash 了或者出现了网络分区</li>
+<li>容错性：只要大部分 Redis 节点存活就可以正常提供服务</li>
+</ol>
+<h3 id="redlock的实现方式"><a href="#redlock的实现方式" class="headerlink" title="redlock的实现方式"></a><strong>redlock的实现方式</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set key value nx px</span><br></pre></td></tr></table></figure>
+<h2 id="Redlock-算法"><a href="#Redlock-算法" class="headerlink" title="Redlock 算法"></a>Redlock 算法</h2><p>算法很易懂，起 5 个 master 节点，分布在不同的机房尽量保证可用性。为了获得锁，client 会进行如下操作：</p>
+<ol>
+<li>得到当前的时间，微妙单位</li>
+<li>尝试顺序地在 5 个实例上申请锁，当然需要使用相同的 key 和 random value，这里一个 client 需要合理设置与 master 节点沟通的 timeout 大小，避免长时间和一个 fail 了的节点浪费时间</li>
+<li>当 client 在大于等于 3 个 master 上成功申请到锁的时候，且它会计算申请锁消耗了多少时间，这部分消耗的时间采用获得锁的当下时间减去第一步获得的时间戳得到，如果锁的持续时长（lock validity time）比流逝的时间多的话，那么锁就真正获取到了。</li>
+<li>如果锁申请到了，那么锁真正的 lock validity time 应该是 origin（lock validity time） - 申请锁期间流逝的时间</li>
+<li>如果 client 申请锁失败了，那么它就会在少部分申请成功锁的 master 节点上执行释放锁的操作，重置状态</li>
+</ol>
+<h2 id="放锁"><a href="#放锁" class="headerlink" title="放锁"></a>放锁</h2><p>放锁操作很简单，就是依次释放所有节点上的锁就行了</p>
+<h2 id="性能、崩溃恢复和-fsync"><a href="#性能、崩溃恢复和-fsync" class="headerlink" title="性能、崩溃恢复和 fsync"></a>性能、崩溃恢复和 fsync</h2><p>如果我们的节点没有持久化机制，client 从 5 个 master 中的 3 个处获得了锁，然后其中一个重启了，这是注意 <strong>整个环境中又出现了 3 个 master 可供另一个 client 申请同一把锁！</strong> 违反了互斥性。如果我们开启了 AOF 持久化那么情况会稍微好转一些，因为 Redis 的过期机制是语义层面实现的，所以在 server 挂了的时候时间依旧在流逝，重启之后锁状态不会受到污染。但是考虑断电之后呢，AOF部分命令没来得及刷回磁盘直接丢失了，除非我们配置刷回策略为 fsync = always，但这会损伤性能。解决这个问题的方法是，当一个节点重启之后，我们规定在 max TTL 期间它是不可用的，这样它就不会干扰原本已经申请到的锁，等到它 crash 前的那部分锁都过期了，环境不存在历史锁了，那么再把这个节点加进来正常工作。</p>
+<h4 id="Redlock可靠吗"><a href="#Redlock可靠吗" class="headerlink" title="Redlock可靠吗"></a><strong>Redlock可靠吗</strong></h4><p>不可靠，因为万一多个节点之间的通信延迟，就会出错。可靠的方式是使用zookeeper和fencing token（每次获取锁共享变量+1）。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/03/23/项目总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1084,155 +1321,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/03/09/操作系统知识点总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeffrey Pacino">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WangZhao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/09/操作系统知识点总结/" itemprop="url">
-                  操作系统知识点总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T12:13:53+08:00">
-                2018-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1-操作系统基本特征"><a href="#1-操作系统基本特征" class="headerlink" title="1. 操作系统基本特征"></a>1. 操作系统基本特征</h2><h3 id="1-并发"><a href="#1-并发" class="headerlink" title="1. 并发"></a>1. 并发</h3><p>并发是指宏观上在一段时间内能同时运行多个程序，而并行则指同一时刻能运行多个指令。</p>
-<p>并行需要硬件支持，如多流水线或者多处理器。</p>
-<p>操作系统通过引入进程和线程，使得程序能够并发运行。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/09/操作系统知识点总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1282,7 +1370,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1293,7 +1381,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
