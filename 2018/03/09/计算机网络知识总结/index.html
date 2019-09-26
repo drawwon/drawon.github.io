@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190324161153.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190324161236.png">
 <meta property="og:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190324161503.png">
-<meta property="og:updated_time" content="2019-08-30T02:32:18.549Z">
+<meta property="og:updated_time" content="2019-09-07T07:57:11.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络知识总结">
 <meta name="twitter:description" content="TCP/IP1. 说一下OSI七层模型 TCP/IP四层模型 五层协议">
@@ -468,6 +468,11 @@
 <li>B 收到 A 的确认后，连接建立。</li>
 <li>B 的 TCP 收到主机 A 的确认后，也通知其上层应用进程：TCP 连接已经建立。</li>
 </ul>
+<p><strong>三次握手对应的socket编程函数</strong></p>
+<p>1.客户端调用connect()函数，此时客户端会向服务端发送SYN</p>
+<p>2.服务端收到SYN后，会从listen()函数返回SYN+ACK</p>
+<p>3.客户端收到connect()函数的返回，之后向服务端发送最后一个ACK</p>
+<p>4.服务端收到最后一个ACK以后，将该连接请求从未完成连接队列放入已完成连接队列中，等待accept()从该队列中取出</p>
 <h4 id="（2）为什么TCP连接需要三次握手，两次不可以吗，为什么"><a href="#（2）为什么TCP连接需要三次握手，两次不可以吗，为什么" class="headerlink" title="（2）为什么TCP连接需要三次握手，两次不可以吗，为什么"></a>（2）为什么TCP连接需要三次握手，两次不可以吗，为什么</h4><p><strong>为了防止已失效的连接请求报文段突然又传送到了服务端，占用服务器资源。 （假设主机A为客户端，主机B为服务器端）</strong></p>
 <p>现假定出现一种异常情况，即A发出的第一个连接请求报文段并没有丢失，而是在某些网络节点长时间滞留了，以致延误到连接释放以后的某个时间才到B。本来这是一个已失效的报文段。但是B收到此失效的连接请求报文段后，就误认为是A有发出一次新的连接请求。于是就向A发出确认报文段，同意建立连接。假定不采用三次握手，那么只要B发出确认，新的连接就建立了。</p>
 <p>由于现在A并没有发出建立连接的请求，因此不会理睬B的确认，也不会向B发送数据。但B却以为新的运输连接已经建立了，并一直等待A发来数据。B的许多资源就这样白白浪费了。</p>
