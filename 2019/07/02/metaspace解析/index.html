@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Program, Life, Read" />
+  <meta name="keywords" content="java,jvm," />
 
 
 
@@ -87,17 +87,18 @@
 
 
 
-<meta name="description" content="title: metaspace解析mathjax: truedate: 2019-07-02 21:41:48tags: [java,jvm]category: [java] 概述metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。 为什么有metaspacejdk8之前有perm这一整块内存来寸k">
+<meta name="description" content="概述metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。 为什么有metaspacejdk8之前有perm这一整块内存来寸klass等信息，我们的参数也会配置perm区域的大小：-XX: PermSize以及-XX：MaxPermSize来控制这块内存的大小，jvm在启动时会根据这些配置来分配一块连续">
+<meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WangZhao&#39;s Blog">
+<meta property="og:title" content="metaspace解析">
 <meta property="og:url" content="http://drawwon.github.io/2019/07/02/metaspace解析/index.html">
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
-<meta property="og:description" content="title: metaspace解析mathjax: truedate: 2019-07-02 21:41:48tags: [java,jvm]category: [java] 概述metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。 为什么有metaspacejdk8之前有perm这一整块内存来寸k">
+<meta property="og:description" content="概述metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。 为什么有metaspacejdk8之前有perm这一整块内存来寸klass等信息，我们的参数也会配置perm区域的大小：-XX: PermSize以及-XX：MaxPermSize来控制这块内存的大小，jvm在启动时会根据这些配置来分配一块连续">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-02T14:04:45.060Z">
+<meta property="og:updated_time" content="2019-10-17T14:41:52.465Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WangZhao&#39;s Blog">
-<meta name="twitter:description" content="title: metaspace解析mathjax: truedate: 2019-07-02 21:41:48tags: [java,jvm]category: [java] 概述metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。 为什么有metaspacejdk8之前有perm这一整块内存来寸k">
+<meta name="twitter:title" content="metaspace解析">
+<meta name="twitter:description" content="概述metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。 为什么有metaspacejdk8之前有perm这一整块内存来寸klass等信息，我们的参数也会配置perm区域的大小：-XX: PermSize以及-XX：MaxPermSize来控制这块内存的大小，jvm在启动时会根据这些配置来分配一块连续">
 
 
 
@@ -131,7 +132,7 @@
 
 
 
-  <title>  | WangZhao's Blog </title>
+  <title> metaspace解析 | WangZhao's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -325,7 +326,7 @@
             
             
               
-                
+                metaspace解析
               
             
           </h1>
@@ -350,6 +351,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -376,8 +399,7 @@
       
 
       
-        <p>title: metaspace解析<br>mathjax: true<br>date: 2019-07-02 21:41:48<br>tags: [java,jvm]<br>category: [java]</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>metaspace：顾名思义元数据空间，专门用来存储元数据，他是jdk8中特有的数据结构用来代替perm (permanent space：永久代)。</p>
 <h2 id="为什么有metaspace"><a href="#为什么有metaspace" class="headerlink" title="为什么有metaspace"></a>为什么有metaspace</h2><p>jdk8之前有perm这一整块内存来寸klass等信息，我们的参数也会配置perm区域的大小：-XX: PermSize以及-XX：MaxPermSize来控制这块内存的大小，jvm在启动时会根据这些配置来分配一块连续的内存块，但随着动态类加载的轻快越来越多，这块内存变得不太可控，到底设置多大合适是每个开发这一要考虑的问题，设置太小，系统容易出现内存溢出，设置太大会造成浪费。基于这样的一个原因，metaspace出现了，希望内存的管理不再受到限制，也不要怎么关注元数据这块的OOM问题。到目前为止，没有完美解决这个问题。</p>
 <p>从JVM代码中可以看出一些问题，比如MaxMetaSpaceSize默认值很大，CompressedClassSpaceSize默认值也有1G，从这些参数可以看到metaspace的作者不希望出现OOM相关的问题。</p>
 <h3 id="oop-klass-model-概述"><a href="#oop-klass-model-概述" class="headerlink" title="oop-klass model 概述"></a>oop-klass model 概述</h3><p>上文提到了klass这个信息，这里有必要解释一下。</p>
@@ -470,6 +492,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
       
 
       
@@ -609,7 +639,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -968,6 +998,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
