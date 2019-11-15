@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
 <meta property="og:description" content="一、注解(annotations)列表  @SpringBootApplication：包含了@ComponentScan、@Configuration和@EnableAutoConfiguration注解。其中@ComponentScan让spring Boot扫描到Configuration类并把它加入到程序上下文。  @Configuration 等同于spring的XML配置文件；使用Ja">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-14T09:59:48.298Z">
+<meta property="og:updated_time" content="2019-11-15T04:20:10.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot常用注解">
 <meta name="twitter:description" content="一、注解(annotations)列表  @SpringBootApplication：包含了@ComponentScan、@Configuration和@EnableAutoConfiguration注解。其中@ComponentScan让spring Boot扫描到Configuration类并把它加入到程序上下文。  @Configuration 等同于spring的XML配置文件；使用Ja">
@@ -405,17 +405,27 @@
 </li>
 <li><p>@Configuration 等同于spring的XML配置文件；使用<a href="http://lib.csdn.net/base/javase" target="_blank" rel="noopener">Java</a>代码可以检查类型安全。</p>
 </li>
+</ol>
+<a id="more"></a>
+<ol>
 <li><p>@EnableAutoConfiguration 自动配置。</p>
 </li>
 <li><p>@ComponentScan 组件扫描，可自动发现和装配一些Bean。</p>
 </li>
-<li>@Component可配合CommandLineRunner使用，在程序启动后执行一些基础任务。</li>
-<li>@ResponseBody：restful接口，加了之后返回的是json格式的数据，如果不加，返回的是某个跳转的地址</li>
-<li>@RestController注解是@Controller和@ResponseBody的合集,表示这是个控制器bean,并且是将函数的返回值直 接填入HTTP响应体中,是REST风格的控制器。</li>
-<li>@Autowired自动导入。</li>
-<li>@PathVariable获取参数。</li>
-<li>@JsonBackReference解决嵌套外链问题。</li>
-<li>@RepositoryRestResourcepublic配合spring-boot-starter-data-rest使用。</li>
+<li><p>@Component可配合CommandLineRunner使用，在程序启动后执行一些基础任务。</p>
+</li>
+<li><p>@ResponseBody：restful接口，加了之后返回的是json格式的数据，如果不加，返回的是某个跳转的地址</p>
+</li>
+<li><p>@RestController注解是@Controller和@ResponseBody的合集,表示这是个控制器bean,并且是将函数的返回值直 接填入HTTP响应体中,是REST风格的控制器。</p>
+</li>
+<li><p>@Autowired自动导入。</p>
+</li>
+<li><p>@PathVariable获取参数。</p>
+</li>
+<li><p>@JsonBackReference解决嵌套外链问题。</p>
+</li>
+<li><p>@RepositoryRestResourcepublic配合spring-boot-starter-data-rest使用。</p>
+</li>
 </ol>
 <p><strong>二、注解(annotations)详解</strong></p>
 <p>@SpringBootApplication：申明让spring boot自动给程序进行必要的配置，这个配置等同于：@Configuration ，@EnableAutoConfiguration 和 @ComponentScan 三个配置。</p>

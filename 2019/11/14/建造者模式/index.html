@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="什么是构建器以及为什么要使用构建器假设某个类,现在有3个必选属性,有5个可选属性.(为了代码简洁,后面都只写一个必选属性,2个可选属性.懂就行). 那么现在想提供完善的创建该类的机制,该怎么办呢? 首先是方法1-使用重叠的构造方法. 重叠的构造方法这是大家都熟悉的方法，重载很多个构造方法,每个的参数都不一样，这样的复杂度比较大。 1234567891011121314151617181920212">
+<meta name="description" content="什么是构建器以及为什么要使用构建器假设某个类,现在有3个必选属性,有5个可选属性.(为了代码简洁,后面都只写一个必选属性,2个可选属性.懂就行). 那么现在想提供完善的创建该类的机制,该怎么办呢? 首先是方法1-使用重叠的构造方法.">
 <meta name="keywords" content="java,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="建造者模式">
 <meta property="og:url" content="http://drawwon.github.io/2019/11/14/建造者模式/index.html">
 <meta property="og:site_name" content="WangZhao&#39;s Blog">
-<meta property="og:description" content="什么是构建器以及为什么要使用构建器假设某个类,现在有3个必选属性,有5个可选属性.(为了代码简洁,后面都只写一个必选属性,2个可选属性.懂就行). 那么现在想提供完善的创建该类的机制,该怎么办呢? 首先是方法1-使用重叠的构造方法. 重叠的构造方法这是大家都熟悉的方法，重载很多个构造方法,每个的参数都不一样，这样的复杂度比较大。 1234567891011121314151617181920212">
+<meta property="og:description" content="什么是构建器以及为什么要使用构建器假设某个类,现在有3个必选属性,有5个可选属性.(为了代码简洁,后面都只写一个必选属性,2个可选属性.懂就行). 那么现在想提供完善的创建该类的机制,该怎么办呢? 首先是方法1-使用重叠的构造方法.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-15T04:16:05.255Z">
+<meta property="og:updated_time" content="2019-11-15T04:19:46.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="建造者模式">
-<meta name="twitter:description" content="什么是构建器以及为什么要使用构建器假设某个类,现在有3个必选属性,有5个可选属性.(为了代码简洁,后面都只写一个必选属性,2个可选属性.懂就行). 那么现在想提供完善的创建该类的机制,该怎么办呢? 首先是方法1-使用重叠的构造方法. 重叠的构造方法这是大家都熟悉的方法，重载很多个构造方法,每个的参数都不一样，这样的复杂度比较大。 1234567891011121314151617181920212">
+<meta name="twitter:description" content="什么是构建器以及为什么要使用构建器假设某个类,现在有3个必选属性,有5个可选属性.(为了代码简洁,后面都只写一个必选属性,2个可选属性.懂就行). 那么现在想提供完善的创建该类的机制,该怎么办呢? 首先是方法1-使用重叠的构造方法.">
 
 
 
@@ -402,6 +402,7 @@
         <h2 id="什么是构建器以及为什么要使用构建器"><a href="#什么是构建器以及为什么要使用构建器" class="headerlink" title="什么是构建器以及为什么要使用构建器"></a>什么是构建器以及为什么要使用构建器</h2><p>假设某个类,现在有3个必选属性,有5个可选属性.(为了代码简洁,后面都只写一个必选属性,2个可选属性.懂就行).</p>
 <p>那么现在想提供完善的<code>创建该类的机制</code>,该怎么办呢?</p>
 <p>首先是方法1-使用重叠的构造方法.</p>
+<a id="more"></a>
 <h4 id="重叠的构造方法"><a href="#重叠的构造方法" class="headerlink" title="重叠的构造方法"></a>重叠的构造方法</h4><p>这是大家都熟悉的方法，重载很多个构造方法,每个的参数都不一样，这样的复杂度比较大。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 必选</span></span><br><span class="line">    String name;</span><br><span class="line">    <span class="comment">// 可选</span></span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    String title;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age, String title)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.title = title;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>三个构造方法是不是已经比较复杂了，30个属性的类也不少见噢，写死人了要.</p>
