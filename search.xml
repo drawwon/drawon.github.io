@@ -10098,8 +10098,8 @@ a^n  = & a^{(n-1)/2}*a^{(n-1)/2}*a\quad  a为奇数
       </categories>
       <tags>
         <tag>数据分析</tag>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
