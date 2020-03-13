@@ -3684,8 +3684,8 @@ J(G) = \alpha J_{content}(C,G) + \beta J_{style}(S,G)</script><h3 id="1D和3D数
         <category>编程练习</category>
       </categories>
       <tags>
-        <tag>动态规划</tag>
         <tag>leetcode</tag>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -6631,8 +6631,8 @@ s(i, j)=r(i, j)+\min \{s(i-1, j-1), s(i-1, j), s(i, j-1)\}</script><p>最终表�
         <category>工作</category>
       </categories>
       <tags>
-        <tag>工作</tag>
         <tag>操作系统</tag>
+        <tag>工作</tag>
       </tags>
   </entry>
   <entry>
@@ -6986,8 +6986,8 @@ s(i, j)=r(i, j)+\min \{s(i-1, j-1), s(i-1, j), s(i, j-1)\}</script><p>最终表�
         <category>工作</category>
       </categories>
       <tags>
-        <tag>计算机网络</tag>
         <tag>工作</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -10098,8 +10098,8 @@ a^n  = & a^{(n-1)/2}*a^{(n-1)/2}*a\quad  a为奇数
       </categories>
       <tags>
         <tag>数据分析</tag>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
