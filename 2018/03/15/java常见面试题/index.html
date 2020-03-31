@@ -1,97 +1,26 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="default">
+<!DOCTYPE html>
+<html lang="default">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"drawwon.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-  
-
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="java," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="1. 面向对象特征">
+  <meta name="description" content="1. 面向对象特征">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java常见面试题">
 <meta property="og:url" content="http://drawwon.github.io/2018/03/15/java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
@@ -116,43 +45,19 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github-blog-1255346696.cos.ap-beijing.myqcloud.com/20190331160617.png">
 
+<link rel="canonical" href="http://drawwon.github.io/2018/03/15/java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: 'IJWVHXZ7XZ',
-      apiKey: '865857ee1e0da5ea972e1c757953fcda',
-      indexName: 'drawon',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"搜索文章 & 内容","hits_empty":"找不到您输入的关键字: ${query}","hits_stats":"找到了 ${hits} 个結果，花费 ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://drawwon.github.io/2018/03/15/java常见面试题/"/>
-
-
-
-
-
-  <title> java常见面试题 | WangZhao's Blog </title>
-<meta name="generator" content="Hexo 4.2.0"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
+  <title>java常见面试题 | WangZhao's Blog</title>
   
 
 
@@ -160,263 +65,200 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
+</head>
 
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail ">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">WangZhao's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
         <p class="site-subtitle">It's not who you are underneath,it's what you do that defines you</p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
 
+
 <nav class="site-nav">
   
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
-        
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
 
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
 
 
-
-
-    </div>
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
     <link itemprop="mainEntityOfPage" href="http://drawwon.github.io/2018/03/15/java%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeffrey Pacino">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeffrey Pacino">
+      <meta itemprop="description" content="Humble to the dust and then out of the flowers">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="WangZhao's Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                java常见面试题
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          java常见面试题
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-15T10:40:55+08:00">
-                2018-03-15
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
+              <time title="Created: 2018-03-15 10:40:55" itemprop="dateCreated datePublished" datetime="2018-03-15T10:40:55+08:00">2018-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-09 20:03:12" itemprop="dateModified" datetime="2019-10-09T20:03:12+08:00">2019-10-09</time>
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
-                  </a>
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
                 </span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h4 id="面向对象特征">1. 面向对象特征</h4>
@@ -1401,394 +1243,180 @@
 <p>了解 Java NIO 吗？了解的话说一下</p>
 <p>说一下 Java 反射的原理及应用场景</p>
 
-      
     </div>
 
-    <div>
-      
-        
+    
+    
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-        </div>
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/03/14/%E7%94%B1kaggle%E6%88%BF%E4%BB%B7%E6%A8%A1%E5%9E%8B%E5%BE%97%E5%88%B0stacking-model%E6%96%B9%E6%B3%95/" rel="next" title="由kaggle房价模型得到stacking model方法">
-                <i class="fa fa-chevron-left"></i> 由kaggle房价模型得到stacking model方法
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/15/Coursera-deeplearning-ai-%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="Coursera deeplearning.ai (一)">
-                Coursera deeplearning.ai (一) <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/14/%E7%94%B1kaggle%E6%88%BF%E4%BB%B7%E6%A8%A1%E5%9E%8B%E5%BE%97%E5%88%B0stacking-model%E6%96%B9%E6%B3%95/" rel="prev" title="由kaggle房价模型得到stacking model方法">
+      <i class="fa fa-chevron-left"></i> 由kaggle房价模型得到stacking model方法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/03/15/Coursera-deeplearning-ai-%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="Coursera deeplearning.ai (一)">
+      Coursera deeplearning.ai (一) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
+
+  </div>
 
 
+          </div>
+          
 
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="Jeffrey Pacino" />
-          <p class="site-author-name" itemprop="name">Jeffrey Pacino</p>
-           
-              <p class="site-description motion-element" itemprop="description">Humble to the dust and then out of the flowers</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">93</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">44</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">60</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/drawwon" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=847707695&site=qq&menu=yes" target="_blank" title="QQ">
-                  
-                    <i class="fa fa-fw fa-qq"></i>
-                  
-                  QQ
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="mailto:jeffrey.pacino@gmail.com" target="_blank" title="email">
-                  
-                    <i class="fa fa-fw fa-paper-plane"></i>
-                  
-                  email
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象特征"><span class="nav-number">1.</span> <span class="nav-text">1. 面向对象特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-finally-finalize-的区别"><span class="nav-number">2.</span> <span class="nav-text">2. final, finally, finalize 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int-和-integer-有什么区别"><span class="nav-number">3.</span> <span class="nav-text">3. int 和 Integer 有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重载和重写的区别"><span class="nav-number">4.</span> <span class="nav-text">4. 重载和重写的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类和接口有什么区别"><span class="nav-number">5.</span> <span class="nav-text">5. 抽象类和接口有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说说反射的用途及实现"><span class="nav-number">6.</span> <span class="nav-text">6. 说说反射的用途及实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-请求的-get-与-post-方式的区别"><span class="nav-number">7.</span> <span class="nav-text">7. HTTP 请求的 GET 与 POST 方式的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie-和session-的区别"><span class="nav-number">8.</span> <span class="nav-text">8.cookie 和session 的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdbc-流程"><span class="nav-number">9.</span> <span class="nav-text">JDBC 流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mvc-设计思想"><span class="nav-number">10.</span> <span class="nav-text">MVC 设计思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#equals-与-的区别"><span class="nav-number">11.</span> <span class="nav-text">equals 与 &#x3D;&#x3D; 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合"><span class="nav-number"></span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#list-和-set-区别"><span class="nav-number">1.</span> <span class="nav-text">List 和 Set 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-和-map-区别"><span class="nav-number">2.</span> <span class="nav-text">List 和 Map 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arraylist-与-linkedlist-区别"><span class="nav-number">3.</span> <span class="nav-text">Arraylist 与 LinkedList 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arraylist-与-vector-区别"><span class="nav-number">4.</span> <span class="nav-text">ArrayList 与 Vector 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashmap-和-hashtable-的区别"><span class="nav-number">5.</span> <span class="nav-text">HashMap 和 Hashtable 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashset-和-hashmap-区别"><span class="nav-number">6.</span> <span class="nav-text">HashSet 和 HashMap 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashmap-和-concurrenthashmap-的区别"><span class="nav-number">7.</span> <span class="nav-text">HashMap 和 ConcurrentHashMap 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concurrenthashmap-的工作原理及代码实现"><span class="nav-number">8.</span> <span class="nav-text">ConcurrentHashMap 的工作原理及代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number"></span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程的方式及实现"><span class="nav-number">1.</span> <span class="nav-text">创建线程的方式及实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sleep-yieldjoin有什么区别"><span class="nav-number">2.</span> <span class="nav-text">sleep() 、yield（）、join（）有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#讲讲线程池的实现原理"><span class="nav-number">3.</span> <span class="nav-text">讲讲线程池的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池的几种方式"><span class="nav-number">4.</span> <span class="nav-text">线程池的几种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的生命周期"><span class="nav-number">5.</span> <span class="nav-text">线程的生命周期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁机制"><span class="nav-number"></span> <span class="nav-text">锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说说线程安全问题"><span class="nav-number">1.</span> <span class="nav-text">说说线程安全问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#悲观锁-乐观锁"><span class="nav-number">2.</span> <span class="nav-text">悲观锁 乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cas-乐观锁"><span class="nav-number">3.</span> <span class="nav-text">CAS 乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aba-问题"><span class="nav-number">4.</span> <span class="nav-text">ABA 问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是java虚拟机为什么java被称作是平台无关的编程语言"><span class="nav-number">5.</span> <span class="nav-text">1.什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdk和jre的区别是什么"><span class="nav-number">6.</span> <span class="nav-text">2.JDK和JRE的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static关键字是什么意思java中是否可以覆盖一个private或者是static的方法"><span class="nav-number">7.</span> <span class="nav-text">3.&quot;static&quot;关键字是什么意思？Java中是否可以覆盖一个private或者是static的方法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java支持的基本数据类型有哪些什么是自动拆装箱"><span class="nav-number">8.</span> <span class="nav-text">4.Java支持的基本数据类型有哪些？什么是自动拆装箱？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写和重载是什么"><span class="nav-number">9.</span> <span class="nav-text">5. 重写和重载是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java支持多继承么如果不支持如何实现"><span class="nav-number">10.</span> <span class="nav-text">6.Java支持多继承么？如果不支持，如何实现?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是值传递和引用传递java中是值传递还是引用传递还是都有"><span class="nav-number"></span> <span class="nav-text">7.什么是值传递和引用传递？java中是值传递还是引用传递，还是都有?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口和抽象类的区别是什么"><span class="nav-number">1.</span> <span class="nav-text">8.接口和抽象类的区别是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#math.round11.5-等于多少-math.round-11.5等于多少"><span class="nav-number">2.</span> <span class="nav-text">10.Math.round(11.5) 等于多少? Math.round(-11.5)等于多少?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string-stringbuffer-stringbuilder的区别"><span class="nav-number">3.</span> <span class="nav-text">11. String, StringBuffer StringBuilder的区别。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jvm内存分哪几个区每个区的作用是什么"><span class="nav-number">4.</span> <span class="nav-text">12.JVM内存分哪几个区，每个区的作用是什么?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断一个对象是否存活或者gc对象的判定方法"><span class="nav-number"></span> <span class="nav-text">13.如何判断一个对象是否存活?(或者GC对象的判定方法)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述java垃圾回收机制"><span class="nav-number"></span> <span class="nav-text">14.简述java垃圾回收机制?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java中垃圾回收的方法有哪些"><span class="nav-number"></span> <span class="nav-text">15.java中垃圾回收的方法有哪些?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cms-收集器"><span class="nav-number">1.</span> <span class="nav-text">15.1 CMS 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#g1-收集器"><span class="nav-number">2.</span> <span class="nav-text">15.2 G1 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java内存模型"><span class="nav-number">3.</span> <span class="nav-text">16.java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java类加载过程"><span class="nav-number">4.</span> <span class="nav-text">17.java类加载过程?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述java类加载机制"><span class="nav-number">5.</span> <span class="nav-text">18.简述java类加载机制?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是类加载器类加载器有哪些"><span class="nav-number">6.</span> <span class="nav-text">20.什么是类加载器，类加载器有哪些?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述java内存分配与回收策率以及minor-gc和major-gc"><span class="nav-number">7.</span> <span class="nav-text">21.简述java内存分配与回收策率以及Minor GC和Major GC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashmap的工作原理是什么"><span class="nav-number"></span> <span class="nav-text">22.HashMap的工作原理是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashmap与hashtable的区别是什么"><span class="nav-number"></span> <span class="nav-text">23.HashMap与HashTable的区别是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#correnthashmap的工作原理"><span class="nav-number"></span> <span class="nav-text">24.CorrentHashMap的工作原理?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array和arraylist有何区别什么时候更适合用array"><span class="nav-number"></span> <span class="nav-text">27.Array和ArrayList有何区别？什么时候更适合用Array？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哪些集合类提供对元素的随机访问"><span class="nav-number"></span> <span class="nav-text">28.哪些集合类提供对元素的随机访问？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashset的底层实现是什么"><span class="nav-number"></span> <span class="nav-text">29.HashSet的底层实现是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linkedhashmap的实现原理"><span class="nav-number"></span> <span class="nav-text">30.LinkedHashMap的实现原理?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#thread-类中的start-和-run-方法有什么区别"><span class="nav-number"></span> <span class="nav-text">33.Thread 类中的start() 和 run() 方法有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java中有哪几种锁"><span class="nav-number"></span> <span class="nav-text">35.Java中有哪几种锁?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#threadlocal理解"><span class="nav-number"></span> <span class="nav-text">37.ThreadLocal理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized和lock的区别"><span class="nav-number">1.</span> <span class="nav-text">38. synchronized和lock的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式"><span class="nav-number">2.</span> <span class="nav-text">39. 单例模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的四种隔离等级"><span class="nav-number">3.</span> <span class="nav-text">40.数据库的四种隔离等级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#倒排索引"><span class="nav-number">4.</span> <span class="nav-text">倒排索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#是否可以在static环境中访问非static变量"><span class="nav-number">5.</span> <span class="nav-text">是否可以在static环境中访问非static变量？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java支持的数据类型有哪些什么是自动拆装箱"><span class="nav-number">6.</span> <span class="nav-text">Java支持的数据类型有哪些？什么是自动拆装箱？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#概括的解释下线程的几种可用状态线程状态"><span class="nav-number">7.</span> <span class="nav-text">概括的解释下线程的几种可用状态。线程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程状态之间的关系"><span class="nav-number">8.</span> <span class="nav-text">线程状态之间的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步方法和同步代码块的区别是什么"><span class="nav-number">9.</span> <span class="nav-text">同步方法和同步代码块的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在监视器monitor内部是如何做线程同步的程序应该做哪种级别的同步"><span class="nav-number">10.</span> <span class="nav-text">在监视器(Monitor)内部，是如何做线程同步的？程序应该做哪种级别的同步？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是死锁deadlock"><span class="nav-number">11.</span> <span class="nav-text">什么是死锁(deadlock)？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何确保n个线程可以访问n个资源同时又不导致死锁"><span class="nav-number">12.</span> <span class="nav-text">如何确保N个线程可以访问N个资源同时又不导致死锁？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速失败fail-fast和安全失败fail-safe的区别是什么"><span class="nav-number">13.</span> <span class="nav-text">快速失败(fail-fast)和安全失败(fail-safe)的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是优先级队列"><span class="nav-number">14.</span> <span class="nav-text">什么是优先级队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#串行serial收集器和吞吐量throughput收集器的区别是什么"><span class="nav-number">15.</span> <span class="nav-text">串行(serial)收集器和吞吐量(throughput)收集器的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库四个特性"><span class="nav-number">16.</span> <span class="nav-text">数据库四个特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么情况下不推荐使用索引"><span class="nav-number">17.</span> <span class="nav-text">什么情况下不推荐使用索引？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ioc和aop"><span class="nav-number">18.</span> <span class="nav-text">IOC和AOP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java加载器类型"><span class="nav-number"></span> <span class="nav-text">java加载器类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动bootstrap类加载器"><span class="nav-number">1.</span> <span class="nav-text">启动（Bootstrap）类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展extension类加载器"><span class="nav-number">2.</span> <span class="nav-text">扩展（Extension）类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用application类加载器"><span class="nav-number">3.</span> <span class="nav-text">应用（Application）类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双亲委派模式工作原理"><span class="nav-number">4.</span> <span class="nav-text">双亲委派模式工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双亲委派模型的破坏"><span class="nav-number">5.</span> <span class="nav-text">双亲委派模型的破坏</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#classnotfounderror"><span class="nav-number"></span> <span class="nav-text">classnotfoundError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nosuchmethoderror"><span class="nav-number"></span> <span class="nav-text">NoSuchMethodError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收器种类"><span class="nav-number"></span> <span class="nav-text">垃圾回收器种类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树定义"><span class="nav-number">1.</span> <span class="nav-text">红黑树定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树-vs-avl树"><span class="nav-number">2.</span> <span class="nav-text">红黑树 vs AVL树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的用途"><span class="nav-number">3.</span> <span class="nav-text">树的用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么hashmap线程不安全"><span class="nav-number">4.</span> <span class="nav-text">为什么hashmap线程不安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手写lru算法页面置换算法"><span class="nav-number">5.</span> <span class="nav-text">手写LRU算法(页面置换算法)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一致性hash"><span class="nav-number">6.</span> <span class="nav-text">一致性hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池参数"><span class="nav-number">7.</span> <span class="nav-text">线程池参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hash冲突的解决办法"><span class="nav-number">8.</span> <span class="nav-text">hash冲突的解决办法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库引擎"><span class="nav-number">9.</span> <span class="nav-text">数据库引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-boot如何启动一个项目"><span class="nav-number">10.</span> <span class="nav-text">spring boot如何启动一个项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aop底层实现"><span class="nav-number">11.</span> <span class="nav-text">aop底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库分页"><span class="nav-number">12.</span> <span class="nav-text">数据库分页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引失效"><span class="nav-number">13.</span> <span class="nav-text">数据库索引失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis分布式锁"><span class="nav-number">14.</span> <span class="nav-text">redis分布式锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java获取系统时间"><span class="nav-number">15.</span> <span class="nav-text">java获取系统时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间的格式化方法"><span class="nav-number">16.</span> <span class="nav-text">时间的格式化方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化反序列化"><span class="nav-number">17.</span> <span class="nav-text">序列化反序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程共享变量"><span class="nav-number">18.</span> <span class="nav-text">线程共享变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java内存模型-1"><span class="nav-number">19.</span> <span class="nav-text">java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized"><span class="nav-number">20.</span> <span class="nav-text">Synchronized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-关键字的底层原理"><span class="nav-number">21.</span> <span class="nav-text">synchronized 关键字的底层原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized和reentrantlock的区别"><span class="nav-number">22.</span> <span class="nav-text">Synchronized和ReentrantLock的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aqs底层原理"><span class="nav-number">23.</span> <span class="nav-text">AQS底层原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加锁会带来哪些性能问题如何解决"><span class="nav-number">24.</span> <span class="nav-text">加锁会带来哪些性能问题。如何解决？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx如何做负载均衡常见的负载均衡算法有哪些"><span class="nav-number">25.</span> <span class="nav-text">NginX如何做负载均衡、常见的负载均衡算法有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#出现-oom-后你会怎么排查问题"><span class="nav-number">26.</span> <span class="nav-text">出现 OOM 后你会怎么排查问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统的内存管理机制"><span class="nav-number">27.</span> <span class="nav-text">操作系统的内存管理机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说下你对线程安全的理解"><span class="nav-number">28.</span> <span class="nav-text">说下你对线程安全的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈夫曼编码是怎么回事"><span class="nav-number">29.</span> <span class="nav-text">哈夫曼编码是怎么回事</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接调用线程的start和run有什么区别"><span class="nav-number">30.</span> <span class="nav-text">直接调用线程的start和run有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池的好处"><span class="nav-number">31.</span> <span class="nav-text">线程池的好处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型怎么实现的"><span class="nav-number">32.</span> <span class="nav-text">泛型怎么实现的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见hash算法"><span class="nav-number">33.</span> <span class="nav-text">常见hash算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-类方法"><span class="nav-number">34.</span> <span class="nav-text">Object 类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string为啥不可变"><span class="nav-number">35.</span> <span class="nav-text">String为啥不可变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java浮点数精度问题"><span class="nav-number">36.</span> <span class="nav-text">java浮点数精度问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java跳出多重循环"><span class="nav-number">37.</span> <span class="nav-text">java跳出多重循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式原理"><span class="nav-number">38.</span> <span class="nav-text">正则表达式原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#i线程安全吗"><span class="nav-number">39.</span> <span class="nav-text">i++线程安全吗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#collection和collections的区别"><span class="nav-number">40.</span> <span class="nav-text">collection和collections的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java线程同步的几种方式"><span class="nav-number">41.</span> <span class="nav-text">java线程同步的几种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者-消费者模型"><span class="nav-number">42.</span> <span class="nav-text">生产者-消费者模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么不推荐使用suspend和stop"><span class="nav-number">43.</span> <span class="nav-text">为什么不推荐使用suspend和stop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非公平锁和公平锁在reetrantlock里的实现"><span class="nav-number">44.</span> <span class="nav-text">非公平锁和公平锁在reetrantlock里的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#longadder与atomiclong区别"><span class="nav-number">45.</span> <span class="nav-text">LongAdder与AtomicLong区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚集索引与非聚集索引"><span class="nav-number">46.</span> <span class="nav-text">聚集索引与非聚集索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户态内核态"><span class="nav-number">47.</span> <span class="nav-text">用户态，内核态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库select太慢怎么办"><span class="nav-number">48.</span> <span class="nav-text">数据库select太慢怎么办</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存穿透缓存雪崩缓存击穿"><span class="nav-number">49.</span> <span class="nav-text">缓存穿透，缓存雪崩，缓存击穿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线上频繁gc的原因"><span class="nav-number">50.</span> <span class="nav-text">线上频繁gc的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-8-新特性"><span class="nav-number">51.</span> <span class="nav-text">java 8 新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#length-length-size的区别"><span class="nav-number">52.</span> <span class="nav-text">length, length(), size()的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-中的-bean-的作用域有哪些"><span class="nav-number">53.</span> <span class="nav-text">Spring 中的 bean 的作用域有哪些?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-中的单例-bean-的线程安全问题了解吗"><span class="nav-number">54.</span> <span class="nav-text">Spring 中的单例 bean 的线程安全问题了解吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-中的-bean-生命周期"><span class="nav-number">55.</span> <span class="nav-text">Spring 中的 bean 生命周期?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说说自己对于-spring-mvc-了解"><span class="nav-number">56.</span> <span class="nav-text">说说自己对于 Spring MVC 了解?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-mvc工作原理"><span class="nav-number">57.</span> <span class="nav-text">Spring MVC工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单sql"><span class="nav-number">58.</span> <span class="nav-text">简单SQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql-join"><span class="nav-number">59.</span> <span class="nav-text">SQL join</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql-group-by"><span class="nav-number">60.</span> <span class="nav-text">SQL group by</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c虚函数"><span class="nav-number">61.</span> <span class="nav-text">c++虚函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ii1和i1的区别"><span class="nav-number">62.</span> <span class="nav-text">i&#x3D;i+1和i+&#x3D;1的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#malloc和newfree和delete的区别"><span class="nav-number">63.</span> <span class="nav-text">malloc和new，free和delete的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写equals方法"><span class="nav-number">64.</span> <span class="nav-text">重写equals方法</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象特征"><span class="nav-number">1.</span> <span class="nav-text">1. 面向对象特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-finally-finalize-的区别"><span class="nav-number">2.</span> <span class="nav-text">2. final, finally, finalize 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int-和-integer-有什么区别"><span class="nav-number">3.</span> <span class="nav-text">3. int 和 Integer 有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重载和重写的区别"><span class="nav-number">4.</span> <span class="nav-text">4. 重载和重写的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类和接口有什么区别"><span class="nav-number">5.</span> <span class="nav-text">5. 抽象类和接口有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说说反射的用途及实现"><span class="nav-number">6.</span> <span class="nav-text">6. 说说反射的用途及实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-请求的-get-与-post-方式的区别"><span class="nav-number">7.</span> <span class="nav-text">7. HTTP 请求的 GET 与 POST 方式的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie-和session-的区别"><span class="nav-number">8.</span> <span class="nav-text">8.cookie 和session 的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdbc-流程"><span class="nav-number">9.</span> <span class="nav-text">JDBC 流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mvc-设计思想"><span class="nav-number">10.</span> <span class="nav-text">MVC 设计思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#equals-与-的区别"><span class="nav-number">11.</span> <span class="nav-text">equals 与 &#x3D;&#x3D; 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合"><span class="nav-number"></span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#list-和-set-区别"><span class="nav-number">1.</span> <span class="nav-text">List 和 Set 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-和-map-区别"><span class="nav-number">2.</span> <span class="nav-text">List 和 Map 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arraylist-与-linkedlist-区别"><span class="nav-number">3.</span> <span class="nav-text">Arraylist 与 LinkedList 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arraylist-与-vector-区别"><span class="nav-number">4.</span> <span class="nav-text">ArrayList 与 Vector 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashmap-和-hashtable-的区别"><span class="nav-number">5.</span> <span class="nav-text">HashMap 和 Hashtable 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashset-和-hashmap-区别"><span class="nav-number">6.</span> <span class="nav-text">HashSet 和 HashMap 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashmap-和-concurrenthashmap-的区别"><span class="nav-number">7.</span> <span class="nav-text">HashMap 和 ConcurrentHashMap 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concurrenthashmap-的工作原理及代码实现"><span class="nav-number">8.</span> <span class="nav-text">ConcurrentHashMap 的工作原理及代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number"></span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程的方式及实现"><span class="nav-number">1.</span> <span class="nav-text">创建线程的方式及实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sleep-yieldjoin有什么区别"><span class="nav-number">2.</span> <span class="nav-text">sleep() 、yield（）、join（）有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#讲讲线程池的实现原理"><span class="nav-number">3.</span> <span class="nav-text">讲讲线程池的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池的几种方式"><span class="nav-number">4.</span> <span class="nav-text">线程池的几种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的生命周期"><span class="nav-number">5.</span> <span class="nav-text">线程的生命周期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁机制"><span class="nav-number"></span> <span class="nav-text">锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说说线程安全问题"><span class="nav-number">1.</span> <span class="nav-text">说说线程安全问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#悲观锁-乐观锁"><span class="nav-number">2.</span> <span class="nav-text">悲观锁 乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cas-乐观锁"><span class="nav-number">3.</span> <span class="nav-text">CAS 乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aba-问题"><span class="nav-number">4.</span> <span class="nav-text">ABA 问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是java虚拟机为什么java被称作是平台无关的编程语言"><span class="nav-number">5.</span> <span class="nav-text">1.什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdk和jre的区别是什么"><span class="nav-number">6.</span> <span class="nav-text">2.JDK和JRE的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static关键字是什么意思java中是否可以覆盖一个private或者是static的方法"><span class="nav-number">7.</span> <span class="nav-text">3.&quot;static&quot;关键字是什么意思？Java中是否可以覆盖一个private或者是static的方法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java支持的基本数据类型有哪些什么是自动拆装箱"><span class="nav-number">8.</span> <span class="nav-text">4.Java支持的基本数据类型有哪些？什么是自动拆装箱？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写和重载是什么"><span class="nav-number">9.</span> <span class="nav-text">5. 重写和重载是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java支持多继承么如果不支持如何实现"><span class="nav-number">10.</span> <span class="nav-text">6.Java支持多继承么？如果不支持，如何实现?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是值传递和引用传递java中是值传递还是引用传递还是都有"><span class="nav-number"></span> <span class="nav-text">7.什么是值传递和引用传递？java中是值传递还是引用传递，还是都有?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口和抽象类的区别是什么"><span class="nav-number">1.</span> <span class="nav-text">8.接口和抽象类的区别是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#math.round11.5-等于多少-math.round-11.5等于多少"><span class="nav-number">2.</span> <span class="nav-text">10.Math.round(11.5) 等于多少? Math.round(-11.5)等于多少?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string-stringbuffer-stringbuilder的区别"><span class="nav-number">3.</span> <span class="nav-text">11. String, StringBuffer StringBuilder的区别。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jvm内存分哪几个区每个区的作用是什么"><span class="nav-number">4.</span> <span class="nav-text">12.JVM内存分哪几个区，每个区的作用是什么?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断一个对象是否存活或者gc对象的判定方法"><span class="nav-number"></span> <span class="nav-text">13.如何判断一个对象是否存活?(或者GC对象的判定方法)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述java垃圾回收机制"><span class="nav-number"></span> <span class="nav-text">14.简述java垃圾回收机制?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java中垃圾回收的方法有哪些"><span class="nav-number"></span> <span class="nav-text">15.java中垃圾回收的方法有哪些?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cms-收集器"><span class="nav-number">1.</span> <span class="nav-text">15.1 CMS 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#g1-收集器"><span class="nav-number">2.</span> <span class="nav-text">15.2 G1 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java内存模型"><span class="nav-number">3.</span> <span class="nav-text">16.java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java类加载过程"><span class="nav-number">4.</span> <span class="nav-text">17.java类加载过程?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述java类加载机制"><span class="nav-number">5.</span> <span class="nav-text">18.简述java类加载机制?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是类加载器类加载器有哪些"><span class="nav-number">6.</span> <span class="nav-text">20.什么是类加载器，类加载器有哪些?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述java内存分配与回收策率以及minor-gc和major-gc"><span class="nav-number">7.</span> <span class="nav-text">21.简述java内存分配与回收策率以及Minor GC和Major GC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashmap的工作原理是什么"><span class="nav-number"></span> <span class="nav-text">22.HashMap的工作原理是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashmap与hashtable的区别是什么"><span class="nav-number"></span> <span class="nav-text">23.HashMap与HashTable的区别是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#correnthashmap的工作原理"><span class="nav-number"></span> <span class="nav-text">24.CorrentHashMap的工作原理?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array和arraylist有何区别什么时候更适合用array"><span class="nav-number"></span> <span class="nav-text">27.Array和ArrayList有何区别？什么时候更适合用Array？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哪些集合类提供对元素的随机访问"><span class="nav-number"></span> <span class="nav-text">28.哪些集合类提供对元素的随机访问？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashset的底层实现是什么"><span class="nav-number"></span> <span class="nav-text">29.HashSet的底层实现是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linkedhashmap的实现原理"><span class="nav-number"></span> <span class="nav-text">30.LinkedHashMap的实现原理?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#thread-类中的start-和-run-方法有什么区别"><span class="nav-number"></span> <span class="nav-text">33.Thread 类中的start() 和 run() 方法有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java中有哪几种锁"><span class="nav-number"></span> <span class="nav-text">35.Java中有哪几种锁?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#threadlocal理解"><span class="nav-number"></span> <span class="nav-text">37.ThreadLocal理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized和lock的区别"><span class="nav-number">1.</span> <span class="nav-text">38. synchronized和lock的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式"><span class="nav-number">2.</span> <span class="nav-text">39. 单例模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的四种隔离等级"><span class="nav-number">3.</span> <span class="nav-text">40.数据库的四种隔离等级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#倒排索引"><span class="nav-number">4.</span> <span class="nav-text">倒排索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#是否可以在static环境中访问非static变量"><span class="nav-number">5.</span> <span class="nav-text">是否可以在static环境中访问非static变量？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java支持的数据类型有哪些什么是自动拆装箱"><span class="nav-number">6.</span> <span class="nav-text">Java支持的数据类型有哪些？什么是自动拆装箱？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#概括的解释下线程的几种可用状态线程状态"><span class="nav-number">7.</span> <span class="nav-text">概括的解释下线程的几种可用状态。线程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程状态之间的关系"><span class="nav-number">8.</span> <span class="nav-text">线程状态之间的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步方法和同步代码块的区别是什么"><span class="nav-number">9.</span> <span class="nav-text">同步方法和同步代码块的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在监视器monitor内部是如何做线程同步的程序应该做哪种级别的同步"><span class="nav-number">10.</span> <span class="nav-text">在监视器(Monitor)内部，是如何做线程同步的？程序应该做哪种级别的同步？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是死锁deadlock"><span class="nav-number">11.</span> <span class="nav-text">什么是死锁(deadlock)？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何确保n个线程可以访问n个资源同时又不导致死锁"><span class="nav-number">12.</span> <span class="nav-text">如何确保N个线程可以访问N个资源同时又不导致死锁？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速失败fail-fast和安全失败fail-safe的区别是什么"><span class="nav-number">13.</span> <span class="nav-text">快速失败(fail-fast)和安全失败(fail-safe)的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是优先级队列"><span class="nav-number">14.</span> <span class="nav-text">什么是优先级队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#串行serial收集器和吞吐量throughput收集器的区别是什么"><span class="nav-number">15.</span> <span class="nav-text">串行(serial)收集器和吞吐量(throughput)收集器的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库四个特性"><span class="nav-number">16.</span> <span class="nav-text">数据库四个特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么情况下不推荐使用索引"><span class="nav-number">17.</span> <span class="nav-text">什么情况下不推荐使用索引？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ioc和aop"><span class="nav-number">18.</span> <span class="nav-text">IOC和AOP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java加载器类型"><span class="nav-number"></span> <span class="nav-text">java加载器类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动bootstrap类加载器"><span class="nav-number">1.</span> <span class="nav-text">启动（Bootstrap）类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展extension类加载器"><span class="nav-number">2.</span> <span class="nav-text">扩展（Extension）类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用application类加载器"><span class="nav-number">3.</span> <span class="nav-text">应用（Application）类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双亲委派模式工作原理"><span class="nav-number">4.</span> <span class="nav-text">双亲委派模式工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双亲委派模型的破坏"><span class="nav-number">5.</span> <span class="nav-text">双亲委派模型的破坏</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#classnotfounderror"><span class="nav-number"></span> <span class="nav-text">classnotfoundError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nosuchmethoderror"><span class="nav-number"></span> <span class="nav-text">NoSuchMethodError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收器种类"><span class="nav-number"></span> <span class="nav-text">垃圾回收器种类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树定义"><span class="nav-number">1.</span> <span class="nav-text">红黑树定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树-vs-avl树"><span class="nav-number">2.</span> <span class="nav-text">红黑树 vs AVL树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的用途"><span class="nav-number">3.</span> <span class="nav-text">树的用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么hashmap线程不安全"><span class="nav-number">4.</span> <span class="nav-text">为什么hashmap线程不安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手写lru算法页面置换算法"><span class="nav-number">5.</span> <span class="nav-text">手写LRU算法(页面置换算法)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一致性hash"><span class="nav-number">6.</span> <span class="nav-text">一致性hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池参数"><span class="nav-number">7.</span> <span class="nav-text">线程池参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hash冲突的解决办法"><span class="nav-number">8.</span> <span class="nav-text">hash冲突的解决办法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库引擎"><span class="nav-number">9.</span> <span class="nav-text">数据库引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-boot如何启动一个项目"><span class="nav-number">10.</span> <span class="nav-text">spring boot如何启动一个项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aop底层实现"><span class="nav-number">11.</span> <span class="nav-text">aop底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库分页"><span class="nav-number">12.</span> <span class="nav-text">数据库分页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引失效"><span class="nav-number">13.</span> <span class="nav-text">数据库索引失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis分布式锁"><span class="nav-number">14.</span> <span class="nav-text">redis分布式锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java获取系统时间"><span class="nav-number">15.</span> <span class="nav-text">java获取系统时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间的格式化方法"><span class="nav-number">16.</span> <span class="nav-text">时间的格式化方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化反序列化"><span class="nav-number">17.</span> <span class="nav-text">序列化反序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程共享变量"><span class="nav-number">18.</span> <span class="nav-text">线程共享变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java内存模型-1"><span class="nav-number">19.</span> <span class="nav-text">java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized"><span class="nav-number">20.</span> <span class="nav-text">Synchronized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-关键字的底层原理"><span class="nav-number">21.</span> <span class="nav-text">synchronized 关键字的底层原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized和reentrantlock的区别"><span class="nav-number">22.</span> <span class="nav-text">Synchronized和ReentrantLock的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aqs底层原理"><span class="nav-number">23.</span> <span class="nav-text">AQS底层原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加锁会带来哪些性能问题如何解决"><span class="nav-number">24.</span> <span class="nav-text">加锁会带来哪些性能问题。如何解决？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx如何做负载均衡常见的负载均衡算法有哪些"><span class="nav-number">25.</span> <span class="nav-text">NginX如何做负载均衡、常见的负载均衡算法有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#出现-oom-后你会怎么排查问题"><span class="nav-number">26.</span> <span class="nav-text">出现 OOM 后你会怎么排查问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统的内存管理机制"><span class="nav-number">27.</span> <span class="nav-text">操作系统的内存管理机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说下你对线程安全的理解"><span class="nav-number">28.</span> <span class="nav-text">说下你对线程安全的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈夫曼编码是怎么回事"><span class="nav-number">29.</span> <span class="nav-text">哈夫曼编码是怎么回事</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接调用线程的start和run有什么区别"><span class="nav-number">30.</span> <span class="nav-text">直接调用线程的start和run有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池的好处"><span class="nav-number">31.</span> <span class="nav-text">线程池的好处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型怎么实现的"><span class="nav-number">32.</span> <span class="nav-text">泛型怎么实现的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见hash算法"><span class="nav-number">33.</span> <span class="nav-text">常见hash算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-类方法"><span class="nav-number">34.</span> <span class="nav-text">Object 类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string为啥不可变"><span class="nav-number">35.</span> <span class="nav-text">String为啥不可变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java浮点数精度问题"><span class="nav-number">36.</span> <span class="nav-text">java浮点数精度问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java跳出多重循环"><span class="nav-number">37.</span> <span class="nav-text">java跳出多重循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式原理"><span class="nav-number">38.</span> <span class="nav-text">正则表达式原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#i线程安全吗"><span class="nav-number">39.</span> <span class="nav-text">i++线程安全吗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#collection和collections的区别"><span class="nav-number">40.</span> <span class="nav-text">collection和collections的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java线程同步的几种方式"><span class="nav-number">41.</span> <span class="nav-text">java线程同步的几种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者-消费者模型"><span class="nav-number">42.</span> <span class="nav-text">生产者-消费者模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么不推荐使用suspend和stop"><span class="nav-number">43.</span> <span class="nav-text">为什么不推荐使用suspend和stop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非公平锁和公平锁在reetrantlock里的实现"><span class="nav-number">44.</span> <span class="nav-text">非公平锁和公平锁在reetrantlock里的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#longadder与atomiclong区别"><span class="nav-number">45.</span> <span class="nav-text">LongAdder与AtomicLong区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚集索引与非聚集索引"><span class="nav-number">46.</span> <span class="nav-text">聚集索引与非聚集索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户态内核态"><span class="nav-number">47.</span> <span class="nav-text">用户态，内核态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库select太慢怎么办"><span class="nav-number">48.</span> <span class="nav-text">数据库select太慢怎么办</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存穿透缓存雪崩缓存击穿"><span class="nav-number">49.</span> <span class="nav-text">缓存穿透，缓存雪崩，缓存击穿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线上频繁gc的原因"><span class="nav-number">50.</span> <span class="nav-text">线上频繁gc的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-8-新特性"><span class="nav-number">51.</span> <span class="nav-text">java 8 新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#length-length-size的区别"><span class="nav-number">52.</span> <span class="nav-text">length, length(), size()的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-中的-bean-的作用域有哪些"><span class="nav-number">53.</span> <span class="nav-text">Spring 中的 bean 的作用域有哪些?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-中的单例-bean-的线程安全问题了解吗"><span class="nav-number">54.</span> <span class="nav-text">Spring 中的单例 bean 的线程安全问题了解吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-中的-bean-生命周期"><span class="nav-number">55.</span> <span class="nav-text">Spring 中的 bean 生命周期?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说说自己对于-spring-mvc-了解"><span class="nav-number">56.</span> <span class="nav-text">说说自己对于 Spring MVC 了解?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-mvc工作原理"><span class="nav-number">57.</span> <span class="nav-text">Spring MVC工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单sql"><span class="nav-number">58.</span> <span class="nav-text">简单SQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql-join"><span class="nav-number">59.</span> <span class="nav-text">SQL join</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql-group-by"><span class="nav-number">60.</span> <span class="nav-text">SQL group by</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c虚函数"><span class="nav-number">61.</span> <span class="nav-text">c++虚函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ii1和i1的区别"><span class="nav-number">62.</span> <span class="nav-text">i&#x3D;i+1和i+&#x3D;1的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#malloc和newfree和delete的区别"><span class="nav-number">63.</span> <span class="nav-text">malloc和new，free和delete的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写equals方法"><span class="nav-number">64.</span> <span class="nav-text">重写equals方法</span></a></li></ol></div>
+      </div>
       <!--/noindex-->
-      
 
-      
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jeffrey Pacino</p>
+  <div class="site-description" itemprop="description">Humble to the dust and then out of the flowers</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        
+
+<div class="copyright">
   
-  &copy;  2016 - 
+  &copy; 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jeffrey Pacino</span>
 </div>
-
-
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
-
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
 
         
 
-        
+
+
+
+
+
+
+
       </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+<script src="/js/utils.js"></script>
 
-
-
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-  
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -1799,50 +1427,21 @@
 
 
   
-  
-  
-    
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css">
+<script src="/js/local-search.js"></script>
 
-  
-  
-    
-  
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
-  
 
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+
+
+
+
+
 
 
 
   
-
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
