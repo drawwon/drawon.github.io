@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://drawwon.github.io/2020/05/12/Java%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2020-05-12</lastmod>
+  </url>  <url>
     <loc>http://drawwon.github.io/2019/12/23/kafka%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2020-04-16</lastmod>
   </url>  <url>
@@ -8,9 +11,6 @@
     <lastmod>2019-12-27</lastmod>
   </url>  <url>
     <loc>http://drawwon.github.io/2019/12/25/mybatis-generator%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2019-12-25</lastmod>
-  </url>  <url>
-    <loc>http://drawwon.github.io/2019/12/23/zookeeper%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2019-12-25</lastmod>
   </url>  <url>
     <loc>http://drawwon.github.io/2019/12/22/jwt%E7%AE%80%E4%BB%8B/</loc>

@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java学习路线</title>
+    <url>/2020/05/12/Java%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<p>b站codeSheep这个up主，最近更新了一期关于Java语言的学习路线，包含语言基础，算法与数据结构，开发工具，应用框架，运维知识等方面，感觉比较全面，因此记录下来，以备后续学习参考。</p>
+<a id="more"></a>
+<p>内容覆盖比较全，对于框架部分，每个方面只去掌握最出名的那一个或两个就行了，没有必要每个框架都去学。</p>
+<p>这么多内容看完时间比较长，给自己打个气，困难任务只要拆分成小模块，可执行性就会大幅度增强，完成也会变得比较容易。</p>
+<p>整理一下薄弱环节</p>
+<ol type="1">
+<li>语言基础：异常、泛型</li>
+<li>JVM：全部</li>
+<li>并发/多线程：全部</li>
+<li>SQL：语言，锁</li>
+<li>设计模式：全部</li>
+</ol>
+<p>整个内容比较多，如下图所示：</p>
+<figure>
+<img src="/Users/apple/Downloads/Java后端开发学习路线.png" alt="" /><figcaption>Java后端开发学习路线</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mybatis generator使用</title>
     <url>/2019/12/25/mybatis-generator%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>mybatis generator可以说是java开发中必备的工具，可以根据数据库结构生成对应的java object，mapper接口以及<code>mappers.xml</code>文件，可以极大节省开发的时间，提高开发效率。</p>
@@ -28,12 +55,6 @@
       <tags>
         <tag>mybatis</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>zookeeper简介</title>
-    <url>/2019/12/23/zookeeper%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[
-]]></content>
   </entry>
   <entry>
     <title>kafka简介</title>
